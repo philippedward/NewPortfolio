@@ -1,0 +1,204 @@
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: src/public/images
+public_folder: /public/images
+
+collections:
+  - name: parametres
+    label: Configuration générale du site
+    files:
+      - name: config
+        label: Configuration générale
+        file: src/_data/config.json
+        format: json
+        fields:
+          - { label: Titre, name: titre, widget: string }
+          - { label: Organisation, name: organisation, widget: string }
+          - { label: Mot du directeur, name: intro_directeur, widget: markdown }
+          - { label: Edito, name: intro_edito, widget: markdown }
+          - {
+              label: Priorités,
+              name: priorites,
+              widget: list,
+              summary: "{{priorite}}",
+              field: { label: "Priorité", name: "priorite", widget: text },
+            }
+          - label: Médias
+            name: medias
+            widget: list
+            required: false
+            fields:
+              - { label: Image, name: fichier, widget: image }
+              - {
+                  label: Légende,
+                  name: legende,
+                  widget: string,
+                  required: false,
+                }
+          - label: Partenaires
+            name: partenaires
+            summary: "{{nom}}"
+            widget: list
+            required: false
+            field: { label: Nom du partenaire, name: nom, widget: string }
+          - {
+              label: Ressources,
+              name: ressources,
+              widget: markdown,
+              required: false,
+            }
+
+  - name: encadrants
+    label: Encadrants
+    files:
+      - name: encadrants_list
+        label: Liste des encadrants
+        file: src/_data/encadrants.json
+        format: json
+        fields:
+          - label: Encadrants
+            name: encadrants
+            widget: list
+            summary: "{{nom}}"
+            label_singular: "un·e encadrant·e"
+            fields:
+              - { label: Nom, name: nom, widget: string }
+              - { label: Photo, name: photo, widget: image, required: false }
+              - {
+                  label: Titre professionnel,
+                  name: titre,
+                  widget: string,
+                  required: false,
+                }
+              - label: Secteurs professionnels
+                name: secteurs
+                widget: list
+                required: false
+                field: { label: Secteur, name: secteur, widget: string }
+
+  - name: stagiaires
+    label: Stagiaires
+    files:
+      - name: stagiaires_liste
+        label: Liste des stagiaires
+        file: src/_data/stagiaires.json
+        format: json
+        fields:
+          - label: "Août – décembre"
+            name: aout_decembre
+            widget: list
+            summary: "{{nom}}"
+            label_singular: "un·e stagiaire"
+            fields:
+              - { label: Nom, name: nom, widget: string }
+              - { label: Photo, name: photo, widget: image, required: false }
+          - label: "Janvier – avril"
+            name: janvier_avril
+            widget: list
+            summary: "{{nom}}"
+            label_singular: "un·e stagiaire"
+            fields:
+              - { label: Nom, name: nom, widget: string }
+              - { label: Photo, name: photo, widget: image, required: false }
+          - label: "Avril – juillet"
+            name: avril_juillet
+            widget: list
+            summary: "{{nom}}"
+            label_singular: "un·e stagiaire"
+            fields:
+              - { label: Nom, name: nom, widget: string }
+              - { label: Photo, name: photo, widget: image, required: false }
+
+  - name: projets
+    label: Projets
+    label_singular: Projet
+    folder: src/_data/projets
+    format: json
+    extension: json
+    identifier_field: titre
+    slug: "{{titre | slugify}}"
+    summary: "{{titre}}"
+    create: true
+    fields:
+      - { label: Nom du projet, name: titre, widget: string }
+      - label: Sessions de réalisation
+        name: sessions
+        widget: select
+        multiple: true
+        options: ["Août - décembre", "Janvier - avril", "Avril - Juillet"]
+      - label: "Stagiaires — Août–décembre"
+        name: interns_aout_decembre
+        widget: relation
+        collection: stagiaires
+        file: stagiaires_liste
+        value_field: "aout_decembre.*.nom"
+        display_fields: ["aout_decembre.*.nom"]
+        search_fields: ["aout_decembre.*.nom"]
+        multiple: true
+        required: false
+      - label: "Stagiaires — Janvier–avril"
+        name: stagiaire_janvier_avril
+        widget: relation
+        collection: stagiaire
+        file: stagiaires_liste
+        value_field: "janvier_avril.*.nom"
+        display_fields: ["janvier_avril.*.nom"]
+        search_fields: ["janvier_avril.*.nom"]
+        multiple: true
+        required: false
+      - label: "Stagiaires — Avril–juillet"
+        name: interns_avril_juillet
+        widget: relation
+        collection: interns
+        file: stagiaires_liste
+        value_field: "avril_juillet.*.nom"
+        display_fields: ["avril_juillet.*.nom"]
+        search_fields: ["avril_juillet.*.nom"]
+        multiple: true
+        required: false
+      - label: Type de mandat
+        name: type
+        widget: select
+        options: [Communication, Événement, Installation]
+      - { label: "Client·e·s", name: clients, widget: string, required: false }
+      - label: "Description / pitch"
+        name: description
+        widget: text
+      - label: Images
+        name: images
+        widget: list
+        required: false
+        fields:
+          - { label: Image, name: fichier, widget: image }
+          - { label: Légende, name: legende, widget: string, required: false }
+      - label: Vidéos
+        name: videos
+        widget: list
+        required: false
+        field:
+          { label: "URL vidéo (YouTube, Vimeo…)", name: url, widget: string }
+      - {
+          label: "Compétences mises en œuvre",
+          name: competences,
+          widget: string,
+          required: false,
+        }
+      - label: Liens
+        name: liens
+        widget: list
+        required: false
+        fields:
+          - { label: Libellé, name: label, widget: string }
+          - { label: URL, name: url, widget: string }
+      - label: Témoignage client
+        name: retour_client
+        widget: object
+        required: false
+        fields:
+          - { label: Citation, name: phrase, widget: text, required: false }
+          - { label: Nom, name: nom, widget: string, required: false }
+          - { label: Rôle, name: role, widget: string, required: false }

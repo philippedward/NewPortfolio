@@ -1,0 +1,36 @@
+{
+  "clients": "Ecole de couture, Fribourg",
+  "competences": "Communication visuelle, 3D, graphisme, décoration scénique",
+  "liens": [
+    {
+      "url": "https://www.ecolecouture.ch/accueil",
+      "label": "Ecole de couture"
+    }
+  ],
+  "stagiaires_avril_juillet": [],
+  "titre": "Ecole de couture",
+  "images": [
+    {
+      "fichier": "/public/images/anik-das-y7uesldr0-e-unsplash.jpg",
+      "legende": "une làgende chouette"
+    },
+    {
+      "fichier": "/public/images/li-yang-rpmxonjh3hm-unsplash.jpg"
+    }
+  ],
+  "videos": [],
+  "type": "Événement",
+  "stagiaires_janvier_avril": [
+    "Matilde Ribeiro da Conceição",
+    "Oliva Baeriswyl"
+  ],
+  "id": "ecole-de-couture",
+  "description": "Plongez dans un univers enchanteur où les légendes de tous horizons se dévoilent à travers les créations inspirées et audacieuses des apprenti.e.s en couture. Laissez-vous transporter par la magie des contes de notre enfance, des récits épiques de héros et d’héroïnes, des mystères des mondes féériques et aquatiques, et des légendes emblématiques de la couture, du cinéma, du sport, de la musique et des jeux vidéo.\nProposant un univers légendaire, l’école de couture a collaboré avec eikonlab pour la création des supports visuels de son défilé 2025. Un soutien est également apporté sur l’agencement scénographique de l’événement.",
+  "sessions": ["Janvier - avril"],
+  "stagiaires_aout_decembre": [],
+  "retour_client": {
+    "phrase": "",
+    "nom": "",
+    "role": ""
+  }
+}

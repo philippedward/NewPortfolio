@@ -1,0 +1,9 @@
+// styles/main.scss — Point d'entrée des styles
+// =============================================
+// Vite compile ce fichier et tous les @use en un seul CSS optimisé.
+
+@use "variables" as *;
+@use "base";
+@use "layout";
+@use "components/carte-projet";
+@use "pages";

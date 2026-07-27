@@ -1,0 +1,31 @@
+{#
+  _layouts/base.njk — Layout de base
+  ====================================
+  Toutes les pages du site héritent de ce layout.
+  Il fournit le <head>, le <header> et le <footer> communs.
+
+  La variable "content" est remplacée par le contenu
+  de chaque page qui utilise ce layout.
+#}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta
+    name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {# Le titre de la page est défini dans chaque page,
+         avec un fallback sur config.titre #}
+    <title>
+      {% if title %}
+        {{ title }} —
+      {% endif %}
+      {{ config.titre }}</title>
+    <link rel="stylesheet" href="{{ '/assets/styles/main.css' | url }}"/>
+  </head>
+  <body>
+    {# Le contenu de chaque page est injecté ici #}
+    {{ content | safe }}
+    <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

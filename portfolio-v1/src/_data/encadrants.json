@@ -1,0 +1,75 @@
+{
+  "encadrants": [
+    {
+      "nom": "Martial Mingam",
+      "titre": "Responsable eikonlab, Enseignant professionnel",
+      "secteurs": [
+        "Direction de création",
+        "Production",
+        "Scénographie",
+        "Vidéo"
+      ]
+    },
+    {
+      "nom": "Rachel Pilet",
+      "titre": "Coordinatrice eikonlab, Enseignante professionnelle",
+      "secteurs": [
+        "Management",
+        "Production exécutive",
+        "Histoire de l’art"
+      ]
+    },
+    {
+      "nom": "Nicolas Nahornyj",
+      "titre": "Enseignant professionnel",
+      "secteurs": [
+        "Direction de création",
+        "Conception installation"
+      ]
+    },
+    {
+      "nom": "Estève Despond",
+      "titre": "Enseignant professionnel",
+      "secteurs": [
+        "Direction de création",
+        "Graphisme"
+      ]
+    },
+    {
+      "nom": "Julien Babel",
+      "titre": "Enseignant professionnel",
+      "secteurs": [
+        "Direction de création",
+        "Storytelling",
+        "Dessin"
+      ]
+    },
+    {
+      "nom": "Iris Wolfisberg",
+      "titre": "Enseignante professionnelle",
+      "secteurs": [
+        "Direction de création",
+        "Web",
+        "Interactivité"
+      ]
+    },
+    {
+      "nom": "Julien Minguely",
+      "titre": "Enseignant professionnel",
+      "secteurs": [
+        "Direction de création",
+        "Web",
+        "Vidéo et broadcast"
+      ]
+    },
+    {
+      "nom": "Matyas Kiss",
+      "titre": "Enseignant professionnel",
+      "secteurs": [
+        "Direction de création",
+        "Vidéo",
+        "Communication"
+      ]
+    }
+  ]
+}

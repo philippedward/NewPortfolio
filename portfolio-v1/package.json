@@ -1,0 +1,28 @@
+{
+  "name": "bilan-eleventy",
+  "version": "1.0.0",
+  "description": "Starterkit bilan d'activité — Eleventy + SCSS",
+  "type": "module",
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:eleventy dev:sass dev:js dev:cms",
+    "dev:eleventy": "eleventy --serve",
+    "dev:cms": "decap-server",
+    "dev:sass": "sass src/assets/styles/main.scss:_site/assets/styles/main.css --watch --no-source-map",
+    "dev:js": "esbuild src/assets/js/main.js src/assets/js/projet.js --bundle --outdir=_site/assets/js --watch --format=esm",
+    "build": "NODE_ENV=production eleventy && sass src/assets/styles/main.scss _site/assets/styles/main.css --no-source-map --style=compressed && esbuild src/assets/js/main.js src/assets/js/projet.js --bundle --outdir=_site/assets/js --format=esm --minify"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "decap-cms-app": "^3.12.2",
+    "markdown-it": "^14.1.1",
+    "papaparse": "^5.4.0",
+    "sass": "^1.70.0"
+  },
+  "devDependencies": {
+    "decap-server": "^3.7.0",
+    "esbuild": "^0.28.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.8.3",
+    "prettier-plugin-jinja-template": "^2.2.0"
+  }
+}

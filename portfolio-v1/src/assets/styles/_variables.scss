@@ -1,0 +1,29 @@
+// styles/_variables.scss
+// =======================
+
+// Couleurs
+$couleur-fond: #f9f7f2;
+$couleur-texte: #1a1a18;
+$couleur-accent: #2d6a4f;
+$couleur-accent-clair: #b7e4c7;
+$couleur-gris: #6b6b63;
+$couleur-bordure: #ddd9d0;
+
+// Typographie
+$font-titre: "Playfair Display", serif;
+$font-corps: "DM Sans", sans-serif;
+
+// Espacement
+$espace-xs: 8px;
+$espace-sm: 16px;
+$espace-md: 24px;
+$espace-lg: 48px;
+$espace-xl: 80px;
+
+// Grilles
+$colonnes-projets: repeat(auto-fill, minmax(280px, 1fr));
+$colonnes-intervenants: repeat(auto-fill, minmax(220px, 1fr));
+$colonnes-chiffres: repeat(4, 1fr);
+
+// Misc
+$rayon: 6px;

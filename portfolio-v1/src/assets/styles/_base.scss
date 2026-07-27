@@ -1,0 +1,50 @@
+// styles/_base.scss
+
+@use "variables" as *;
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-corps;
+  font-weight: 300;
+  background-color: $couleur-fond;
+  color: $couleur-texte;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-titre;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+p {
+  max-width: 65ch;
+}

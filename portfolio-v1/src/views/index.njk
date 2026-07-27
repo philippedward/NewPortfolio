@@ -1,0 +1,161 @@
+---
+layout: base.njk
+title: Accueil
+permalink: "/"
+---
+
+{# ============================================================
+   index.njk — Page d'accueil
+   Toutes les variables ci-dessous sont injectées automatiquement
+   par Eleventy depuis les fichiers dans src/_data/ :
+     - config        → config.json
+     - projets       → projets.js (lit le dossier projets/)
+     - encadrants    → encadrants.json  (variable = objet entier)
+     - interns       → interns.json     (variable = objet entier)
+   ============================================================ #}
+
+{# ── CONFIG : infos générales ───────────────────────────────── #}
+<header>
+  <p>{{ config.organisation }}</p>
+  <h1>{{ config.titre }}</h1>
+</header>
+
+<section>
+  <h2>Mot du directeur</h2>
+  {# Champ texte long : on utilise | nl2br pour respecter les sauts de ligne #}
+  <p>{{ config.intro_directeur | markdown | safe }}</p>
+</section>
+
+<section>
+  <h2>Avant-propos</h2>
+  <p>{{ config.intro_edito | markdown | safe }}</p>
+
+  {# Priorités : liste, on vérifie qu'elle n'est pas vide avant d'afficher #}
+  {% if config.priorites and config.priorites.length %}
+    <h3>Les priorités pour eikonlab</h3>
+    <ol>
+      {% for priorite in config.priorites %}
+        <li>{{ priorite }}</li>
+      {% endfor %}
+    </ol>
+  {% endif %}
+</section>
+
+{# ── MÉDIAS GÉNÉRAUX ─────────────────────────────────────────── #}
+{# Condition : on n'affiche la section que si le tableau contient au moins un élément #}
+{% if config.medias and config.medias.length %}
+  <section>
+    <h2>Médias</h2>
+    <div>
+      {% for media in config.medias %}
+        <figure>
+          <img src="{{ media.fichier | url }}" alt="{{ media.legende }}" />
+          {# Condition : légende affichée uniquement si elle existe #}
+          {% if media.legende %}
+            <figcaption>{{ media.legende }}</figcaption>
+          {% endif %}
+        </figure>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+{# ── PROJETS ─────────────────────────────────────────────────── #}
+<section>
+  <h2>Projets</h2>
+  <ul>
+    {% for projet in projets %}
+      {% include "carte-projet.njk" %}
+    {% endfor %}
+  </ul>
+</section>
+
+{# ── ÉQUIPE : encadrants ─────────────────────────────────────── #}
+{# encadrants.encadrants : le fichier encadrants.json a la clé "encadrants" à la racine #}
+{% if encadrants.encadrants and encadrants.encadrants.length %}
+  <section>
+    <h2>Encadrant·es</h2>
+    <ul>
+      {% for encadrant in encadrants.encadrants %}
+        <li>
+          {# Condition : photo affichée uniquement si le champ est renseigné #}
+          {% if encadrant.photo %}
+            <img src="{{ encadrant.photo }}" alt="{{ encadrant.nom }}" />
+          {% endif %}
+
+          <strong>{{ encadrant.nom }}</strong>
+
+          {% if encadrant.titre %}
+            <span>{{ encadrant.titre }}</span>
+          {% endif %}
+
+          {# Condition : secteurs affichés uniquement si la liste est non vide #}
+          {% if encadrant.secteurs and encadrant.secteurs.length %}
+            <ul>
+              {% for secteur in encadrant.secteurs %}
+                <li>{{ secteur }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
+
+{# ── ÉQUIPE : stagiaires par session ─────────────────────────── #}
+{# interns.aout_decembre / .janvier_avril / .avril_juillet
+   sont les trois tableaux définis dans interns.json #}
+<section>
+  <h2>Stagiaires</h2>
+
+  {%
+    set sessions = [
+      { label: "Août – décembre",  liste: stagiaires.aout_decembre },
+      { label: "Janvier – avril",  liste: stagiaires.janvier_avril },
+      { label: "Avril – juillet",  liste: stagiaires.avril_juillet }
+    ]
+  %}
+
+  {% for session in sessions %}
+    {# Condition : on n'affiche une session que si elle a au moins un stagiaire #}
+    {% if session.liste and session.liste.length %}
+      <h3>{{ session.label }}</h3>
+      <ul>
+        {% for stagiaire in session.liste %}
+          <li>
+            {% if stagiaire.photo %}
+              <img src="{{ stagiaire.photo }}" alt="{{ stagiaire.nom }}" />
+            {% endif %}
+            {{ stagiaire.nom }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endfor %}
+</section>
+
+{# ── PARTENAIRES ─────────────────────────────────────────────── #}
+{% if config.partenaires and config.partenaires.length %}
+  <section>
+    <h2>Partenaires</h2>
+    <ul>
+      {% for partenaire in config.partenaires %}
+        <li>{{ partenaire }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
+
+{# ── RESSOURCES ──────────────────────────────────────────────── #}
+{# Condition : champ texte simple, on vérifie qu'il n'est pas vide #}
+{% if config.ressources %}
+  <section>
+    <h2>Ressources</h2>
+    <p>{{ config.ressources | markdown | safe }}</p>
+  </section>
+{% endif %}
+
+<footer>
+  <p>{{ config.organisation }}</p>
+</footer>

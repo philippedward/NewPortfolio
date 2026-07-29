@@ -1,0 +1,24 @@
+---
+layout: base.njk
+
+---
+
+{# ============================================================
+   projet.njk — Page de détail d'un projet
+   Ce layout est utilisé par projets.njk (pagination Eleventy).
+   La variable "projet" est l'objet du fichier JSON du projet.
+   Toutes les données sont affichées, avec des {% if %} pour
+   les champs optionnels — c'est ça la logique conditionnelle.
+   ============================================================ #}
+
+<article class="project-card">
+  {% if item.image %}
+    <figure>
+      <img src="{{ item.image | url }}" alt="{{ item.title }}" />
+    </figure>
+  {% endif %}
+</article>
+
+{% block scripts %}
+  <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
+{% endblock %}

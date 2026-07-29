@@ -156,11 +156,11 @@ title: Accueil
 
 ```njk
 {% for projet in projets %}
-  {% include "carte-projet.njk" %}
+  {% include "card-projet.njk" %}
 {% endfor %}
 ```
 
-Le fichier inclus a accès aux mêmes variables que le template parent — ici `projet` est disponible dans `carte-projet.njk` sans passer de paramètre.
+Le fichier inclus a accès aux mêmes variables que le template parent — ici `projet` est disponible dans `card-projet.njk` sans passer de paramètre.
 
 ---
 
@@ -173,7 +173,7 @@ src/assets/styles/
 ├── main.scss          ← Point d'entrée — importe tous les autres fichiers
 ├── _variables.scss    ← Couleurs, polices, espacements — commencer ici
 ├── _base.scss         ← Reset global, typographie, polices Google
-└── _pages.scss        ← Mise en page des sections, cartes, blockquotes…
+└── _pages.scss        ← Mise en page des sections, cards, blockquotes…
 ```
 
 `main.scss` importe tout :
@@ -235,7 +235,7 @@ bilan-eleventy/
 │   │   │   ├── base.njk       ← Wrappeur universel (head, body, CSS, JS)
 │   │   │   └── projet.njk     ← Page de détail d'un projet
 │   │   ├── _includes/         ← Composants réutilisables
-│   │   │   └── carte-projet.njk
+│   │   │   └── card-projet.njk
 │   │   ├── index.njk          ← Page d'accueil
 │   │   └── projets.njk        ← Génère une page par projet (pagination Eleventy)
 │   │

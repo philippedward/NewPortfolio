@@ -4,19 +4,3 @@
    à l'intérieur d'un {% for projet in projets %}.
    La variable "projet" est l'objet complet du fichier JSON.
    ============================================================ #}
-<li>
-  <a href="{{ ('/projets/' + projet.id + '/') | url }}">
-    {# Condition : première image affichée si le tableau images est non vide #}
-    {% if projet.images and projet.images.length %}
-      <img
-        src="{{ projet.images[0].fichier | url }}"
-        alt="{{ projet.images[0].legende or projet.titre }}"
-      />
-    {% endif %}
-    <h3>{{ projet.titre }}</h3>
-    {# Sessions : tableau, on les joint avec une virgule #}
-    {% if projet.sessions and projet.sessions.length %}
-      <p>{{ projet.sessions | join(", ") }}</p>
-    {% endif %}
-  </a>
-</li>

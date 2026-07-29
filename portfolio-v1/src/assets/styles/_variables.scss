@@ -1,29 +1,40 @@
-// styles/_variables.scss
-// =======================
+// ============================================================
+// Colors
+// ============================================================
+$color-primary: #000000;
+$color-secondary: #ffffff;
+$color-accent: #ddff00;
 
-// Couleurs
-$couleur-fond: #f9f7f2;
-$couleur-texte: #1a1a18;
-$couleur-accent: #2d6a4f;
-$couleur-accent-clair: #b7e4c7;
-$couleur-gris: #6b6b63;
-$couleur-bordure: #ddd9d0;
+// ============================================================
+// Fonts
+// ============================================================
+$font: "Noi Grotesk", sans-serif;
 
-// Typographie
-$font-titre: "Playfair Display", serif;
-$font-corps: "DM Sans", sans-serif;
+// Title
+$font-weight-title: 100;
+$font-style-title: italic;
+$font-line-height-title: 1.2;
 
-// Espacement
-$espace-xs: 8px;
-$espace-sm: 16px;
-$espace-md: 24px;
-$espace-lg: 48px;
-$espace-xl: 80px;
+// Text
+$font-weight-text: 200;
+$font-line-height-text: 1.5;
 
-// Grilles
-$colonnes-projets: repeat(auto-fill, minmax(280px, 1fr));
-$colonnes-intervenants: repeat(auto-fill, minmax(220px, 1fr));
-$colonnes-chiffres: repeat(4, 1fr);
+// Legend
+$font-weight-legend: 500;
+$font-style-legend: italic;
+$font-line-height-legend: 1.5;
 
-// Misc
-$rayon: 6px;
+// ============================================================
+// Spacements
+// ============================================================
+$space-xs: 8px;
+$space-sm: 16px;
+$space-md: 24px;
+$space-lg: 48px;
+$space-xl: 80px;
+
+// ============================================================
+// Grids
+// ============================================================
+$col-d: repeat(8, 1fr);
+$col-m: repeat(6, 1fr);

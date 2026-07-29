@@ -13,8 +13,14 @@ layout: base.njk
 
 <article class="project-card">
   {% if item.image %}
-    <figure>
+    <figure class="project-card-figure">
       <img src="{{ item.image | url }}" alt="{{ item.title }}" />
+      {% if item.description %}
+        <figcaption class="project-card-overlay">
+          <h3 class="project-card-title">{{ item.title }}</h3>
+          <p class="project-card-description">{{ item.description }}</p>
+        </figcaption>
+      {% endif %}
     </figure>
   {% endif %}
 </article>

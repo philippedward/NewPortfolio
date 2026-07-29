@@ -19,7 +19,14 @@ permalink: "/"
 <!-- // ============================================================
 // section projets : galerie
 // ============================================================ -->
-<section class="projects" id="projets"></section>
+<section class="projects-spiral">
+  <div class="projects-spiral-container">
+    {% for projet in projets %}
+      {% set item = projet %}
+      {% include "card-project.njk" %}
+    {% endfor %}
+  </div>
+</section>
 <!-- // ============================================================
 // section drawings : galerie
 // ============================================================ -->

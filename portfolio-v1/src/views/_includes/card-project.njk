@@ -11,20 +11,33 @@ layout: base.njk
    les champs optionnels — c'est ça la logique conditionnelle.
    ============================================================ #}
 
-<article class="project-card">
-  {% if item.image %}
+<article
+  class="project-card"
+  data-project-card
+  data-project-id="{{ item.id }}"
+  data-project-title="{{ item.titre }}"
+  data-project-image="{{ item.image | url }}"
+>
+  <a href="/projets/{{ item.id }}/" class="project-card-link">
     <figure class="project-card-figure">
-      <img src="{{ item.image | url }}" alt="{{ item.title }}" />
-      {% if item.description %}
+      {% if item.image %}
+        <img src="{{ item.image | url }}" alt="{{ item.titre }}" />
+      {% else %}
+        <img
+          src="{{ '/images/icon-star.webp' | url }}"
+          alt="{{ item.titre }}"
+        />
+      {% endif %}
+      {% if item.description or item.titre %}
         <figcaption class="project-card-overlay">
-          <h3 class="project-card-title">{{ item.title }}</h3>
-          <p class="project-card-description">{{ item.description }}</p>
+          {% if item.titre %}
+            <h3 class="project-card-title">{{ item.titre }}</h3>
+          {% endif %}
+          {% if item.description %}
+            <p class="project-card-description">{{ item.description }}</p>
+          {% endif %}
         </figcaption>
       {% endif %}
     </figure>
-  {% endif %}
+  </a>
 </article>
-
-{% block scripts %}
-  <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
-{% endblock %}

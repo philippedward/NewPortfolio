@@ -15,18 +15,28 @@ permalink: "/"
      - sections      → sections.json    (variable = objet entier)
      - interns       → interns.json     (variable = objet entier)
    ============================================================ #}
-
+<p>Bienvenue sur mon portfolio !</p>
 <!-- // ============================================================
 // section projets : galerie
 // ============================================================ -->
-<section class="projects-spiral">
-  <div class="projects-spiral-container">
-    {% for projet in projets %}
-      {% set item = projet %}
-      {% include "card-project.njk" %}
-    {% endfor %}
+<section class="projects-spiral" id="spacer">
+  <div id="stage">
+    <div id="spiral"></div>
+    <div id="vignette-center"></div>
+    <div id="vignette-edge"></div>
+    <div class="projects-spiral-container">
+      {% for projet in projets %}
+        {% set item = projet %}
+        {% include "card-project.njk" %}
+      {% endfor %}
+    </div>
+    <div id="center-text">
+      <h1>Projets</h1>
+    </div>
+    <div id="scroll-hint">Scroll ↓</div>
   </div>
 </section>
+
 <!-- // ============================================================
 // section drawings : galerie
 // ============================================================ -->

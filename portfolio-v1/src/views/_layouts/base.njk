@@ -20,8 +20,18 @@
     <link rel="stylesheet" href="{{ '/assets/styles/main.css' | url }}" />
   </head>
   <body>
-    <header></header>
-    <footer></footer>
+    <section>
+      <header></header>
+    </section>
+
+    <main>
+      {{ content | safe }}
+    </main>
+
+    <section>
+      <footer></footer>
+    </section>
+
     <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
     {% block scripts %}{% endblock %}
   </body>

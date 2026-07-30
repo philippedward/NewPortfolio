@@ -1,0 +1,74 @@
+{# # ---
+# pagination:
+#   data: projets
+#   size: 1
+#   alias: item
+# permalink: "/projets/{{ item.id }}/index.html"
+# layout: "base.njk"
+
+# ---
+
+# <article class="project-detail">
+#   <a href="/" class="project-detail-back">&larr; Retour aux projets</a>
+
+#   <h1 class="project-detail-title">{{ item.titre }}</h1>
+
+#   {% if item.type %}
+#     <p class="project-detail-type">{{ item.type }}</p>
+#   {% endif %}
+
+#   <div class="project-detail-description">
+#     <p>{{ item.description }}</p>
+#   </div>
+
+#   {% if item.images and item.images.length %}
+#     <div class="project-detail-gallery">
+#       {% for img in item.images %}
+#         <figure class="project-detail-image">
+#           <img
+#             src="{{ img.fichier | url }}"
+#             alt="{{ img.legende or item.titre }}"
+#           />
+#           {% if img.legende %}
+#             <figcaption>{{ img.legende }}</figcaption>
+#           {% endif %}
+#         </figure>
+#       {% endfor %}
+#     </div>
+#   {% endif %}
+
+#   {% if item.videos and item.videos.length %}
+#     <div class="project-detail-videos">
+#       {% for video in item.videos %}
+#         <video class="project-detail-video" src="{{ video | url }}" controls>
+#         </video>
+#       {% endfor %}
+#     </div>
+#   {% endif %}
+
+#   {%
+#     set meta = [
+#       { label: "Client", valeur: item.clients },
+#       { label: "Compétences", valeur: item.competences },
+#       { label: "Sessions", valeur: item.sessions | join(", ") if item.sessions and item.sessions.length else "" }
+#     ]
+#   %}
+
+#   <ul class="project-detail-meta">
+#     {% for champ in meta %}
+#       {% if champ.valeur %}
+#         <li><strong>{{ champ.label }} :</strong> {{ champ.valeur }}</li>
+#       {% endif %}
+#     {% endfor %}
+#   </ul>
+
+#   {% if item.liens and item.liens.length %}
+#     <div class="project-detail-liens">
+#       {% for lien in item.liens %}
+#         <a href="{{ lien.url }}" target="_blank" rel="noopener">{{
+#           lien.label
+#         }}</a>
+#       {% endfor %}
+#     </div>
+#   {% endif %}
+# </article> #}

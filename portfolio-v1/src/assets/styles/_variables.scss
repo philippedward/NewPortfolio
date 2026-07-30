@@ -1,18 +1,23 @@
 // ============================================================
+// Box size project card
+// ============================================================
+$card-size-w: 11vmin;
+$card-size-h: 15vmin;
+
+// ============================================================
 // Colors
 // ============================================================
-$color-primary: #000000;
-$color-secondary: #ffffff;
-$color-accent: #ddff00;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-interactive: #f200ff;
 
 // ============================================================
 // Fonts
 // ============================================================
-$font: "Noi Grotesk", sans-serif;
+$font: "Amarante", sans-serif;
 
 // Title
 $font-weight-title: 100;
-$font-style-title: italic;
 $font-line-height-title: 1.2;
 
 // Text
@@ -21,7 +26,6 @@ $font-line-height-text: 1.5;
 
 // Legend
 $font-weight-legend: 500;
-$font-style-legend: italic;
 $font-line-height-legend: 1.5;
 
 // ============================================================

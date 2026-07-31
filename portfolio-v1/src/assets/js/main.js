@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
      SECTION 1 : Animation Spirale (Page d'accueil / Projets)
      ============================================================== */
   const spiral = document.getElementById("spiral");
-  const stage = document.getElementById("stage");
+  // Sélection de .stage au lieu de #stage
+  const stage = document.querySelector(".stage");
   const centerText = document.getElementById("center-text");
   const scrollHint = document.getElementById("scroll-hint");
 
@@ -117,60 +118,60 @@ document.addEventListener("DOMContentLoaded", () => {
       { opacity: 1, scale: 1, duration: 1, delay: 0.3, ease: "power2.out" },
     );
   }
+});
 
-  /* ==============================================================
+/* ==============================================================
      SECTION 2 : Galerie Dessins (Page Galerie 3D)
      ============================================================== */
-  const galleryTrack = document.getElementById("galleryTrack");
+const galleryTrack = document.getElementById("galleryTrack");
 
-  if (galleryTrack) {
-    // Sélectionne UNIQUEMENT les cartes générées par Nunjucks
-    const cardElements = Array.from(
-      galleryTrack.querySelectorAll(".gallery-card"),
-    );
-    const totalCards = cardElements.length;
+if (galleryTrack) {
+  // Sélectionne UNIQUEMENT les cartes générées par Nunjucks
+  const cardElements = Array.from(
+    galleryTrack.querySelectorAll(".gallery-card"),
+  );
+  const totalCards = cardElements.length;
 
-    if (totalCards > 0) {
-      const RADIUS = 300;
-      const TILT = (60 * Math.PI) / 180;
-      const BOB_AMP = 170;
-      const BOB_CYCLES = 3;
+  if (totalCards > 0) {
+    const RADIUS = 320;
+    const TILT = (60 * Math.PI) / 180;
+    const BOB_AMP = 250;
+    const BOB_CYCLES = 3;
 
-      const pointAtAngle = (a) => {
-        const rad = a * Math.PI * 2;
-        return {
-          x: RADIUS * Math.cos(rad),
-          y: -BOB_AMP * Math.sin(rad * BOB_CYCLES),
-          z: RADIUS * Math.sin(rad) * Math.sin(TILT),
-        };
+    const pointAtAngle = (a) => {
+      const rad = a * Math.PI * 2;
+      return {
+        x: RADIUS * Math.cos(rad),
+        y: -BOB_AMP * Math.sin(rad * BOB_CYCLES),
+        z: RADIUS * Math.sin(rad) * Math.sin(TILT),
       };
+    };
 
-      const galleryCards = cardElements.map((el, index) => ({
-        el,
-        base: index / totalCards,
-      }));
+    const galleryCards = cardElements.map((el, index) => ({
+      el,
+      base: index / totalCards,
+    }));
 
-      const renderGallery = (progress) => {
-        galleryCards.forEach((card) => {
-          const a = card.base + progress;
-          const p = pointAtAngle(a);
-          card.el.style.transform = `translate3d(${p.x.toFixed(1)}px, ${p.y.toFixed(1)}px, ${p.z.toFixed(1)}px)`;
-          card.el.style.zIndex = Math.round(p.z + 1000);
-        });
-      };
-
-      // Premier affichage
-      renderGallery(0);
-
-      // Animation liée au scroll avec ScrollTrigger
-      const LOOPSG = 1;
-      ScrollTrigger.create({
-        trigger: ".gallery-section",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1,
-        onUpdate: (self) => renderGallery(self.progress * LOOPSG),
+    const renderGallery = (progress) => {
+      galleryCards.forEach((card) => {
+        const a = card.base + progress;
+        const p = pointAtAngle(a);
+        card.el.style.transform = `translate3d(${p.x.toFixed(1)}px, ${p.y.toFixed(1)}px, ${p.z.toFixed(1)}px)`;
+        card.el.style.zIndex = Math.round(p.z + 1000);
       });
-    }
+    };
+
+    // Premier affichage
+    renderGallery(0);
+
+    // Animation liée au scroll avec ScrollTrigger
+    const LOOPSG = 1;
+    ScrollTrigger.create({
+      trigger: ".gallery-section",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 1,
+      onUpdate: (self) => renderGallery(self.progress * LOOPSG),
+    });
   }
-});
+}

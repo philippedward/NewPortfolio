@@ -1,36 +1,13 @@
----
-layout: base.njk
-
----
-
-{# ============================================================
-   projet.njk — Page de détail d'un projet
-   Ce layout est utilisé par projets.njk (pagination Eleventy).
-   La variable "projet" est l'objet du fichier JSON du projet.
-   Toutes les données sont affichées, avec des {% if %} pour
-   les champs optionnels — c'est ça la logique conditionnelle.
-   ============================================================ #}
-
-{# card-project.njk #}
-<article class="project-card" data-project-card data-project-id="{{ item.id }}">
-  <a href="/projets/{{ item.id }}/" class="project-card-link">
-    <figure class="project-card-figure">
-      {% if item.image %}
-        <img src="{{ item.image | url }}" alt="{{ item.titre }}" />
-      {% else %}
-        <img
-          src="{{ '/images/icon-star.webp' | url }}"
-          alt="{{ item.titre }}"
-        />
-      {% endif %}
-      <figcaption class="project-card-overlay">
-        {% if item.titre %}<h3 class="project-card-title">
-            {{ item.titre }}
-          </h3>{% endif %}
-        {% if item.description %}<p class="project-card-description">
-            {{ item.description }}
-          </p>{% endif %}
-      </figcaption>
-    </figure>
-  </a>
+<article class="spiral-card" data-project-card>
+  <div class="spiral-card-media">
+    <img src="{{ item.image | url }}" alt="{{ item.titre }}">
+  </div>
+  <div class="spiral-card-content">
+    {% if item.titre %}
+      <h3>{{ item.titre }}</h3>
+    {% endif %}
+    {% if item.description %}
+      <p>{{ item.description }}</p>
+    {% endif %}
+  </div>
 </article>

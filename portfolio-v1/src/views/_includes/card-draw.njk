@@ -1,5 +1,15 @@
-<div class="gallery-card" data-draw-card>
-  <img src="{{ item.image | url }}" alt="{{ item.titre }}">
-  <h3>{{ item.titre }}</h3>
-  <p>{{ item.description }}</p>
-</div>
+<article>
+  <div class="gallery-card" data-draw-card>
+    <div class="gallery-card-media">
+      <img src="{{ item.image | url }}" alt="{{ item.titre }}">
+    </div>
+    <div class="gallery-card-content">
+      {% if item.titre %}
+        <h3>{{ item.titre }}</h3>
+      {% endif %}
+      {% if item.description %}
+        <p>{{ item.description }}</p>
+      {% endif %}
+    </div>
+  </div>
+</article>

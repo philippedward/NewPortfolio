@@ -18,21 +18,17 @@ html {
 }
 
 #scroll-hint {
-  position: absolute;
+  position: fixed;
   bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 60;
+  z-index: 9999; /* Z-index élevé pour passer au-dessus de tout le reste */
   font-size: 11px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.4);
   pointer-events: none;
 }
-
-// section {
-//   margin-top: 200px;
-// }
 
 h1,
 h2,

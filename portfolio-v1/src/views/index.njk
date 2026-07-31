@@ -6,45 +6,49 @@ permalink: "/"
 ---
 
 <!-- // ============================================================
-// section projets : galerie
+// section project : galerie
 // ============================================================ -->
-<section class="projects-spiral" id="spacer">
-  <div class="stage">
-    <div id="spiral">
-      {% for item in projets %}
-        {% include "card-project.njk" %}
-      {% endfor %}
+<div class="showcase-pin-container" id="showcasePin">
+  <!-- 1. SECTION PROJETS (Spirale) -->
+  <section class="projects-spiral" id="projectStage">
+    <div class="stage">
+      <div id="spiral">
+        {% for item in projets %}
+          {% include "card-project.njk" %}
+        {% endfor %}
+      </div>
+
+      <div id="vignette-center"></div>
+      <div id="vignette-edge"></div>
+
+      <div id="center-text">
+        <h1>Projets</h1>
+      </div>
     </div>
+  </section>
 
-    <div id="vignette-center"></div>
-    <div id="vignette-edge"></div>
-
-    <div id="center-text">
-      <h1>Projets</h1>
-    </div>
-
-    <div id="scroll-hint">Scroll ↓</div>
-  </div>
-</section>
-
-<!-- // ============================================================
-// section drawings : galerie
+  <!-- // ============================================================
+// section gallery : galerie
 // ============================================================ -->
-<section class="drawings" id="deck">
-  <div class="gallery-section">
+  <section class="gallery-section" id="galleryStage">
     <div class="scene">
       <div class="gallery-track" id="galleryTrack">
-        <div id="center-text">
-          <h1>My Gallery</h1>
+        <div class="center-text">
+          <h1>Mes Dessins</h1>
         </div>
+
         {% for item in draws %}
           {% include "card-draw.njk" %}
         {% endfor %}
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
+
 <!-- // ============================================================
 // section cv : galerie
 // ============================================================ -->
-<section class="cv" id="cv"></section>
+<div class="next-section">
+  <h2>La suite de ta page ici...</h2>
+</div>
+<div id="scroll-hint">Scroll ↓</div>

@@ -6,136 +6,63 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
-  /* ==============================================================
-     SECTION 1 : Animation Spirale (Page d'accueil / Projets)
-     ============================================================== */
   const spiral = document.getElementById("spiral");
-  // Sélection de .stage au lieu de #stage
-  const stage = document.querySelector(".stage");
-  const centerText = document.getElementById("center-text");
-  const scrollHint = document.getElementById("scroll-hint");
+  const galleryTrack = document.getElementById("galleryTrack");
+  const projectStage = document.getElementById("projectStage");
+  const galleryStage = document.getElementById("galleryStage");
+  const showcasePin = document.getElementById("showcasePin");
 
-  if (spiral) {
-    const cardEls = Array.from(spiral.querySelectorAll("[data-project-card]"));
-
-    if (cardEls.length > 0) {
-      const LOOPSP = 3;
-      const ROTATION_SPEED = 55;
-      const SCRUB_DURATION = 0.8;
-      const FADE_IN_END = 0.12;
-      const FADE_OUT_START = 0.9;
-      const FADE_OUT_END = 1.15;
-      const TOTAL_P_RANGE = FADE_OUT_END;
-
-      const N = cardEls.length;
-      let maxRadius = 0;
-
-      const computeMaxRadius = () => {
-        maxRadius = Math.min(window.innerWidth, window.innerHeight) * 0.48;
-      };
-      computeMaxRadius();
-      window.addEventListener("resize", computeMaxRadius);
-
-      const state = { p: 0 };
-      const target = { p: 0 };
-
-      const renderSpiral = () => {
-        const p = state.p;
-
-        cardEls.forEach((el, i) => {
-          const phase = i / N;
-          const t = phase + p;
-
-          const angleDeg = t * LOOPSP * 360 + p * ROTATION_SPEED;
-          const rad = (angleDeg * Math.PI) / 180;
-          const radius = t * maxRadius;
-
-          const x = Math.cos(rad) * radius;
-          const y = Math.sin(rad) * radius;
-          const scale = 0.32 + Math.min(t, 1.3) * 0.78;
-
-          let opacity;
-          if (t < FADE_IN_END) {
-            opacity = Math.max(0, t) / FADE_IN_END;
-          } else if (t > FADE_OUT_START) {
-            opacity =
-              1 - (t - FADE_OUT_START) / (FADE_OUT_END - FADE_OUT_START);
-          } else {
-            opacity = 1;
-          }
-
-          opacity = Math.max(0, Math.min(1, opacity));
-
-          el.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) scale(${scale})`;
-          el.style.opacity = opacity;
-          el.style.zIndex = Math.round(t * 1000) + 20;
-          el.style.visibility =
-            opacity <= 0 && t > FADE_OUT_START ? "hidden" : "visible";
-        });
-      };
-
-      let hintHidden = false;
-
-      window.addEventListener(
-        "scroll",
-        () => {
-          const maxScroll =
-            document.documentElement.scrollHeight - window.innerHeight;
-          const raw = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-          target.p = raw * TOTAL_P_RANGE;
-
-          gsap.to(state, {
-            p: target.p,
-            duration: SCRUB_DURATION,
-            ease: "power3.out",
-            overwrite: true,
-            onUpdate: renderSpiral,
-          });
-
-          if (!hintHidden && window.scrollY > 20 && scrollHint) {
-            hintHidden = true;
-            gsap.to(scrollHint, { opacity: 0, duration: 0.5 });
-          }
-        },
-        { passive: true },
-      );
-
-      renderSpiral();
-    }
-  }
-
-  if (stage) {
-    gsap.fromTo(
-      stage,
-      { opacity: 0 },
-      { opacity: 1, duration: 1.2, ease: "power2.out" },
+  if (spiral && galleryTrack && showcasePin) {
+    // -------------------------------------------------------------
+    // 1. SETUP DES PROJETS (Spirale)
+    // -------------------------------------------------------------
+    const projectCards = Array.from(
+      spiral.querySelectorAll("[data-project-card]"),
     );
-  }
-  if (centerText) {
-    gsap.fromTo(
-      centerText,
-      { opacity: 0, scale: 0.9 },
-      { opacity: 1, scale: 1, duration: 1, delay: 0.3, ease: "power2.out" },
+    const N_PROJECTS = projectCards.length;
+    const LOOPSP = 3;
+    const ROTATION_SPEED = 55;
+    let maxRadius = Math.min(window.innerWidth, window.innerHeight) * 0.48;
+
+    window.addEventListener("resize", () => {
+      maxRadius = Math.min(window.innerWidth, window.innerHeight) * 0.48;
+    });
+
+    const renderSpiral = (p) => {
+      projectCards.forEach((el, i) => {
+        // Calcul de la progression relative
+        const phase = i / N_PROJECTS;
+        const t = (phase + p * 1.15) % 1.5; // évite que t devienne excessivement grand
+
+        const angleDeg = t * LOOPSP * 360 + p * ROTATION_SPEED;
+        const rad = (angleDeg * Math.PI) / 180;
+        const radius = t * maxRadius;
+
+        const x = Math.cos(rad) * radius;
+        const y = Math.sin(rad) * radius;
+        const scale = Math.max(0.1, 0.32 + Math.min(t, 1.3) * 0.78);
+
+        // Un seul translate3d propre (combine X et Y)
+        el.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0px) scale(${scale.toFixed(2)})`;
+
+        // Gestion de l'opacité progressive
+        const opacity =
+          t < 0.1 ? t / 0.1 : Math.max(0, Math.min(1, 1 - (t - 1.1) / 0.3));
+        el.style.opacity = opacity;
+        el.style.zIndex = Math.round(t * 1000) + 20;
+      });
+    };
+
+    // -------------------------------------------------------------
+    // 2. SETUP DE LA GALERIE (3D)
+    // -------------------------------------------------------------
+    const galleryCardEls = Array.from(
+      galleryTrack.querySelectorAll(".gallery-card"),
     );
-  }
-});
-
-/* ==============================================================
-     SECTION 2 : Galerie Dessins (Page Galerie 3D)
-     ============================================================== */
-const galleryTrack = document.getElementById("galleryTrack");
-
-if (galleryTrack) {
-  // Sélectionne UNIQUEMENT les cartes générées par Nunjucks
-  const cardElements = Array.from(
-    galleryTrack.querySelectorAll(".gallery-card"),
-  );
-  const totalCards = cardElements.length;
-
-  if (totalCards > 0) {
-    const RADIUS = 320;
+    const N_GALLERY = galleryCardEls.length;
+    const RADIUS = 420;
     const TILT = (60 * Math.PI) / 180;
-    const BOB_AMP = 250;
+    const BOB_AMP = 280;
     const BOB_CYCLES = 3;
 
     const pointAtAngle = (a) => {
@@ -147,31 +74,84 @@ if (galleryTrack) {
       };
     };
 
-    const galleryCards = cardElements.map((el, index) => ({
+    const galleryCards = galleryCardEls.map((el, index) => ({
       el,
-      base: index / totalCards,
+      base: index / N_GALLERY,
     }));
 
     const renderGallery = (progress) => {
       galleryCards.forEach((card) => {
         const a = card.base + progress;
         const p = pointAtAngle(a);
-        card.el.style.transform = `translate3d(${p.x.toFixed(1)}px, ${p.y.toFixed(1)}px, ${p.z.toFixed(1)}px)`;
+
+        const scale = 0.5 + ((p.z + RADIUS) / (2 * RADIUS)) * 0.8;
+
+        card.el.style.transform = `translate3d(${p.x.toFixed(1)}px, ${p.y.toFixed(1)}px, ${p.z.toFixed(1)}px) scale(${scale.toFixed(2)})`;
         card.el.style.zIndex = Math.round(p.z + 1000);
       });
     };
 
-    // Premier affichage
+    // Initialisation
+    renderSpiral(0);
     renderGallery(0);
 
-    // Animation liée au scroll avec ScrollTrigger
-    const LOOPSG = 1;
-    ScrollTrigger.create({
-      trigger: ".gallery-section",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1,
-      onUpdate: (self) => renderGallery(self.progress * LOOPSG),
+    // -------------------------------------------------------------
+    // 3. TIMELINE GSAP AVEC PIN
+    // -------------------------------------------------------------
+    const mainTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: showcasePin,
+        start: "top top",
+        // 1. Augmentation de la distance totale de scroll (passé de 5000 à 8000)
+        end: "+=8000",
+        pin: true,
+        scrub: 1, // Un scrub un peu plus doux/lissé
+        anticipatePin: 1,
+        refreshPriority: 1,
+      },
     });
+
+    // Étape 1 : Scroll Spirale (durée 2.5s)
+    mainTimeline.to(
+      {},
+      {
+        duration: 2.5,
+        onUpdate: function () {
+          renderSpiral(this.progress());
+        },
+      },
+    );
+
+    // Étape 2 : Transition Fondu Spirale -> Galerie (durée 1s)
+    mainTimeline
+      .to(projectStage, {
+        opacity: 0,
+        duration: 1,
+        ease: "power2.inOut",
+      })
+      .to(
+        galleryStage,
+        {
+          opacity: 1,
+          duration: 1,
+          ease: "power2.inOut",
+          onStart: () => galleryStage.classList.add("is-active"),
+          onReverseComplete: () => galleryStage.classList.remove("is-active"),
+        },
+        "<",
+      );
+
+    // Étape 3 : Scroll Galerie 3D (durée passée de 3s à 6s = 2× plus lente)
+    mainTimeline.to(
+      {},
+      {
+        duration: 6,
+        onUpdate: function () {
+          renderGallery(this.progress());
+        },
+      },
+    );
+
+    ScrollTrigger.refresh();
   }
-}
+});

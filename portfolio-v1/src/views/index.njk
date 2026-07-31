@@ -5,20 +5,10 @@ permalink: "/"
 
 ---
 
-{# ============================================================
-   index.njk — Page d'accueil
-   Toutes les variables ci-dessous sont injectées automatiquement
-   par Eleventy depuis les fichiers dans src/_data/ :
-     - config        → config.json
-     - projets       → projets.js (lit le dossier projets/)
-     - encadrants    → encadrants.json  (variable = objet entier)
-     - sections      → sections.json    (variable = objet entier)
-     - interns       → interns.json     (variable = objet entier)
-   ============================================================ #}
 <!-- // ============================================================
 // section projets : galerie
 // ============================================================ -->
-<section class="projects-spiral" id="spacer">
+{# <section class="projects-spiral" id="spacer">
   <div id="stage">
     <div id="spiral"></div>
     <div id="vignette-center"></div>
@@ -32,7 +22,7 @@ permalink: "/"
     {% endfor %}
     <div id="scroll-hint">Scroll ↓</div>
   </div>
-</section>
+</section> #}
 
 <!-- // ============================================================
 // section drawings : galerie
@@ -49,7 +39,7 @@ permalink: "/"
         {% endfor %}
       </div>
     </div>
-    <div class="scroll-hint">Scroll ↓</div>
+    <div id="scroll-hint">Scroll ↓</div>
   </div>
 </section>
 <!-- // ============================================================

@@ -1,12 +1,5 @@
-{# ============================================================
-   card-draw.njk — card résumée d'un draw
-   Inclus dans index.njk via {% include "card-draw.njk" %}
-   à l'intérieur d'un {% for draw in draws %}.
-   La variable "draw" est l'objet complet du fichier JSON.
-   ============================================================ #}
-<div class="gallery-card">
-  <img src="{{ item.img }}" alt="{{ item.title }}">
-  <!-- Optionnel : si tu veux afficher le titre ou la description -->
-  <h3>{{ item.title }}</h3>
+<div class="gallery-card" data-draw-card>
+  <img src="{{ item.image | url }}" alt="{{ item.titre }}">
+  <h3>{{ item.titre }}</h3>
   <p>{{ item.description }}</p>
 </div>

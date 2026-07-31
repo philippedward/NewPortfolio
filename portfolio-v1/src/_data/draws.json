@@ -1,0 +1,23 @@
+[
+  {
+    "id": "draw-st-nicolas",
+    "titre": "St-Nicolas",
+    "description": "Illustration principale de la galerie",
+    "image": "/public/images/draw-st-nicolas.webp",
+    "type": "Illustration"
+  },
+  {
+    "id": "draw-detail",
+    "titre": "Détail",
+    "description": "Variation de l’illustration",
+    "image": "/public/images/draw-st-nicolas.webp",
+    "type": "Illustration"
+  },
+  {
+    "id": "draw-study",
+    "titre": "Étude",
+    "description": "Version de travail de la composition",
+    "image": "/public/images/draw-st-nicolas.webp",
+    "type": "Illustration"
+  }
+]

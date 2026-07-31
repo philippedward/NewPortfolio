@@ -116,28 +116,3 @@
     }
   }
 }
-
-.center-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) translateZ(0px);
-  text-align: center;
-  z-index: 999;
-  pointer-events: none;
-
-  h1 {
-    margin: 0;
-    font-size: clamp(24px, 4.2vmin, 58px);
-    font-weight: 600;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: #fff;
-  }
-
-  p {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 0;
-  }
-}

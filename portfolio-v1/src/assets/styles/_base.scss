@@ -30,6 +30,31 @@ html {
   pointer-events: none;
 }
 
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(0px);
+  text-align: center;
+  z-index: 999;
+  pointer-events: none;
+
+  h1 {
+    margin: 0;
+    font-size: clamp(24px, 4.2vmin, 58px);
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+  }
+}
+
 h1,
 h2,
 h3 {
@@ -74,4 +99,14 @@ a:hover {
 
 ::selection {
   background-color: $color-interactive;
+}
+
+/* La section suivante reprend son cours normal */
+.next-section {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  background: #111;
+  color: #fff;
+  padding: 80px 20px;
 }

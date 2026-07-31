@@ -5,12 +5,12 @@ permalink: "/"
 
 ---
 
-<!-- // ============================================================
+<div class="showcase-pin-container" id="showcasePin">
+  <!-- // ============================================================
 // section project : galerie
 // ============================================================ -->
-<div class="showcase-pin-container" id="showcasePin">
-  <!-- 1. SECTION PROJETS (Spirale) -->
-  <section class="projects-spiral" id="projectStage">
+
+  {# <section class="projects-spiral" id="projectStage">
     <div class="stage">
       <div id="spiral">
         {% for item in projets %}
@@ -21,8 +21,23 @@ permalink: "/"
       <div id="vignette-center"></div>
       <div id="vignette-edge"></div>
 
-      <div id="center-text">
+      <div class="center-text">
         <h1>Projets</h1>
+      </div>
+    </div>
+  </section> #}
+
+  <section class="projects-spiral" id="projectStage">
+    <div class="spiral-section">
+      <div class="spiral">
+        <div class="spiral-track" id="spiralTrack">
+          <div class="center-text">
+            <h1>Projets</h1>
+          </div>
+          {% for item in projets %}
+            {% include "card-project.njk" %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </section>
@@ -51,4 +66,7 @@ permalink: "/"
 <div class="next-section">
   <h2>La suite de ta page ici...</h2>
 </div>
+
 <div id="scroll-hint">Scroll ↓</div>
+
+<div class="progress-debug" id="progressDebug"></div>

@@ -4,3 +4,9 @@
    à l'intérieur d'un {% for draw in draws %}.
    La variable "draw" est l'objet complet du fichier JSON.
    ============================================================ #}
+<div class="gallery-card">
+  <img src="{{ item.img }}" alt="{{ item.title }}">
+  <!-- Optionnel : si tu veux afficher le titre ou la description -->
+  <h3>{{ item.title }}</h3>
+  <p>{{ item.description }}</p>
+</div>

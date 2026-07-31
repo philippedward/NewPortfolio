@@ -15,7 +15,6 @@ permalink: "/"
      - sections      → sections.json    (variable = objet entier)
      - interns       → interns.json     (variable = objet entier)
    ============================================================ #}
-<p>Bienvenue sur mon portfolio !</p>
 <!-- // ============================================================
 // section projets : galerie
 // ============================================================ -->
@@ -24,15 +23,13 @@ permalink: "/"
     <div id="spiral"></div>
     <div id="vignette-center"></div>
     <div id="vignette-edge"></div>
-    <div class="projects-spiral-container">
-      {% for projet in projets %}
-        {% set item = projet %}
-        {% include "card-project.njk" %}
-      {% endfor %}
-    </div>
     <div id="center-text">
       <h1>Projets</h1>
     </div>
+    {% for projet in projets %}
+      {% set item = projet %}
+      {% include "card-project.njk" %}
+    {% endfor %}
     <div id="scroll-hint">Scroll ↓</div>
   </div>
 </section>
@@ -40,7 +37,21 @@ permalink: "/"
 <!-- // ============================================================
 // section drawings : galerie
 // ============================================================ -->
-<section class="drawings" id="drawings"></section>
+<section class="drawings" id="deck">
+  <div class="gallery-section">
+    <div class="scene">
+      <div class="gallery-track" id="galleryTrack">
+        <div class="center-text">
+          <h1>My Gallery</h1>
+        </div>
+        {% for item in draws %}
+          {% include "card-draw.njk" %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="scroll-hint">Scroll ↓</div>
+  </div>
+</section>
 <!-- // ============================================================
 // section cv : galerie
 // ============================================================ -->

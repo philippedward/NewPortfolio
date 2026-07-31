@@ -7,30 +7,16 @@
       name="description"
       content="Mon portfolio avec mes projets dessins et mon cv"
     />
-    <link rel="icon" href="{{ '/public/images/icon-star.png' | url }}" />
-    {# Le titre de la page est défini dans chaque page,
-         avec un fallback sur config.titre #}
+    <link rel="icon" href="{{ '/public/images/star-icon.webp' | url }}" />
     <title>
-      {% if title %}
-        {{ title }}
-        —
-      {% endif %}
-      {{ config.titre }}
+      Portfolio
     </title>
     <link rel="stylesheet" href="{{ '/assets/styles/main.css' | url }}" />
   </head>
   <body>
-    <section>
-      <header></header>
-    </section>
-
     <main>
       {{ content | safe }}
     </main>
-
-    <section>
-      <footer></footer>
-    </section>
 
     <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
     {% block scripts %}{% endblock %}

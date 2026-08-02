@@ -10,23 +10,6 @@ permalink: "/"
 // section project : galerie
 // ============================================================ -->
 
-  {# <section class="projects-spiral" id="projectStage">
-    <div class="stage">
-      <div id="spiral">
-        {% for item in projets %}
-          {% include "card-project.njk" %}
-        {% endfor %}
-      </div>
-
-      <div id="vignette-center"></div>
-      <div id="vignette-edge"></div>
-
-      <div class="center-text">
-        <h1>Projets</h1>
-      </div>
-    </div>
-  </section> #}
-
   <section class="projects-spiral" id="projectStage">
     <div class="spiral-section">
       <div class="spiral">
@@ -34,7 +17,7 @@ permalink: "/"
           <div class="center-text">
             <h1>Projets</h1>
           </div>
-          {% for item in projets %}
+          {% for project in projects %}
             {% include "card-project.njk" %}
           {% endfor %}
         </div>
@@ -49,10 +32,9 @@ permalink: "/"
     <div class="scene">
       <div class="gallery-track" id="galleryTrack">
         <div class="center-text">
-          <h1>Mes Dessins</h1>
+          <h1>Mes draws</h1>
         </div>
-
-        {% for item in draws %}
+        {% for draw in draws %}
           {% include "card-draw.njk" %}
         {% endfor %}
       </div>

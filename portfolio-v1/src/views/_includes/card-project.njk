@@ -1,13 +1,13 @@
 <article class="spiral-card" data-project-card>
   <div class="spiral-card-media">
-    <img src="{{ item.image | url }}" alt="{{ item.titre }}">
+    <img src="{{ project.image | url }}" alt="{{ project.titre }}">
   </div>
   <div class="spiral-card-content">
-    {% if item.titre %}
-      <h3>{{ item.titre }}</h3>
+    {% if project.titre %}
+      <h3>{{ project.titre }}</h3>
     {% endif %}
-    {% if item.description %}
-      <p>{{ item.description }}</p>
+    {% if project.description %}
+      <p>{{ project.description }}</p>
     {% endif %}
   </div>
 </article>

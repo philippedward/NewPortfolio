@@ -164,11 +164,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const left = [];
       const right = [];
-      cards.forEach((card, i) => (i % 2 === 0 ? left : right).push(card));
 
-      function place(wheelEl, list) {
+      cards.forEach((card, i) => {
+        (i % 2 === 0 ? left : right).push(card);
+      });
+
+      // Sécurité : force un nombre PAIR de cartes sur chaque roue
+      // (condition nécessaire pour que gauche et droite se centrent en même temps)
+      function padToEven(list, wheelClass) {
+        if (list.length % 2 !== 0) {
+          const placeholder = document.createElement("div");
+          placeholder.className = `draw-card draw-card--empty ${wheelClass}`;
+          placeholder.setAttribute("data-draw-card", "");
+          placeholder.style.visibility = "hidden"; // occupe l'angle, invisible à l'oeil
+          list.push(placeholder);
+        }
+      }
+
+      padToEven(left, "draw-card--placeholder-left");
+      padToEven(right, "draw-card--placeholder-right");
+
+      function place(wheelEl, list, angleOffset = 0) {
         list.forEach((card, i) => {
-          const angle = (i / list.length) * Math.PI * 2;
+          const angle = (i / list.length) * Math.PI * 2 + angleOffset;
           const x = Math.cos(angle) * RADIUS;
           const y = Math.sin(angle) * RADIUS;
 
@@ -179,32 +197,36 @@ document.addEventListener("DOMContentLoaded", () => {
           pos.style.top = `${y}px`;
           pos.style.transform = "translate(-50%, -50%)";
 
-          card.parentNode.removeChild(card);
+          card.parentNode?.removeChild(card);
           pos.appendChild(card);
           wheelEl.appendChild(pos);
         });
       }
 
-      place(wheelLeft, left);
-      place(wheelRight, right);
+      // Gauche : une carte face au centre (angle 0) → offset 0
+      place(wheelLeft, left, 0);
 
-      // Le pin de la scène galerie pilote AUSSI la rotation des roues,
-      // via la même progression -> plus aucun décalage possible.
+      // Droite : une carte face au centre (angle π) → offset π
+      place(wheelRight, right, Math.PI);
+
+      // Cache une seule fois, avant onUpdate
+      const leftCards = wheelLeft.querySelectorAll("[data-draw-card]");
+      const rightCards = wheelRight.querySelectorAll("[data-draw-card]");
+
       createStage({
         stageId: "galleryStage",
         pinDistance: 12000,
         fadeInEnd: 0.1,
         fadeOutStart: 0.9,
-        overlap: 400, // commence à apparaître 400px avant la fin totale du projet → chevauchement, pas de trou
+        overlap: 400,
         onUpdate: (p) => {
-          gsap.set(wheelLeft, { rotation: p * 360 });
-          gsap.set(wheelRight, { rotation: p * -360 });
-          wheelLeft
-            .querySelectorAll("[data-draw-card]")
-            .forEach((card) => gsap.set(card, { rotation: p * -360 }));
-          wheelRight
-            .querySelectorAll("[data-draw-card]")
-            .forEach((card) => gsap.set(card, { rotation: p * 360 }));
+          const angle = p * 360;
+
+          gsap.set(wheelLeft, { rotation: angle });
+          gsap.set(wheelRight, { rotation: -angle });
+
+          leftCards.forEach((card) => gsap.set(card, { rotation: -angle }));
+          rightCards.forEach((card) => gsap.set(card, { rotation: angle }));
         },
       });
     }

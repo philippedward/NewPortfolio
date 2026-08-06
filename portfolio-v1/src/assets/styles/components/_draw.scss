@@ -30,14 +30,14 @@
   left: -80px;
 }
 .gallery-wheel--right {
-  left: calc(100% + 80px);
+  right: -80px;
 }
 
 /* ===== Ta carte (structure inchangée) ===== */
 .draw-card {
   position: relative; /* nécessaire pour ancrer .draw-card-content */
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 220px;
   border-radius: 10px;
   overflow: visible;
   background: #1a1a1a;
@@ -112,4 +112,8 @@
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
+}
+
+.draw-card-media[data-id="draw-reverse"]:hover {
+  transform: rotate(180deg);
 }

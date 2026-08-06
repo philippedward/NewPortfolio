@@ -2,71 +2,85 @@
   {
     "id": "draw-st-nicolas",
     "titre": "St-Nicolas",
-    "description": "Illustration principale de la galerie",
+    "description": "Le père fouettard, qui se deguise en St-Nicolas (un projet).",
     "image": "/public/images/draw-st-nicolas.webp",
     "type": "Illustration"
   },
   {
-    "id": "draw-detail",
-    "titre": "Détail",
-    "description": "Variation de l’illustration",
-    "image": "/public/images/draw-st-nicolas.webp",
+    "id": "draw-centaur",
+    "titre": "Centaur",
+    "description": "Les scientifiques ont tenté de reproduire le phénomène, mais leurs expériences ont échoué.",
+    "image": "/public/images/draw-centaur.webp",
     "type": "Illustration"
   },
   {
-    "id": "draw-study",
-    "titre": "Étude",
-    "description": "Version de travail de la composition",
-    "image": "/public/images/draw-st-nicolas.webp",
+    "id": "draw-cirque",
+    "titre": "Cirque",
+    "description": "La mascotte du cirque empaillée.",
+    "image": "/public/images/draw-circus.webp",
     "type": "Illustration"
   },
   {
-    "id": "draw-study",
-    "titre": "Étude",
-    "description": "Version de travail de la composition",
-    "image": "/public/images/draw-st-nicolas.webp",
+    "id": "draw-different",
+    "titre": "Différence",
+    "description": "Une créature mi homme mi animal.",
+    "image": "/public/images/draw-difference.webp",
     "type": "Illustration"
   },
   {
-    "id": "draw-study",
-    "titre": "Étude",
-    "description": "Version de travail de la composition",
-    "image": "/public/images/draw-st-nicolas.webp",
+    "id": "draw-emma",
+    "titre": "Seule",
+    "description": "Une fillette laissée seule avec le chien.",
+    "image": "/public/images/draw-emma.webp",
     "type": "Illustration"
   },
   {
-    "id": "draw-study",
-    "titre": "Étude",
-    "description": "Version de travail de la composition",
-    "image": "/public/images/draw-st-nicolas.webp",
+    "id": "draw-minaudora",
+    "titre": "Minaudora",
+    "description": "Avec une phrase un dessin representatif.",
+    "image": "/public/images/draw-minaudora.webp",
     "type": "Illustration"
   },
   {
-    "id": "draw-study",
-    "titre": "Étude",
-    "description": "Version de travail de la composition",
-    "image": "/public/images/draw-st-nicolas.webp",
+    "id": "draw-pigeon",
+    "titre": "Pigeon",
+    "description": "Des pigeons avec un style cartoon.",
+    "image": "/public/images/draw-pigeon.webp",
     "type": "Illustration"
   },
   {
-    "id": "draw-study",
-    "titre": "Étude",
-    "description": "Version de travail de la composition",
-    "image": "/public/images/draw-st-nicolas.webp",
+    "id": "draw-power",
+    "titre": "Pouvoir",
+    "description": "Des créatures mi homme mi animal.",
+    "image": "/public/images/draw-power.webp",
     "type": "Illustration"
   },
   {
-    "id": "draw-study",
-    "titre": "Étude",
-    "description": "Version de travail de la composition",
-    "image": "/public/images/draw-st-nicolas.webp",
+    "id": "draw-rat",
+    "titre": "Rat burger",
+    "description": "Un burger à rat.",
+    "image": "/public/images/draw-rat.webp",
     "type": "Illustration"
   },
   {
-    "id": "draw-study",
-    "titre": "Étude",
-    "description": "Version de travail de la composition",
-    "image": "/public/images/draw-st-nicolas.webp",
+    "id": "draw-reverse",
+    "titre": "Reverse",
+    "description": "St-Nicolas et le père fouettard inversés.",
+    "image": "/public/images/draw-reverse.webp",
+    "type": "Illustration"
+  },
+  {
+    "id": "draw-creepyMe",
+    "titre": "Creepy Me",
+    "description": "Juste moi avec mon style de dessin.",
+    "image": "/public/images/draw-creepyMe.webp",
+    "type": "Illustration"
+  },
+  {
+    "id": "draw-cat",
+    "titre": "Chat",
+    "description": "Un homme déguisé en chat.",
+    "image": "/public/images/draw-cat.webp",
     "type": "Illustration"
   }
 ]

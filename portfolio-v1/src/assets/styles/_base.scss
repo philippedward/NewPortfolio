@@ -15,6 +15,7 @@ html {
   color: #fff;
   font-family: $font;
   overflow-x: hidden;
+  font-size: 16px;
 }
 
 #scroll-hint {
@@ -22,7 +23,7 @@ html {
   bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 9999; /* Z-index élevé pour passer au-dessus de tout le reste */
+  z-index: 9999;
   font-size: 11px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -36,7 +37,7 @@ html {
   left: 50%;
   transform: translate(-50%, -50%) translateZ(0px);
   text-align: center;
-  z-index: 999;
+  z-index: 9;
   pointer-events: none;
 
   h1 {

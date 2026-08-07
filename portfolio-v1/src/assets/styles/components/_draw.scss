@@ -25,12 +25,40 @@
   top: 50%;
   width: 0;
   height: 0;
+  z-index: 11;
 }
+
 .gallery-wheel--left {
   left: -80px;
 }
+
 .gallery-wheel--right {
   right: -80px;
+}
+
+/* ===== Description à droite si roue gauche, à gauche si roue droite ===== */
+.gallery-wheel--left .draw-card-content {
+  top: 50%;
+  bottom: auto;
+  left: calc(100% + 12px);
+  right: auto;
+  transform: translateY(-50%) translateX(8px);
+}
+
+.gallery-wheel--left .draw-card:hover .draw-card-content {
+  transform: translateY(-50%) translateX(0);
+}
+
+.gallery-wheel--right .draw-card-content {
+  top: 50%;
+  bottom: auto;
+  left: auto;
+  right: calc(100% + 12px);
+  transform: translateY(-50%) translateX(-8px);
+}
+
+.gallery-wheel--right .draw-card:hover .draw-card-content {
+  transform: translateY(-50%) translateX(0);
 }
 
 /* ===== Ta carte (structure inchangée) ===== */
@@ -67,10 +95,10 @@
   position: absolute;
   bottom: calc(100% + 12px);
   left: 50%;
+  width: 300px;
+  height: 100px;
   transform: translateX(-50%) translateY(8px);
-  width: max-content;
-  max-width: 200px;
-  padding: 8px 12px;
+  padding: 9px 12px;
   background: rgba(18, 18, 18, 0.92);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -78,32 +106,38 @@
   text-align: center;
   pointer-events: none;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   opacity: 0;
   visibility: hidden;
   transition:
     opacity 0.3s ease,
     transform 0.3s ease,
     visibility 0.3s;
-  z-index: 10;
+  z-index: 11;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .draw-card-content h3 {
   margin: 0 0 2px 0;
-  font-size: 13px;
+  font-size: 1.3rem;
+  line-height: 1.5;
   font-weight: 600;
   color: #fff;
 }
 
 .draw-card-content p {
   margin: 0;
-  font-size: 11px;
+  font-size: 1rem;
   line-height: 1.3;
   color: rgba(255, 255, 255, 0.75);
 }
 
 .draw-card:hover {
-  z-index: 9999 !important;
+  z-index: 10;
 }
 .draw-card:hover .draw-card-media img {
   transform: scale(1.05);
@@ -114,6 +148,6 @@
   transform: translateX(-50%) translateY(0);
 }
 
-.draw-card-media[data-id="draw-reverse"]:hover {
+.draw-card[data-id="draw-reverse"]:hover .draw-card-media img {
   transform: rotate(180deg);
 }

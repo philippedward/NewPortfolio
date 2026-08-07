@@ -2,7 +2,7 @@
   {
     "id": "draw-st-nicolas",
     "titre": "St-Nicolas",
-    "description": "Le père fouettard, qui se deguise en St-Nicolas (un projet).",
+    "description": "Le père fouettard, qui se deguise en St-Nicolas.",
     "image": "/public/images/draw-st-nicolas.webp",
     "type": "Illustration"
   },
@@ -79,7 +79,7 @@
   {
     "id": "draw-cat",
     "titre": "Chat",
-    "description": "Un homme déguisé en chat.",
+    "description": "Quelque chose déguisé en chat.",
     "image": "/public/images/draw-cat.webp",
     "type": "Illustration"
   }

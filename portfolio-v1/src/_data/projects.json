@@ -1,114 +1,114 @@
 [
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "motion-mario",
+    "titre": "Vidéo Mario",
+    "description": "Une courte vidéo sur mario.",
+    "image": "/public/images/project-motion-mario.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "frontend-sabre",
+    "titre": "Sabre",
+    "description": "Un site web basé sur un livre.",
+    "image": "/public/images/project-frontend-sabre.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "video-vaya",
+    "titre": "Vaya",
+    "description": "Une vidéo de publicité.",
+    "image": "/public/images/project-video-vaya.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "marketing-tea",
+    "titre": "Les thés de lucie",
+    "description": "Univer de marque de thé.",
+    "image": "/public/images/project-marketing-1.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "frontend-chocolat",
+    "titre": "Chocolat festival",
+    "description": "Site web refait.",
+    "image": "/public/images/project-graphic-chocolat-moodboard.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "graphic-festival",
+    "titre": "Les georges festival",
+    "description": "Une affiche dessinée.",
+    "image": "/public/images/project-graphic-george-poster.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "UI-UX-situ",
+    "titre": "in situ",
+    "description": "Une maquette pour EPanel.",
+    "image": "/public/images/project-ui-situ-1.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "motion-augemend",
+    "titre": "Augemend",
+    "description": "Une vidéo du futur avec des écrans holographiques.",
+    "image": "/public/images/project-motion-augemend.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "motion-glitch",
+    "titre": "Animation forme avec music",
+    "description": "Une vidéo avec des couleurs et formes hypnotiques.",
+    "image": "/public/images/project-motion-glitch.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "photo-B&W",
+    "titre": "Photo B&W",
+    "description": "Une collection de photos en noir et blanc.",
+    "image": "/public/images/project-photo-BnW-insect.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "frontend-Bilan",
+    "titre": "Site web Bilan d'activité eikonlab",
+    "description": "Projet durant mon stage de 3 mois chez eikonlab.",
+    "image": "/public/images/project-stage-frontend-bilan.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "frontend-surprise",
+    "titre": "Site Web surprise",
+    "description": "Un site web en slider.",
+    "image": "/public/images/project-frontend-slider.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "photo-color",
+    "titre": "Photo color",
+    "description": "Une collection de photos en couleur.",
+    "image": "/public/images/project-photo-jeans.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "s6-intruder",
+    "titre": "Jeu vidéo intruder",
+    "description": "Projet réalisé de ma fin d'année en 3ème année.",
+    "image": "/public/images/project-s6-poster.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "logo-manager",
+    "titre": "Logo Mod Manager",
+    "description": "Un logo pour un logiciel de gestion de mods.",
+    "image": "/public/images/project-graphic-modManager-logo.webp",
     "type": "Web"
   },
   {
-    "id": "video-mario",
-    "titre": "Video Mario",
-    "description": "Projet principal de la collection",
-    "image": "/public/images/icon-star.webp",
+    "id": "3D-robot",
+    "titre": "Robot",
+    "description": "Un robot travailler sur Blender.",
+    "image": "/public/images/project-motion-robot-3D.webp",
     "type": "Web"
   }
 ]

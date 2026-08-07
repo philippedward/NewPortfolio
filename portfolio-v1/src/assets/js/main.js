@@ -191,7 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const y = Math.sin(angle) * RADIUS;
 
           const pos = document.createElement("div");
-          pos.className = "draw-card-pos";
           pos.style.position = "absolute";
           pos.style.left = `${x}px`;
           pos.style.top = `${y}px`;

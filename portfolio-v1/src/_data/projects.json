@@ -5,6 +5,7 @@
     "short-text": "Une courte vidéo sur mario.",
     "image": "/public/images/project-motion-mario.webp",
     "type": "video",
+    "video": "/public/videos/project-mario.mp4",
     "description-title": "titre",
     "description-text": "long text",
     "purpose-title": "titre",
@@ -24,7 +25,8 @@
     "title": "Vaya",
     "short-text": "Une vidéo de publicité.",
     "image": "/public/images/project-video-vaya.webp",
-    "type": "video"
+    "type": "video",
+    "video": "/public/videos/project-vaya.mp4"
   },
   {
     "id": "marketing-tea",
@@ -59,14 +61,16 @@
     "title": "Augemend",
     "short-text": "Une vidéo du futur avec des écrans holographiques.",
     "image": "/public/images/project-motion-augemend.webp",
-    "type": "video"
+    "type": "video",
+    "video": "/public/videos/project-augemend.mp4"
   },
   {
     "id": "motion-glitch",
     "title": "Animation forme avec music",
     "short-text": "Une vidéo avec des couleurs et formes hypnotiques.",
     "image": "/public/images/project-motion-glitch.webp",
-    "type": "video"
+    "type": "video",
+    "video": "/public/videos/project-glitch.mp4"
   },
   {
     "id": "design-banksy",

@@ -14,11 +14,11 @@ article {
   gap: 47px;
 }
 
-@media (min-width: 768px) {
-  .row {
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-  }
-}
+// @media (min-width: 768px) {
+//   .row {
+//     grid-template-columns: repeat(8, minmax(0, 1fr));
+//   }
+// }
 
 section,
 // article:not(.biography-card),

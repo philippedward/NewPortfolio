@@ -5,7 +5,7 @@
         <img src="/public/images/button-return.webp" alt="retour">
       </button>
     </div>
-    <div class="col-1 offset-1">
+    <div class="col-1 offset-2">
       <div class="p-p-title">
         <h3>{{ project.title }}</h3>
         <p>{{ project["short-text"] }}</p>
@@ -14,9 +14,34 @@
   </div>
 
   <div class="row">
-    <div class="col-3">
-      <img src="{{ project.image | url }}" alt="{{ project.title }}">
-    </div>
+    {% if project.type == "video" %}
+      <div class="col-3">
+        <video src="{{ project.video | url }}" controls playsinline>
+          <source src="{{ project.video | url }}" type="video/mp4">
+        </video>
+      </div>
+    {% elif project.type == "image" %}
+      {% if project["image-2"] or project["image-3"] %}
+        {# plusieurs images : layout col-2 / col-1 offset-3 #}
+        <div class="col-2">
+          <img src="{{ project["image-1"] | url }}" alt="{{ project.title }}">
+        </div>
+
+        <div class="col-1 offset-3 p-p-images-stack">
+          {% if project["image-2"] %}
+            <img src="{{ project["image-2"] | url }}" alt="{{ project.title }}">
+          {% endif %}
+          {% if project["image-3"] %}
+            <img src="{{ project["image-3"] | url }}" alt="{{ project.title }}">
+          {% endif %}
+        </div>
+      {% else %}
+        {# une seule image : layout original #}
+        <div class="col-3">
+          <img src="{{ project["image-1"] | url }}" alt="{{ project.title }}">
+        </div>
+      {% endif %}
+    {% endif %}
   </div>
 
   <div class="row">

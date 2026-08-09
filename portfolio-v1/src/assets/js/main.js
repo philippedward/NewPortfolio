@@ -232,6 +232,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ============================================================
+     boutton return : project et draw
+     ============================================================ */
+  const returnBtn = document.querySelector("[data-project-return]");
+
+  if (returnBtn) {
+    returnBtn.addEventListener("click", () => {
+      window.history.back();
+    });
+  }
+
+  /* ============================================================
      SECTION 3 : à ajouter — MÊME LOGIQUE
      ============================================================ */
   // createStage({

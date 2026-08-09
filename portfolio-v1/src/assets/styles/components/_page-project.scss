@@ -4,3 +4,27 @@
   display: flex;
   flex-direction: column;
 }
+
+.p-p-title {
+  text-align: right;
+}
+
+section.project-page {
+  margin-top: $space-xl;
+  margin-bottom: $space-xl;
+}
+
+.p-p-top {
+  margin-bottom: $space-lg;
+}
+
+.p-p-bottom {
+  margin-top: $space-lg;
+}
+
+img,
+video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}

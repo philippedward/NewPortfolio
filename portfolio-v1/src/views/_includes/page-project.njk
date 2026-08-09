@@ -1,65 +1,77 @@
-<div class="container" data-project-page>
-  <div class="row">
-    <div class="col-1">
-      <button data-project-return>
-        <img src="/public/images/button-return.webp" alt="retour">
-      </button>
-    </div>
-    <div class="col-1 offset-2">
-      <div class="p-p-title">
-        <h3>{{ project.title }}</h3>
-        <p>{{ project["short-text"] }}</p>
+<section class="project-page" id="projectPage">
+  <div class="container" data-project-page>
+    <div class="p-p-top">
+      <div class="row">
+        <div class="col-1">
+          <button data-project-return>
+            <img src="/public/images/button-return.webp" alt="retour">
+          </button>
+        </div>
+        <div class="col-1 offset-2">
+          <div class="p-p-title">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project["short-text"] }}</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    {% if project.type == "video" %}
-      <div class="col-3">
-        <video src="{{ project.video | url }}" controls playsinline>
-          <source src="{{ project.video | url }}" type="video/mp4">
-        </video>
-      </div>
-    {% elif project.type == "image" %}
-      {% if project["image-2"] or project["image-3"] %}
-        {# plusieurs images : layout col-2 / col-1 offset-3 #}
-        <div class="col-2">
-          <img src="{{ project["image-1"] | url }}" alt="{{ project.title }}">
-        </div>
-
-        <div class="col-1 offset-3 p-p-images-stack">
-          {% if project["image-2"] %}
-            <img src="{{ project["image-2"] | url }}" alt="{{ project.title }}">
-          {% endif %}
-          {% if project["image-3"] %}
-            <img src="{{ project["image-3"] | url }}" alt="{{ project.title }}">
-          {% endif %}
-        </div>
-      {% else %}
-        {# une seule image : layout original #}
+    <div class="row">
+      {% if project.type == "video" %}
         <div class="col-3">
-          <img src="{{ project["image-1"] | url }}" alt="{{ project.title }}">
+          <video src="{{ project.video | url }}" controls playsinline>
+            <source src="{{ project.video | url }}" type="video/mp4">
+          </video>
         </div>
+      {% elif project.type == "image" %}
+        {% if project["image-2"] or project["image-3"] %}
+          {# plusieurs images : layout col-2 / col-1 offset-3 #}
+          <div class="col-2">
+            <img src="{{ project["image-1"] | url }}" alt="{{ project.title }}">
+          </div>
+
+          <div class="col-1 offset-3 p-p-images-stack">
+            {% if project["image-2"] %}
+              <img
+                src="{{ project["image-2"] | url }}"
+                alt="{{ project.title }}"
+              >
+            {% endif %}
+            {% if project["image-3"] %}
+              <img
+                src="{{ project["image-3"] | url }}"
+                alt="{{ project.title }}"
+              >
+            {% endif %}
+          </div>
+        {% else %}
+          {# une seule image : layout original #}
+          <div class="col-3">
+            <img src="{{ project["image-1"] | url }}" alt="{{ project.title }}">
+          </div>
+        {% endif %}
       {% endif %}
-    {% endif %}
-  </div>
+    </div>
 
-  <div class="row">
-    {%
-      set sections = [
-        { title: project["description-title"], text: project["description-text"] },
-        { title: project["purpose-title"], text: project["purpose-text"] },
-        { title: project["idea-title"], text: project["idea-text"] }
-      ]
-    %}
+    <div class="p-p-bottom">
+      <div class="row">
+        {%
+          set sections = [
+            { title: project["description-title"], text: project["description-text"] },
+            { title: project["purpose-title"], text: project["purpose-text"] },
+            { title: project["idea-title"], text: project["idea-text"] }
+          ]
+        %}
 
-    {% for section in sections %}
-      <div class="col-1">
-        <div class="p-p-text-col-{{ loop.index }}">
-          <h3>{{ section.title }}</h3>
-          <p>{{ section.text }}</p>
-        </div>
+        {% for section in sections %}
+          <div class="col-1">
+            <div class="p-p-text-col-{{ loop.index }}">
+              <h3>{{ section.title }}</h3>
+              <p>{{ section.text }}</p>
+            </div>
+          </div>
+        {% endfor %}
       </div>
-    {% endfor %}
+    </div>
   </div>
-</div>
+</section>

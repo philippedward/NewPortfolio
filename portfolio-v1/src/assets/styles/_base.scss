@@ -56,52 +56,6 @@ html {
   }
 }
 
-h1,
-h2,
-h3 {
-  font-weight: $font-weight-title;
-  line-height: $font-line-height-title;
-  cursor: default;
-}
-
-h1 {
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 1.45rem;
-}
-
-h3 {
-  font-size: 1.8rem;
-}
-
-p {
-  font-weight: $font-weight-text;
-  line-height: $font-line-height-text;
-  font-size: 0.9rem;
-  max-width: 70ch;
-  cursor: default;
-}
-
-button,
-a {
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: $color-black;
-}
-
-a:hover {
-  padding: 2px;
-  background-color: $color-interactive;
-  transition: all 0.3s ease;
-}
-
-::selection {
-  background-color: $color-interactive;
-}
-
 /* La section suivante reprend son cours normal */
 .next-section {
   position: relative;

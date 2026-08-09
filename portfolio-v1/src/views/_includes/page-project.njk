@@ -1,74 +1,40 @@
-{# # ---
-# pagination:
-#   data: projets
-#   size: 1
-#   alias: item
-# permalink: "/projets/{{ item.id }}/index.html"
-# layout: "base.njk"
+<div class="container" data-project-page>
+  <div class="row">
+    <div class="col-1">
+      <button data-project-return>
+        <img src="/public/images/button-return.webp" alt="retour">
+      </button>
+    </div>
+    <div class="col-1 offset-1">
+      <div class="p-p-title">
+        <h3>{{ project.title }}</h3>
+        <p>{{ project["short-text"] }}</p>
+      </div>
+    </div>
+  </div>
 
-# ---
+  <div class="row">
+    <div class="col-3">
+      <img src="{{ project.image | url }}" alt="{{ project.title }}">
+    </div>
+  </div>
 
-# <article class="project-detail">
-#   <a href="/" class="project-detail-back">&larr; Retour aux projets</a>
+  <div class="row">
+    {%
+      set sections = [
+        { title: project["description-title"], text: project["description-text"] },
+        { title: project["purpose-title"], text: project["purpose-text"] },
+        { title: project["idea-title"], text: project["idea-text"] }
+      ]
+    %}
 
-#   <h1 class="project-detail-title">{{ item.titre }}</h1>
-
-#   {% if item.type %}
-#     <p class="project-detail-type">{{ item.type }}</p>
-#   {% endif %}
-
-#   <div class="project-detail-description">
-#     <p>{{ item.description }}</p>
-#   </div>
-
-#   {% if item.images and item.images.length %}
-#     <div class="project-detail-gallery">
-#       {% for img in item.images %}
-#         <figure class="project-detail-image">
-#           <img
-#             src="{{ img.fichier | url }}"
-#             alt="{{ img.legende or item.titre }}"
-#           />
-#           {% if img.legende %}
-#             <figcaption>{{ img.legende }}</figcaption>
-#           {% endif %}
-#         </figure>
-#       {% endfor %}
-#     </div>
-#   {% endif %}
-
-#   {% if item.videos and item.videos.length %}
-#     <div class="project-detail-videos">
-#       {% for video in item.videos %}
-#         <video class="project-detail-video" src="{{ video | url }}" controls>
-#         </video>
-#       {% endfor %}
-#     </div>
-#   {% endif %}
-
-#   {%
-#     set meta = [
-#       { label: "Client", valeur: item.clients },
-#       { label: "Compétences", valeur: item.competences },
-#       { label: "Sessions", valeur: item.sessions | join(", ") if item.sessions and item.sessions.length else "" }
-#     ]
-#   %}
-
-#   <ul class="project-detail-meta">
-#     {% for champ in meta %}
-#       {% if champ.valeur %}
-#         <li><strong>{{ champ.label }} :</strong> {{ champ.valeur }}</li>
-#       {% endif %}
-#     {% endfor %}
-#   </ul>
-
-#   {% if item.liens and item.liens.length %}
-#     <div class="project-detail-liens">
-#       {% for lien in item.liens %}
-#         <a href="{{ lien.url }}" target="_blank" rel="noopener">{{
-#           lien.label
-#         }}</a>
-#       {% endfor %}
-#     </div>
-#   {% endif %}
-# </article> #}
+    {% for section in sections %}
+      <div class="col-1">
+        <div class="p-p-text-col-{{ loop.index }}">
+          <h3>{{ section.title }}</h3>
+          <p>{{ section.text }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

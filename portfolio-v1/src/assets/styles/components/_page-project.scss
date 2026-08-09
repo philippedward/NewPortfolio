@@ -1,13 +1,1 @@
 @use "../variables" as *;
-
-.project-detail-back {
-  display: inline-block;
-  margin-bottom: 1.5rem;
-  text-decoration: none;
-  color: inherit;
-  font-weight: 600;
-}
-
-.project-detail-back:hover {
-  text-decoration: underline;
-}

@@ -1,13 +1,15 @@
-<article class="project-card" data-project-card>
-  <div class="project-card-media">
-    <img src="{{ project.image | url }}" alt="{{ project.titre }}">
-  </div>
-  <div class="project-card-content">
-    {% if project.titre %}
-      <h3>{{ project.titre }}</h3>
-    {% endif %}
-    {% if project.description %}
-      <p>{{ project.description }}</p>
-    {% endif %}
-  </div>
-</article>
+<a class="project-card" data-project-card href="/projets/{{ project.id }}/">
+  <article>
+    <div class="project-card-media">
+      <img src="{{ project.image | url }}" alt="{{ project.title }}">
+    </div>
+    <div class="project-card-content">
+      {% if project.title %}
+        <h3>{{ project.title }}</h3>
+      {% endif %}
+      {% if project["short-text"] %}
+        <p>{{ project["short-text"] }}</p>
+      {% endif %}
+    </div>
+  </article>
+</a>

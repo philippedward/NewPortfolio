@@ -1,114 +1,120 @@
 [
   {
     "id": "motion-mario",
-    "titre": "Vidéo Mario",
-    "description": "Une courte vidéo sur mario.",
+    "title": "Vidéo Mario",
+    "short-text": "Une courte vidéo sur mario.",
     "image": "/public/images/project-motion-mario.webp",
-    "type": "Web"
+    "type": "video",
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "frontend-sabre",
-    "titre": "Sabre",
-    "description": "Un site web basé sur un livre.",
+    "title": "Sabre",
+    "short-text": "Un site web basé sur un livre.",
     "image": "/public/images/project-frontend-sabre.webp",
-    "type": "Web"
+    "type": "web"
   },
   {
     "id": "video-vaya",
-    "titre": "Vaya",
-    "description": "Une vidéo de publicité.",
+    "title": "Vaya",
+    "short-text": "Une vidéo de publicité.",
     "image": "/public/images/project-video-vaya.webp",
-    "type": "Web"
+    "type": "video"
   },
   {
     "id": "marketing-tea",
-    "titre": "Les thés de lucie",
-    "description": "Univer de marque de thé.",
+    "title": "Les thés de lucie",
+    "short-text": "Univer de marque de thé.",
     "image": "/public/images/project-marketing-1.webp",
-    "type": "Web"
+    "type": "marketing"
   },
   {
     "id": "frontend-chocolat",
-    "titre": "Chocolat festival",
-    "description": "Site web refait.",
+    "title": "Chocolat festival",
+    "short-text": "Site web refait.",
     "image": "/public/images/project-graphic-chocolat-moodboard.webp",
-    "type": "Web"
+    "type": "web"
   },
   {
     "id": "graphic-festival",
-    "titre": "Les georges festival",
-    "description": "Une affiche dessinée.",
+    "title": "Les georges festival",
+    "short-text": "Une affiche dessinée.",
     "image": "/public/images/project-graphic-george-poster.webp",
-    "type": "Web"
+    "type": "graphic"
   },
   {
     "id": "UI-UX-situ",
-    "titre": "in situ",
-    "description": "Une maquette pour EPanel.",
+    "title": "in situ",
+    "short-text": "Une maquette pour EPanel.",
     "image": "/public/images/project-ui-situ-1.webp",
-    "type": "Web"
+    "type": "UI/UX"
   },
   {
     "id": "motion-augemend",
-    "titre": "Augemend",
-    "description": "Une vidéo du futur avec des écrans holographiques.",
+    "title": "Augemend",
+    "short-text": "Une vidéo du futur avec des écrans holographiques.",
     "image": "/public/images/project-motion-augemend.webp",
-    "type": "Web"
+    "type": "video"
   },
   {
     "id": "motion-glitch",
-    "titre": "Animation forme avec music",
-    "description": "Une vidéo avec des couleurs et formes hypnotiques.",
+    "title": "Animation forme avec music",
+    "short-text": "Une vidéo avec des couleurs et formes hypnotiques.",
     "image": "/public/images/project-motion-glitch.webp",
-    "type": "Web"
+    "type": "video"
   },
   {
-    "id": "photo-B&W",
-    "titre": "Photo B&W",
-    "description": "Une collection de photos en noir et blanc.",
-    "image": "/public/images/project-photo-BnW-insect.webp",
-    "type": "Web"
+    "id": "design-banksy",
+    "title": "Banksy",
+    "short-text": "Passer a une image a une creation",
+    "image": "/public/images/project-design-bansky.webp",
+    "type": "design"
   },
   {
     "id": "frontend-Bilan",
-    "titre": "Site web Bilan d'activité eikonlab",
-    "description": "Projet durant mon stage de 3 mois chez eikonlab.",
+    "title": "Bilan d'activité eikonlab",
+    "short-text": "Projet durant mon stage de 3 mois chez eikonlab.",
     "image": "/public/images/project-stage-frontend-bilan.webp",
-    "type": "Web"
+    "type": "web"
   },
   {
     "id": "frontend-surprise",
-    "titre": "Site Web surprise",
-    "description": "Un site web en slider.",
+    "title": "Surprise",
+    "short-text": "Un site web en slider.",
     "image": "/public/images/project-frontend-slider.webp",
-    "type": "Web"
+    "type": "web"
   },
   {
-    "id": "photo-color",
-    "titre": "Photo color",
-    "description": "Une collection de photos en couleur.",
+    "id": "photo-all",
+    "title": "Photographie",
+    "short-text": "Une collection de photos.",
     "image": "/public/images/project-photo-jeans.webp",
-    "type": "Web"
+    "type": "picturs"
   },
   {
     "id": "s6-intruder",
-    "titre": "Jeu vidéo intruder",
-    "description": "Projet réalisé de ma fin d'année en 3ème année.",
+    "title": "Jeu vidéo intruder",
+    "short-text": "Projet réalisé de ma fin d'année en 3ème année.",
     "image": "/public/images/project-s6-poster.webp",
     "type": "Web"
   },
   {
     "id": "logo-manager",
-    "titre": "Logo Mod Manager",
-    "description": "Un logo pour un logiciel de gestion de mods.",
+    "title": "Logo Mod Manager",
+    "short-text": "Un logo pour un logiciel de gestion de mods.",
     "image": "/public/images/project-graphic-modManager-logo.webp",
-    "type": "Web"
+    "type": "logo"
   },
   {
     "id": "3D-robot",
-    "titre": "Robot",
-    "description": "Un robot travailler sur Blender.",
+    "title": "Robot",
+    "short-text": "Un robot travailler sur Blender.",
     "image": "/public/images/project-motion-robot-3D.webp",
-    "type": "Web"
+    "type": "3D"
   }
 ]

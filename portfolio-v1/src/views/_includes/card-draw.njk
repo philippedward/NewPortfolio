@@ -1,13 +1,15 @@
-<article class="draw-card" data-draw-card>
-  <div class="draw-card-media">
-    <img src="{{ draw.image | url }}" alt="{{ draw.titre }}">
-  </div>
-  <div class="draw-card-content">
-    {% if draw.titre %}
-      <h3>{{ draw.titre }}</h3>
-    {% endif %}
-    {% if draw.description %}
-      <p>{{ draw.description }}</p>
-    {% endif %}
-  </div>
-</article>
+<a class="draw-card" data-draw-card href="/draws/{{ draw.id }}/">
+  <article>
+    <div class="draw-card-media">
+      <img src="{{ draw.image | url }}" alt="{{ draw.titre }}">
+    </div>
+    <div class="draw-card-content">
+      {% if draw.titre %}
+        <h3>{{ draw.titre }}</h3>
+      {% endif %}
+      {% if draw["short-text"] %}
+        <p>{{ draw["short-text"] }}</p>
+      {% endif %}
+    </div>
+  </article>
+</a>

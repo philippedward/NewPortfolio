@@ -2,85 +2,169 @@
   {
     "id": "draw-st-nicolas",
     "titre": "St-Nicolas",
-    "description": "Le père fouettard, qui se deguise en St-Nicolas.",
+    "short-text": "Le père fouettard, qui se deguise en St-Nicolas.",
     "image": "/public/images/draw-st-nicolas.webp",
-    "type": "Illustration"
+    "type": "Illustration",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "draw-centaur",
     "titre": "Centaur",
-    "description": "Les scientifiques ont tenté de reproduire le phénomène, mais leurs expériences ont échoué.",
+    "short-text": "Les scientifiques ont tenté de reproduire le phénomène, mais leurs expériences ont échoué.",
     "image": "/public/images/draw-centaur.webp",
-    "type": "Illustration"
+    "type": "Illustration",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "draw-cirque",
     "titre": "Cirque",
-    "description": "La mascotte du cirque empaillée.",
+    "short-text": "La mascotte du cirque empaillée.",
     "image": "/public/images/draw-circus.webp",
-    "type": "Illustration"
+    "type": "Illustration",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "draw-different",
     "titre": "Différence",
-    "description": "Une créature mi homme mi animal.",
+    "short-text": "Une créature mi homme mi animal.",
     "image": "/public/images/draw-difference.webp",
-    "type": "Illustration"
+    "type": "Illustration",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "draw-emma",
     "titre": "Seule",
-    "description": "Une fillette laissée seule avec le chien.",
+    "short-text": "Une fillette laissée seule avec le chien.",
     "image": "/public/images/draw-emma.webp",
-    "type": "Illustration"
+    "type": "Illustration",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "draw-minaudora",
     "titre": "Minaudora",
-    "description": "Avec une phrase un dessin representatif.",
+    "short-text": "Avec une phrase un dessin representatif.",
     "image": "/public/images/draw-minaudora.webp",
-    "type": "Illustration"
+    "type": "Illustration",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "draw-pigeon",
     "titre": "Pigeon",
-    "description": "Des pigeons avec un style cartoon.",
+    "short-text": "Des pigeons avec un style cartoon.",
     "image": "/public/images/draw-pigeon.webp",
-    "type": "Illustration"
+    "type": "Illustration",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "draw-power",
     "titre": "Pouvoir",
-    "description": "Des créatures mi homme mi animal.",
+    "short-text": "Des créatures mi homme mi animal.",
     "image": "/public/images/draw-power.webp",
-    "type": "Illustration"
+    "type": "Illustration",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "draw-rat",
     "titre": "Rat burger",
-    "description": "Un burger à rat.",
+    "short-text": "Un burger à rat.",
     "image": "/public/images/draw-rat.webp",
-    "type": "Illustration"
+    "type": "Illustration",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "draw-reverse",
     "titre": "Reverse",
-    "description": "St-Nicolas et le père fouettard inversés.",
+    "short-text": "St-Nicolas et le père fouettard inversés.",
     "image": "/public/images/draw-reverse.webp",
-    "type": "Illustration"
+    "type": "Illustration",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "draw-creepyMe",
     "titre": "Creepy Me",
-    "description": "Juste moi avec mon style de dessin.",
+    "short-text": "Juste moi avec mon style de dessin.",
     "image": "/public/images/draw-creepyMe.webp",
-    "type": "Illustration"
+    "type": "Illustration",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "draw-cat",
     "titre": "Chat",
-    "description": "Quelque chose déguisé en chat.",
+    "short-text": "Quelque chose déguisé en chat.",
     "image": "/public/images/draw-cat.webp",
-    "type": "Illustration"
+    "type": "Illustration",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   }
 ]

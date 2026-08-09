@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ============================================================
      boutton return : project et draw
      ============================================================ */
-  const returnBtn = document.querySelector("[data-project-return]");
+  const returnBtn = document.querySelector("[data-return]");
 
   if (returnBtn) {
     returnBtn.addEventListener("click", () => {

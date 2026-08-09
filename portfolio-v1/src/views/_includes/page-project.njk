@@ -3,7 +3,7 @@
     <div class="p-p-top">
       <div class="row">
         <div class="col-1">
-          <button data-project-return>
+          <button data-return>
             <img src="/public/images/button-return.webp" alt="retour">
           </button>
         </div>
@@ -65,7 +65,7 @@
 
         {% for section in sections %}
           <div class="col-1">
-            <div class="p-p-text-col-{{ loop.index }}">
+            <div class="p-p-section-project{{ loop.index }}">
               <h3>{{ section.title }}</h3>
               <p>{{ section.text }}</p>
             </div>

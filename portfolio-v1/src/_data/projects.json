@@ -22,7 +22,14 @@
     "image": "/public/images/project-frontend-sabre.webp",
 
     "type": "web",
-    "image-1": "/public/images/project-frontend-sabre.webp"
+    "image-1": "/public/images/project-frontend-sabre.webp",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "video-vaya",
@@ -31,7 +38,14 @@
     "image": "/public/images/project-video-vaya.webp",
 
     "type": "video",
-    "video": "/public/videos/project-vaya.mp4"
+    "video": "/public/videos/project-vaya.mp4",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "marketing-tea",
@@ -40,7 +54,14 @@
     "image": "/public/images/project-marketing-1.webp",
 
     "type": "image",
-    "image-1": "/public/images/project-marketing-1.webp"
+    "image-1": "/public/images/project-marketing-1.webp",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "frontend-chocolat",
@@ -49,7 +70,14 @@
     "image": "/public/images/project-graphic-chocolat-moodboard.webp",
 
     "type": "image",
-    "image-1": "/public/images/project-graphic-chocolat-moodboard.webp"
+    "image-1": "/public/images/project-graphic-chocolat-moodboard.webp",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "graphic-festival",
@@ -58,7 +86,14 @@
     "image": "/public/images/project-graphic-george-poster.webp",
 
     "type": "image",
-    "image-1": "/public/images/project-graphic-george-poster.webp"
+    "image-1": "/public/images/project-graphic-george-poster.webp",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "UI-UX-situ",
@@ -67,7 +102,14 @@
     "image": "/public/images/project-ui-situ-1.webp",
 
     "type": "image",
-    "image-1": "/public/images/project-ui-situ-1.webp"
+    "image-1": "/public/images/project-ui-situ-1.webp",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "motion-augemend",
@@ -76,7 +118,14 @@
     "image": "/public/images/project-motion-augemend.webp",
 
     "type": "video",
-    "video": "/public/videos/project-augemend.mp4"
+    "video": "/public/videos/project-augemend.mp4",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "motion-glitch",
@@ -85,7 +134,14 @@
     "image": "/public/images/project-motion-glitch.webp",
 
     "type": "video",
-    "video": "/public/videos/project-glitch.mp4"
+    "video": "/public/videos/project-glitch.mp4",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "design-banksy",
@@ -94,7 +150,14 @@
     "image": "/public/images/project-design-bansky.webp",
 
     "type": "image",
-    "image-1": "/public/images/project-design-bansky.webp"
+    "image-1": "/public/images/project-design-bansky.webp",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "frontend-Bilan",
@@ -102,7 +165,14 @@
     "short-text": "Projet durant mon stage de 3 mois chez eikonlab.",
     "image": "/public/images/project-stage-frontend-bilan.webp",
 
-    "type": "web"
+    "type": "web",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "frontend-surprise",
@@ -110,7 +180,14 @@
     "short-text": "Un site web en slider.",
     "image": "/public/images/project-frontend-slider.webp",
 
-    "type": "web"
+    "type": "web",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "photo-all",
@@ -119,7 +196,14 @@
     "image": "/public/images/project-photo-jeans.webp",
 
     "type": "image",
-    "image-1": "/public/images/project-photo-jeans.webp"
+    "image-1": "/public/images/project-photo-jeans.webp",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "s6-intruder",
@@ -128,7 +212,14 @@
     "image": "/public/images/project-s6-poster.webp",
 
     "type": "image",
-    "image-1": "/public/images/project-s6-poster.webp"
+    "image-1": "/public/images/project-s6-poster.webp",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "logo-manager",
@@ -137,7 +228,14 @@
     "image": "/public/images/project-graphic-modManager-logo.webp",
 
     "type": "image",
-    "image-1": "/public/images/project-graphic-modManager-logo.webp"
+    "image-1": "/public/images/project-graphic-modManager-logo.webp",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   },
   {
     "id": "3D-robot",
@@ -146,6 +244,13 @@
     "image": "/public/images/project-motion-robot-3D.webp",
 
     "type": "image",
-    "image-1": "/public/images/project-motion-robot-3D.webp"
+    "image-1": "/public/images/project-motion-robot-3D.webp",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
   }
 ]

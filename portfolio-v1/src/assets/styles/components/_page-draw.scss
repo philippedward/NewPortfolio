@@ -1,28 +1,23 @@
 @use "../variables" as *;
 
-.p-p-images-stack {
-  display: flex;
-  flex-direction: column;
-}
-
-.p-p-title {
+.p-d-title {
   text-align: right;
 }
 
-section.project-page {
+section.draw-page {
   margin-top: $space-xl;
   margin-bottom: $space-xl;
 }
 
-.p-p-top {
+.p-d-top {
   margin-bottom: $space-lg;
 }
 
-.p-p-bottom {
+.p-d-bottom {
   margin-top: $space-lg;
 }
 
-.project-page {
+.draw-page {
   img,
   video {
     width: 100%;

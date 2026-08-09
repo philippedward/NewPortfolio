@@ -1,0 +1,46 @@
+<section class="draw-page" id="drawPage">
+  <div class="container" data-draw-page>
+    <div class="p-d-top">
+      <div class="row">
+        <div class="col-1">
+          <button data-return>
+            <img src="/public/images/button-return.webp" alt="retour">
+          </button>
+        </div>
+        <div class="col-1 offset-2">
+          <div class="p-d-title">
+            <h3>{{ draw.title }}</h3>
+            <p>{{ draw["short-text"] }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <img src="{{ draw.image | url }}" alt="{{ draw.title }}">
+      </div>
+    </div>
+
+    <div class="p-d-bottom">
+      <div class="row">
+        {%
+          set sections = [
+            { title: draw["description-title"], text: draw["description-text"] },
+            { title: draw["purpose-title"], text: draw["purpose-text"] },
+            { title: draw["idea-title"], text: draw["idea-text"] }
+          ]
+        %}
+
+        {% for section in sections %}
+          <div class="col-1">
+            <div class="p-d-section-draw{{ loop.index }}">
+              <h3>{{ section.title }}</h3>
+              <p>{{ section.text }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

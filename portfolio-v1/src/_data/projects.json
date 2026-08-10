@@ -197,6 +197,13 @@
 
     "type": "image",
     "image-1": "/public/images/project-photo-jeans.webp",
+    "image-2": "/public/images/project-photo-jeans.webp",
+    "image-3": "/public/images/project-photo-jeans.webp",
+    "image-4": "/public/images/project-photo-jeans.webp",
+    "image-5": "/public/images/project-photo-jeans.webp",
+    "image-6": "/public/images/project-photo-jeans.webp",
+    "image-7": "/public/images/project-photo-jeans.webp",
+    "image-8": "/public/images/project-photo-jeans.webp",
 
     "description-title": "titre",
     "description-text": "long text",
@@ -245,6 +252,22 @@
 
     "type": "image",
     "image-1": "/public/images/project-motion-robot-3D.webp",
+
+    "description-title": "titre",
+    "description-text": "long text",
+    "purpose-title": "titre",
+    "purpose-text": "long text",
+    "idea-title": "titre",
+    "idea-text": "long text"
+  },
+  {
+    "id": "video-bordergame",
+    "title": "Bordergame",
+    "short-text": "Un robot travailler sur Blender.",
+    "image": "/public/images/project-video-bordergame.webp",
+
+    "type": "video",
+    "video": "/public/videos/project-bordergame.mp4",
 
     "description-title": "titre",
     "description-text": "long text",

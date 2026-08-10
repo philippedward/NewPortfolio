@@ -10,8 +10,8 @@
 }
 
 section.project-page {
-  margin-top: $space-xl;
-  margin-bottom: $space-xl;
+  margin-top: $space-lg;
+  margin-bottom: $space-lg;
 }
 
 .p-p-top {
@@ -22,7 +22,32 @@ section.project-page {
   margin-top: $space-lg;
 }
 
+.p-p-box {
+  width: 1500px;
+  height: 900px;
+  overflow: hidden;
+  border: solid 1px rgb(73, 73, 73);
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+  }
+}
+
 .project-page {
+  h3 {
+    line-height: 2;
+  }
+
   img,
   video {
     width: 100%;

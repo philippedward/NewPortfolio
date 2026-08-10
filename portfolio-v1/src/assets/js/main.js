@@ -232,6 +232,76 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ============================================================
+     draw zoom : box zoom dezoom
+     ============================================================ */
+  document.querySelectorAll("[data-zoom-box]").forEach((box) => {
+    const img = box.querySelector("[data-zoom-img]");
+    const range = box.querySelector("[data-zoom-range]");
+    let scale = 1,
+      x = 0,
+      y = 0,
+      dragging = false,
+      startX,
+      startY,
+      startPanX,
+      startPanY;
+
+    const clamp = () => {
+      const r = box.getBoundingClientRect();
+      const maxX = ((scale - 1) * r.width) / 2;
+      const maxY = ((scale - 1) * r.height) / 2;
+      x = Math.max(-maxX, Math.min(maxX, x));
+      y = Math.max(-maxY, Math.min(maxY, y));
+    };
+
+    const apply = () =>
+      (img.style.transform = `translate(${x}px, ${y}px) scale(${scale})`);
+
+    function setScale(newScale, cx = 0, cy = 0) {
+      newScale = Math.max(1, Math.min(3, newScale));
+      x = cx - (newScale / scale) * (cx - x);
+      y = cy - (newScale / scale) * (cy - y);
+      scale = newScale;
+      clamp();
+      apply();
+      range.value = scale;
+    }
+
+    range.addEventListener("input", () => setScale(parseFloat(range.value)));
+
+    box.addEventListener(
+      "wheel",
+      (e) => {
+        e.preventDefault();
+        const r = box.getBoundingClientRect();
+        setScale(
+          scale + (e.deltaY < 0 ? 0.1 : -0.1),
+          e.clientX - r.left - r.width / 2,
+          e.clientY - r.top - r.height / 2,
+        );
+      },
+      { passive: false },
+    );
+
+    img.addEventListener("mousedown", (e) => {
+      if (scale <= 1) return;
+      dragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      startPanX = x;
+      startPanY = y;
+    });
+    window.addEventListener("mousemove", (e) => {
+      if (!dragging) return;
+      x = startPanX + (e.clientX - startX);
+      y = startPanY + (e.clientY - startY);
+      clamp();
+      apply();
+    });
+    window.addEventListener("mouseup", () => (dragging = false));
+  });
+
+  /* ============================================================
      boutton return : project et draw
      ============================================================ */
   const returnBtn = document.querySelector("[data-return]");

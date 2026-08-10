@@ -19,39 +19,88 @@
     <div class="row">
       {% if project.type == "video" %}
         <div class="col-3">
-          <video src="{{ project.video | url }}" controls playsinline>
-            <source src="{{ project.video | url }}" type="video/mp4">
-          </video>
+          <div class="p-p-box">
+            <video
+              src="{{ (project.video if project.video else '') | url }}"
+              controls
+              playsinline
+              controlsList="nodownload noremoteplayback noplaybackrate"
+              disablePictureInPicture
+            >
+              <source
+                src="{{ (project.video if project.video else '') | url }}"
+                type="video/mp4"
+              >
+            </video>
+          </div>
         </div>
       {% elif project.type == "image" %}
-        {% if project["image-2"] or project["image-3"] %}
-          {# plusieurs images : layout col-2 / col-1 offset-3 #}
+        {% set images = project | projectImages %}
+
+        {% if images.length > 3 %}
           <div class="col-2">
-            <img src="{{ project["image-1"] | url }}" alt="{{ project.title }}">
+            <img
+              src="{{ (images[0] if images[0] else '') | url }}"
+              alt="{{ project.title }}"
+            >
           </div>
 
           <div class="col-1 offset-3 p-p-images-stack">
-            {% if project["image-2"] %}
-              <img
-                src="{{ project["image-2"] | url }}"
-                alt="{{ project.title }}"
-              >
-            {% endif %}
-            {% if project["image-3"] %}
-              <img
-                src="{{ project["image-3"] | url }}"
-                alt="{{ project.title }}"
-              >
-            {% endif %}
+            <img
+              src="{{ (images[1] if images[1] else '') | url }}"
+              alt="{{ project.title }}"
+            >
+            <img
+              src="{{ (images[2] if images[2] else '') | url }}"
+              alt="{{ project.title }}"
+            >
+          </div>
+        {% elif images.length > 1 %}
+          <div class="col-2">
+            <img
+              src="{{ (images[0] if images[0] else '') | url }}"
+              alt="{{ project.title }}"
+            >
+          </div>
+
+          <div class="col-1 offset-3 p-p-images-stack">
+            {% for img in images %}
+              {% if loop.index > 1 %}
+                <img
+                  src="{{ (img if img else '') | url }}"
+                  alt="{{ project.title }}"
+                >
+              {% endif %}
+            {% endfor %}
           </div>
         {% else %}
-          {# une seule image : layout original #}
           <div class="col-3">
-            <img src="{{ project["image-1"] | url }}" alt="{{ project.title }}">
+            <div class="p-p-box">
+              <img
+                src="{{ (images[0] if images[0] else '') | url }}"
+                alt="{{ project.title }}"
+              >
+            </div>
           </div>
         {% endif %}
       {% endif %}
     </div>
+
+    {% if project.type == "image" and images.length > 3 %}
+      {% set extraImages = images | slice(3) %}
+      {% for group in extraImages | batch(4) %}
+        <div class="row">
+          {% for img in group %}
+            <div class="col-1">
+              <img
+                src="{{ (img if img else '') | url }}"
+                alt="{{ project.title }}"
+              >
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {% endif %}
 
     <div class="p-p-bottom">
       <div class="row">

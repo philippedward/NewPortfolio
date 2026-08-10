@@ -9,16 +9,34 @@
         </div>
         <div class="col-1 offset-2">
           <div class="p-d-title">
-            <h3>{{ draw.title }}</h3>
-            <p>{{ draw["short-text"] }}</p>
+            <h3>{{ draws.title }}</h3>
+            <p>{{ draws["short-text"] }}</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-3">
-        <img src="{{ draw.image | url }}" alt="{{ draw.title }}">
+    <div class="draw-zoom">
+      <div class="row">
+        <div class="col-3">
+          <div class="p-d-box" data-zoom-box>
+            <img
+              src="{{ draws.image | url }}"
+              alt="{{ draws.title }}"
+              data-zoom-img
+              draggable="false"
+            >
+            <input
+              type="range"
+              class="zoom-range"
+              data-zoom-range
+              min="1"
+              max="3"
+              step="0.01"
+              value="1"
+            >
+          </div>
+        </div>
       </div>
     </div>
 
@@ -26,9 +44,9 @@
       <div class="row">
         {%
           set sections = [
-            { title: draw["description-title"], text: draw["description-text"] },
-            { title: draw["purpose-title"], text: draw["purpose-text"] },
-            { title: draw["idea-title"], text: draw["idea-text"] }
+            { title: draws["description-title"], text: draws["description-text"] },
+            { title: draws["purpose-title"], text: draws["purpose-text"] },
+            { title: draws["idea-title"], text: draws["idea-text"] }
           ]
         %}
 

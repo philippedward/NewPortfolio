@@ -1,7 +1,7 @@
 [
   {
     "id": "draw-st-nicolas",
-    "titre": "St-Nicolas",
+    "title": "St-Nicolas",
     "short-text": "Le père fouettard, qui se deguise en St-Nicolas.",
     "image": "/public/images/draw-st-nicolas.webp",
     "type": "Illustration",
@@ -15,7 +15,7 @@
   },
   {
     "id": "draw-centaur",
-    "titre": "Centaur",
+    "title": "Centaur",
     "short-text": "Les scientifiques ont tenté de reproduire le phénomène, mais leurs expériences ont échoué.",
     "image": "/public/images/draw-centaur.webp",
     "type": "Illustration",
@@ -29,7 +29,7 @@
   },
   {
     "id": "draw-cirque",
-    "titre": "Cirque",
+    "title": "Cirque",
     "short-text": "La mascotte du cirque empaillée.",
     "image": "/public/images/draw-circus.webp",
     "type": "Illustration",
@@ -43,7 +43,7 @@
   },
   {
     "id": "draw-different",
-    "titre": "Différence",
+    "title": "Différence",
     "short-text": "Une créature mi homme mi animal.",
     "image": "/public/images/draw-difference.webp",
     "type": "Illustration",
@@ -57,7 +57,7 @@
   },
   {
     "id": "draw-emma",
-    "titre": "Seule",
+    "title": "Seule",
     "short-text": "Une fillette laissée seule avec le chien.",
     "image": "/public/images/draw-emma.webp",
     "type": "Illustration",
@@ -71,7 +71,7 @@
   },
   {
     "id": "draw-minaudora",
-    "titre": "Minaudora",
+    "title": "Minaudora",
     "short-text": "Avec une phrase un dessin representatif.",
     "image": "/public/images/draw-minaudora.webp",
     "type": "Illustration",
@@ -85,7 +85,7 @@
   },
   {
     "id": "draw-pigeon",
-    "titre": "Pigeon",
+    "title": "Pigeon",
     "short-text": "Des pigeons avec un style cartoon.",
     "image": "/public/images/draw-pigeon.webp",
     "type": "Illustration",
@@ -99,7 +99,7 @@
   },
   {
     "id": "draw-power",
-    "titre": "Pouvoir",
+    "title": "Pouvoir",
     "short-text": "Des créatures mi homme mi animal.",
     "image": "/public/images/draw-power.webp",
     "type": "Illustration",
@@ -113,7 +113,7 @@
   },
   {
     "id": "draw-rat",
-    "titre": "Rat burger",
+    "title": "Rat burger",
     "short-text": "Un burger à rat.",
     "image": "/public/images/draw-rat.webp",
     "type": "Illustration",
@@ -127,7 +127,7 @@
   },
   {
     "id": "draw-reverse",
-    "titre": "Reverse",
+    "title": "Reverse",
     "short-text": "St-Nicolas et le père fouettard inversés.",
     "image": "/public/images/draw-reverse.webp",
     "type": "Illustration",
@@ -141,7 +141,7 @@
   },
   {
     "id": "draw-creepyMe",
-    "titre": "Creepy Me",
+    "title": "Creepy Me",
     "short-text": "Juste moi avec mon style de dessin.",
     "image": "/public/images/draw-creepyMe.webp",
     "type": "Illustration",
@@ -155,7 +155,7 @@
   },
   {
     "id": "draw-cat",
-    "titre": "Chat",
+    "title": "Chat",
     "short-text": "Quelque chose déguisé en chat.",
     "image": "/public/images/draw-cat.webp",
     "type": "Illustration",

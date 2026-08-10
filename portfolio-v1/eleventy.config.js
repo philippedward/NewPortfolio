@@ -31,6 +31,25 @@ export default function (eleventyConfig) {
   // Le filtre | safe est nécessaire pour que Nunjucks n'échappe pas le HTML généré.
   eleventyConfig.addFilter("markdown", (content) => md.render(content ?? ""));
 
+  // --- Filtre d'URL sécurisé ---
+  // Empêche Eleventy de planter si une valeur vide ou non string est passée au filtre | url.
+  eleventyConfig.addFilter("url", (value) => {
+    if (typeof value !== "string") return "";
+    return value;
+  });
+
+  // --- Filtre pour extraire les images d'un projet ---
+  eleventyConfig.addFilter("projectImages", (project) => {
+    const images = [];
+    for (let i = 1; i <= 9; i += 1) {
+      const img = project?.[`image-${i}`];
+      if (typeof img === "string" && img.trim()) {
+        images.push(img);
+      }
+    }
+    return images;
+  });
+
   // --- Configuration des dossiers ---
   return {
     pathPrefix: process.env.PATH_PREFIX ?? "/",

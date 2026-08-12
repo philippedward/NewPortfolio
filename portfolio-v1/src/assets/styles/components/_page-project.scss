@@ -43,12 +43,38 @@ section.project-page {
   }
 }
 
+.p-p-img-box {
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+  }
+
+  &--large {
+    width: 882px;
+    height: 750px;
+  }
+
+  &--small {
+    width: 416px;
+    height: 356px;
+  }
+}
+
+.p-p-images-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
 .project-page {
   h3 {
     line-height: 2;
   }
 
-  img,
   video {
     width: 100%;
     display: block;

@@ -313,15 +313,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ============================================================
-     SECTION 3 : à ajouter — MÊME LOGIQUE
-     ============================================================ */
-  // createStage({
-  //   stageId: "thirdStage",
-  //   pinDistance: 5000,
-  //   fadeInEnd: 0.1,
-  //   fadeOutStart: 0.9,
-  //   onUpdate: (p) => {
-  //     // ta logique d'animation ici, pilotée par p (0 -> 1)
-  //   },
-  // });
+   SECTION 3 : page-cv — hand zoom centré + reveal box
+   ============================================================ */
+  const handImg = document.getElementById("handImg");
+  const cvBox = document.getElementById("cvBox");
+
+  // easings réutilisables
+  const easeScale = gsap.parseEase("power1.inOut"); // zoom main : smooth, progressif
+  const easeBox = gsap.parseEase("power3.in"); // box : lente au début, accélère en douceur vers la fin
+
+  createStage({
+    stageId: "cvStage",
+    pinDistance: 6000,
+    fadeInEnd: 0,
+    fadeOutStart: 1,
+    onUpdate: (p) => {
+      // zoom centré de l'image hand, avec easing (plus smooth que linéaire)
+      const maxScale = 15;
+      const scaleProgress = easeScale(p);
+      const scale = 1 + (maxScale - 1) * scaleProgress;
+      gsap.set(handImg, { scale });
+
+      // box centrale : garde ta logique "reste petite longtemps"
+      // mais avec une courbe GSAP native, plus smooth qu'un pow(p, 6) brut
+      const boxProgress = easeBox(p);
+
+      const startSize = 60;
+      const maxWidth = window.innerWidth;
+      const maxHeight = window.innerHeight;
+
+      const width = startSize + (maxWidth - startSize) * boxProgress;
+      const height = startSize + (maxHeight - startSize) * boxProgress;
+
+      gsap.set(cvBox, { width, height });
+    },
+  });
 });

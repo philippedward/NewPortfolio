@@ -70,13 +70,3 @@ button {
 button:hover {
   scale: 1.05;
 }
-
-/* La section suivante reprend son cours normal */
-.next-section {
-  position: relative;
-  z-index: 10;
-  min-height: 100vh;
-  background: #111;
-  color: #fff;
-  padding: 80px 20px;
-}

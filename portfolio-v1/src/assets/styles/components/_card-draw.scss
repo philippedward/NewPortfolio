@@ -24,6 +24,12 @@
   overflow: hidden;
   position: relative;
   z-index: 1;
+
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.draw-card-media:hover {
+  box-shadow: none;
 }
 
 .draw-card-media img {

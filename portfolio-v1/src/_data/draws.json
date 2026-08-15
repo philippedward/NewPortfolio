@@ -2,72 +2,72 @@
   {
     "id": "draw-st-nicolas",
     "title": "St-Nicolas",
-    "short-text": "Le père fouettard, qui se deguise en St-Nicolas.",
+    "short-text": "Le père fouettard",
     "image": "/public/images/draw-st-nicolas.webp",
     "type": "Illustration",
 
-    "description-title": "titre",
-    "description-text": "long text",
-    "purpose-title": "titre",
-    "purpose-text": "long text",
-    "idea-title": "titre",
-    "idea-text": "long text"
+    "description-title": "Description du dessin",
+    "description-text": "Déguisé en Saint-Nicolas, le Père Fouettard tente de prendre sa place et de duper les enfants.",
+    "purpose-title": "Le but du dessin",
+    "purpose-text": "C'était un projet de première année. Chaque année, à l'occasion de la Saint-Nicolas, les élèves de première année réalisent un dessin sur ce thème. Le dessin est ensuite imprimé sur les biscuits distribués à tous les élèves de l'école. La consigne était d'utiliser une palette limitée à quatre couleurs.",
+    "idea-title": "L’idée du dessin",
+    "idea-text": "Je me suis inspiré de la posture du diable pour créer mon personnage. Pour son visage, j’ai combiné certains traits du diable avec ceux du méchant des Super Nanas. J’ai également ajouté des pics pour lui donner un aspect plus original et le distinguer de la représentation traditionnelle."
   },
   {
     "id": "draw-centaur",
     "title": "Centaur",
-    "short-text": "Les scientifiques ont tenté de reproduire le phénomène, mais leurs expériences ont échoué.",
+    "short-text": "L'expérience a échoué",
     "image": "/public/images/draw-centaur.webp",
     "type": "Illustration",
 
-    "description-title": "titre",
-    "description-text": "long text",
-    "purpose-title": "titre",
-    "purpose-text": "long text",
-    "idea-title": "titre",
-    "idea-text": "long text"
+    "description-title": "Description du dessin",
+    "description-text": "Il s'agit d'une expérience fictive imaginant la création d'un centaure réel, bien que cela soit biologiquement impossible.",
+    "purpose-title": "Le but du dessin",
+    "purpose-text": "Créer des visuels inspirés des peurs humaines afin de susciter une réaction émotionnelle chez le spectateur.",
+    "idea-title": "L’idée du dessin",
+    "idea-text": "À travers ce dessin, j’ai cherché à représenter une forme qui pourrait provoquer de la peur ou du malaise chez l’être humain. L’idée était de créer quelque chose d’inquiétant, mais suffisamment étrange pour laisser le spectateur imaginer sa propre peur."
   },
   {
     "id": "draw-cirque",
     "title": "Cirque",
-    "short-text": "La mascotte du cirque empaillée.",
+    "short-text": "Empaillée",
     "image": "/public/images/draw-circus.webp",
     "type": "Illustration",
 
-    "description-title": "titre",
-    "description-text": "long text",
-    "purpose-title": "titre",
-    "purpose-text": "long text",
-    "idea-title": "titre",
-    "idea-text": "long text"
+    "description-title": "Description du dessin",
+    "description-text": "Les chats Sphynx accompagnés de souris distraient les spectateurs et détournent leur attention de l’ours empaillé.",
+    "purpose-title": "Le but du dessin",
+    "purpose-text": "Montrer le côté sombre du cirque, en dénonçant la maltraitance et les mauvaises conditions dans lesquelles certains animaux sont gardés.",
+    "idea-title": "L’idée du dessin",
+    "idea-text": "À travers ce dessin, j’ai cherché à représenter une forme qui pourrait provoquer de la peur ou du malaise chez l’être humain. L’idée était de créer quelque chose d’inquiétant, mais suffisamment étrange pour laisser le spectateur imaginer sa propre peur."
   },
   {
     "id": "draw-different",
     "title": "Différence",
-    "short-text": "Une créature mi homme mi animal.",
+    "short-text": "Entouré de rose",
     "image": "/public/images/draw-difference.webp",
     "type": "Illustration",
 
-    "description-title": "titre",
-    "description-text": "long text",
-    "purpose-title": "titre",
-    "purpose-text": "long text",
-    "idea-title": "titre",
-    "idea-text": "long text"
+    "description-title": "Description du dessin",
+    "description-text": "Une créature mi-homme, mi-animal, composée d’un mélange de zèbre, de singe, d’ours et de dauphin, avec un visage et entouré de flamants roses",
+    "purpose-title": "Le but du dessin",
+    "purpose-text": "C’était un projet durant mon année préparatoire où il fallait dessiner une créature mi-animale et mi-humaine, accompagnée d’un arrière-plan qui crée une ambiance en lien avec la chose.",
+    "idea-title": "L’idée du dessin",
+    "idea-text": "Le mélange entre l’humain et l’animal est mon domaine, alors j’ai laissé mon imagination prendre le dessus. J’ai imaginé une créature qui vit dans la nature et qui a grandi entourée d’animaux doux et bienveillants, comme les flamants roses. J’ai choisi des couleurs apaisantes et chaleureuses afin de créer une ambiance calme et naturelle."
   },
   {
     "id": "draw-emma",
     "title": "Seule",
-    "short-text": "Une fillette laissée seule avec le chien.",
+    "short-text": "Décapitation",
     "image": "/public/images/draw-emma.webp",
     "type": "Illustration",
 
-    "description-title": "titre",
-    "description-text": "long text",
-    "purpose-title": "titre",
-    "purpose-text": "long text",
-    "idea-title": "titre",
-    "idea-text": "long text"
+    "description-title": "Description du dessin",
+    "description-text": "Une fillette qui a décapité un Doberman et qui utilise sa tête comme une peluche dans le cadre d’un rituel.",
+    "purpose-title": "Le but du dessin",
+    "purpose-text": "Il n’y a pas vraiment de message derrière ce dessin. J’ai simplement voulu dessiner une fille, mais je n’aimais pas le résultat. J’ai alors ajouté la tête d’un chien, et c’est à partir de là que j’ai commencé à apprécier davantage le dessin. C’est une idée assez simple, mais le résultat m’a plu.",
+    "idea-title": "L’idée du dessin",
+    "idea-text": "À travers ce dessin, j’ai cherché à représenter une forme qui pourrait provoquer de la peur ou du malaise chez l’être humain. L’idée était de créer quelque chose d’inquiétant, mais suffisamment étrange pour laisser le spectateur imaginer sa propre peur."
   },
   {
     "id": "draw-minaudora",
@@ -76,95 +76,95 @@
     "image": "/public/images/draw-minaudora.webp",
     "type": "Illustration",
 
-    "description-title": "titre",
-    "description-text": "long text",
-    "purpose-title": "titre",
-    "purpose-text": "long text",
-    "idea-title": "titre",
-    "idea-text": "long text"
+    "description-title": "Description du dessin",
+    "description-text": "Une femme au centre qui danse le ballet, avec le visage caché. Derrière elle, des jambes en talon et plusieurs yeux qui semblent observer l'arrière.",
+    "purpose-title": "Le but du dessin",
+    "purpose-text": "C’était un projet durant mon année préparatoire où il fallait créer une illustration à partir d’une phrase. Le but n’était pas de représenter directement la phrase, mais d’aller plus loin dans son interprétation et d’en explorer le sens caché.",
+    "idea-title": "L’idée du dessin",
+    "idea-text": "Je voulais mettre en évidence l’idée que, même lorsque le visage de la femme est caché et qu’elle danse simplement pour son propre plaisir, son apparence reste malgré tout observée et jugée par le regard des hommes. Les bijoux et les talons renforcent cette idée de féminité et de séduction imposée par le regard extérieur."
   },
   {
     "id": "draw-pigeon",
     "title": "Pigeon",
-    "short-text": "Des pigeons avec un style cartoon.",
+    "short-text": "Cartoon style",
     "image": "/public/images/draw-pigeon.webp",
     "type": "Illustration",
 
-    "description-title": "titre",
-    "description-text": "long text",
-    "purpose-title": "titre",
-    "purpose-text": "long text",
-    "idea-title": "titre",
-    "idea-text": "long text"
+    "description-title": "Description du dessin",
+    "description-text": "Cinq pigeons dessinés dans un style drôle et cartoon, chacun avec une personnalité et un caractère différent.",
+    "purpose-title": "Le but du dessin",
+    "purpose-text": "Savoir dessiner dans plusieurs styles différents est la clé pour développer sa créativité et s’adapter à différents projets.",
+    "idea-title": "L’idée du dessin",
+    "idea-text": "J'ai voulu dessiner des pigeons avec un style de dessin cartoon."
   },
   {
     "id": "draw-power",
     "title": "Pouvoir",
-    "short-text": "Des créatures mi homme mi animal.",
+    "short-text": "Le travail",
     "image": "/public/images/draw-power.webp",
     "type": "Illustration",
 
-    "description-title": "titre",
-    "description-text": "long text",
-    "purpose-title": "titre",
-    "purpose-text": "long text",
-    "idea-title": "titre",
-    "idea-text": "long text"
+    "description-title": "Description du dessin",
+    "description-text": "Un lion avec un visage humain et une girafe avec un corps humain, tous deux vivant à l’état sauvage.",
+    "purpose-title": "Le but du dessin",
+    "purpose-text": "C’était un projet durant mon année préparatoire où il fallait dessiner une créature mi-animale et mi-humaine, accompagnée d’un arrière-plan qui crée une ambiance en lien avec la chose.",
+    "idea-title": "L’idée du dessin",
+    "idea-text": "Ce projet représente le monde du travail et les rapports de pouvoir. Il montre comment une personne qui possède plus de pouvoir peut marcher sur les autres, les maltraiter et leur faire subir des conditions difficiles. Malgré les blessures et les injustices, certains continuent à travailler durement par peur de perdre leur emploi et pour pouvoir gagner leur vie."
   },
   {
     "id": "draw-rat",
-    "title": "Rat burger",
-    "short-text": "Un burger à rat.",
+    "title": "Cheeseburger",
+    "short-text": "Rataburger",
     "image": "/public/images/draw-rat.webp",
     "type": "Illustration",
 
-    "description-title": "titre",
-    "description-text": "long text",
-    "purpose-title": "titre",
-    "purpose-text": "long text",
-    "idea-title": "titre",
-    "idea-text": "long text"
+    "description-title": "Description du dessin",
+    "description-text": "Un burger dans lequel le steak de bœuf est remplacé par un rat entier.",
+    "purpose-title": "Le but du dessin",
+    "purpose-text": "C’était un projet réalisé durant mon année préparatoire. Il fallait réaliser un « coin coin » autour d’un thème. J’ai choisi McDonald’s et j’ai décidé de créer une version horrifique de l’univers de la marque. J’ai donc réalisé une illustration inspirée de McDonald’s, mais en transformant ses éléments familiers en quelque chose de sombre et inquiétant.",
+    "idea-title": "L’idée du dessin",
+    "idea-text": "À travers ce dessin, j’ai cherché à représenter une forme qui pourrait provoquer de la peur ou du malaise chez l’être humain. L’idée était de créer quelque chose d’inquiétant, mais suffisamment étrange pour laisser le spectateur imaginer sa propre peur."
   },
   {
     "id": "draw-reverse",
     "title": "Reverse",
-    "short-text": "St-Nicolas et le père fouettard inversés.",
+    "short-text": "Images réversibles de bascule",
     "image": "/public/images/draw-reverse.webp",
     "type": "Illustration",
 
-    "description-title": "titre",
-    "description-text": "long text",
-    "purpose-title": "titre",
-    "purpose-text": "long text",
-    "idea-title": "titre",
-    "idea-text": "long text"
+    "description-title": "Description du dessin",
+    "description-text": "St-Nicolas et le Père Fouettard réunis dans le même dessin.",
+    "purpose-title": "Le but du dessin",
+    "purpose-text": "C'était un projet de première année. Chaque année, à l'occasion de la Saint-Nicolas, les élèves de première année réalisent un dessin sur ce thème. Le dessin est ensuite imprimé sur les biscuits distribués à tous les élèves de l'école. La consigne était d'utiliser une palette limitée à quatre couleurs.",
+    "idea-title": "L’idée du dessin",
+    "idea-text": "J’ai voulu tester pour la première fois ce fameux style de dessin réversible, où l’image peut être interprétée de différentes façons selon le sens dans lequel on la regarde."
   },
   {
     "id": "draw-creepyMe",
     "title": "Creepy Me",
-    "short-text": "Juste moi avec mon style de dessin.",
+    "short-text": "Juste moi",
     "image": "/public/images/draw-creepyMe.webp",
     "type": "Illustration",
 
-    "description-title": "titre",
-    "description-text": "long text",
-    "purpose-title": "titre",
-    "purpose-text": "long text",
-    "idea-title": "titre",
-    "idea-text": "long text"
+    "description-title": "Description du dessin",
+    "description-text": "Me represent avec mon style de dessin.",
+    "purpose-title": "Le but du dessin",
+    "purpose-text": "C'était pour mon cv de mon ancien portfolio.",
+    "idea-title": "L’idée du dessin",
+    "idea-text": "Je me suis simplement dessiné dans mon propre style, en créant ma propre version de moi-même."
   },
   {
-    "id": "draw-cat",
-    "title": "Chat",
-    "short-text": "Quelque chose déguisé en chat.",
+    "id": "draw-freaks",
+    "title": "Freaks",
+    "short-text": "Phénomènes de foire",
     "image": "/public/images/draw-cat.webp",
     "type": "Illustration",
 
-    "description-title": "titre",
-    "description-text": "long text",
-    "purpose-title": "titre",
-    "purpose-text": "long text",
-    "idea-title": "titre",
-    "idea-text": "long text"
+    "description-title": "Description du dessin",
+    "description-text": "Trois personnages de cirque différents des êtres humains ordinaires, avec des apparences étranges et originales.",
+    "purpose-title": "Le but du dessin",
+    "purpose-text": "C’était un dessin réalisé par une amie que j’ai redessiné dans mon propre style, en y apportant ma touche personnelle.",
+    "idea-title": "L’idée du dessin",
+    "idea-text": "Il n’y a pas vraiment de message particulier derrière ce dessin. J’ai simplement voulu créer des personnages différents de la norme, avec des apparences originales et inhabituelles."
   }
 ]

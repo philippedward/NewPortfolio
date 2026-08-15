@@ -8,11 +8,11 @@
     "type": "video",
     "video": "/public/videos/project-mario.mp4",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -21,14 +21,14 @@
     "short-text": "Un site web basé sur un livre.",
     "image": "/public/images/project-frontend-sabre.webp",
 
-    "type": "web",
+    "type": "image",
     "image-1": "/public/images/project-frontend-sabre.webp",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -40,11 +40,11 @@
     "type": "video",
     "video": "/public/videos/project-vaya.mp4",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -56,11 +56,11 @@
     "type": "image",
     "image-1": "/public/images/project-marketing-1.webp",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -72,11 +72,11 @@
     "type": "image",
     "image-1": "/public/images/project-graphic-chocolat-moodboard.webp",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -88,11 +88,11 @@
     "type": "image",
     "image-1": "/public/images/project-graphic-george-poster.webp",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -104,11 +104,11 @@
     "type": "image",
     "image-1": "/public/images/project-ui-situ-1.webp",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -120,11 +120,11 @@
     "type": "video",
     "video": "/public/videos/project-augemend.mp4",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -136,11 +136,11 @@
     "type": "video",
     "video": "/public/videos/project-glitch.mp4",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -152,11 +152,11 @@
     "type": "image",
     "image-1": "/public/images/project-design-bansky.webp",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -165,13 +165,13 @@
     "short-text": "Projet durant mon stage de 3 mois chez eikonlab.",
     "image": "/public/images/project-stage-frontend-bilan.webp",
 
-    "type": "web",
+    "type": "image",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -180,13 +180,13 @@
     "short-text": "Un site web en slider.",
     "image": "/public/images/project-frontend-slider.webp",
 
-    "type": "web",
+    "type": "image",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -205,11 +205,11 @@
     "image-7": "/public/images/project-photo-woman.webp",
     "image-8": "/public/images/project-photo-power.webp",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -221,11 +221,11 @@
     "type": "image",
     "image-1": "/public/images/project-s6-poster.webp",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -237,11 +237,11 @@
     "type": "image",
     "image-1": "/public/images/project-graphic-modManager-logo.webp",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -253,11 +253,11 @@
     "type": "image",
     "image-1": "/public/images/project-motion-robot-3D.webp",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   },
   {
@@ -269,11 +269,11 @@
     "type": "video",
     "video": "/public/videos/project-bordergame.mp4",
 
-    "description-title": "titre",
+    "description-title": "Description du projet",
     "description-text": "long text",
-    "purpose-title": "titre",
+    "purpose-title": "Le but du projet",
     "purpose-text": "long text",
-    "idea-title": "titre",
+    "idea-title": "L’idée du projet",
     "idea-text": "long text"
   }
 ]

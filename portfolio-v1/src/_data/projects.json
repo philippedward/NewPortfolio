@@ -24,6 +24,7 @@
     "type": "video",
     "video": "/public/videos/project-video-sabre.mp4",
     "link": "https://amelie-rakowiecki.alwaysdata.net/sabre/",
+    "link-text": "Check le site web",
 
     "description-title": "Description du projet",
     "description-text": "Un site web à défilement (scrolling) présentant une bande dessinée.",
@@ -154,6 +155,7 @@
     "type": "video",
     "video": "/public/videos/project-glitch.mp4",
     "link": "https://open.spotify.com/intl-fr/track/7tl2viMuFLOxe55YqZWKNy?utm_source=chatgpt.com",
+    "link-text": "Check la musique",
 
     "description-title": "Description du projet",
     "description-text": "Une vidéo hypnotique avec des couleurs vives et plusieurs formes qui évoluent au rythme de la musique.",
@@ -187,6 +189,7 @@
     "type": "image",
     "image-1": "/public/images/project-stage-frontend-bilan.webp",
     "link": "https://eikonlab-bilan-activite.eikon.ch/2026/",
+    "link-text": "Check le site web",
 
     "description-title": "Description du projet",
     "description-text": "Un site web pour eikonlab",
@@ -204,6 +207,7 @@
     "type": "image",
     "image-1": "/public/images/project-frontend-slider.webp",
     "link": "https://amelie-rakowiecki.alwaysdata.net/slider/",
+    "link-text": "Check le site web",
 
     "description-title": "Description du projet",
     "description-text": "Un slider dessiné et intégré dans un site web.",
@@ -242,7 +246,12 @@
     "image": "/public/images/project-s6-poster.webp",
 
     "type": "image",
-    "image-1": "/public/images/project-s6-poster.webp",
+    "image-1": "/public/images/project-s6-livingRoom.webp",
+    "image-2": "/public/images/project-s6-livingRoom-mesh.webp",
+    "image-3": "/public/images/project-s6-poster.webp",
+    "image-4": "/public/images/project-s6-expostion.webp",
+    "link": "https://intruder.amelie-rako.ch/",
+    "link-text": "Jouer au jeu",
 
     "description-title": "Description du projet",
     "description-text": "Un projet réalisé de A à Z par moi-même, avec l’aide de mes professeurs, bien sûr. Ils étaient là pour répondre à nos questions et nous guider lorsque nous étions perdus, mais ils ne faisaient pas le travail à notre place.",
@@ -262,6 +271,7 @@
     "image-2": "/public/images/project-graphic-modManager-game.webp",
     "image-3": "/public/images/project-graphic-modManager.webp",
     "link": "https://steamcommunity.com/sharedfiles/filedetails/?id=3539729649",
+    "link-text": "Check sur Steam",
 
     "description-title": "Description du projet",
     "description-text": "Un logo pour le Mods Manager du jeu Gates of Hell.",
@@ -300,7 +310,7 @@
     "description-title": "Description du projet",
     "description-text": "Une vidéo mettant en scène une fille qui va assister à un spectacle de danse, mais les choses ne se passent pas comme prévu.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "--------",
+    "purpose-text": "------",
     "idea-title": "L’idée du projet",
     "idea-text": "Créer un spectacle de danse contemporaine qui commence de manière normale, puis devient progressivement étrange et inquiétant afin de mettre les spectateurs mal à l’aise."
   },
@@ -311,7 +321,7 @@
     "image": "/public/images/project-workspace.webp",
 
     "type": "video",
-    "video": "/public/videos/project-workspace.gif",
+    "video": "/public/videos/project-workspace.mp4",
 
     "description-title": "Description du projet",
     "description-text": "Une bureau fait à base de forme et de deux couleurs.",
@@ -339,7 +349,7 @@
     "image-10": "/public/images/photo-window-cleaner-1.webp",
     "image-11": "/public/images/photo-floor-cleaner.webp",
     "image-12": "/public/images/photo-balet.webp",
-    "image-13": "/public/images/photo-bikinibottom.webp",
+    "image-13": "/public/images/photo-window-cleaner-2.webp",
     "image-14": "/public/images/photo-equilibre.webp",
     "image-15": "/public/images/photo-spiral.webp",
     "image-16": "/public/images/photo-number-minus-1.webp",
@@ -348,7 +358,6 @@
     "image-19": "/public/images/photo-number-2.webp",
     "image-20": "/public/images/photo-number-3.webp",
     "image-21": "/public/images/photo-number-4.webp",
-    "image-22": "/public/images/photo-window-cleaner-2.webp",
 
     "description-title": "Description du projet",
     "description-text": "Chaque silhouette transforme un élément du bâtiment en une scène inspirée de la vie réelle.",

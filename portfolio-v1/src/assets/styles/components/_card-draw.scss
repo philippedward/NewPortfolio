@@ -1,5 +1,5 @@
 .draw-card {
-  position: relative; /* nécessaire pour ancrer .draw-card-content */
+  position: relative;
   width: 200px;
   height: 220px;
   border-radius: 10px;
@@ -9,6 +9,10 @@
   will-change: transform, opacity;
   cursor: pointer;
   display: block;
+}
+
+.draw-card[data-id="draw-reverse"]:hover .draw-card-media img {
+  transform: rotate(180deg);
 }
 
 .draw-card article {

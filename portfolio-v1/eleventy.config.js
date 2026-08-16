@@ -40,14 +40,22 @@ export default function (eleventyConfig) {
 
   // --- Filtre pour extraire les images d'un projet ---
   eleventyConfig.addFilter("projectImages", (project) => {
-    const images = [];
-    for (let i = 1; i <= 9; i += 1) {
-      const img = project?.[`image-${i}`];
-      if (typeof img === "string" && img.trim()) {
-        images.push(img);
-      }
-    }
-    return images;
+    if (!project) return [];
+
+    return (
+      Object.keys(project)
+        // on garde uniquement les clés du type "image-1", "image-2", "image-22"...
+        .filter((key) => /^image-\d+$/.test(key))
+        // tri NUMÉRIQUE (sinon image-10 passerait avant image-2)
+        .sort((a, b) => {
+          const numA = parseInt(a.split("-")[1], 10);
+          const numB = parseInt(b.split("-")[1], 10);
+          return numA - numB;
+        })
+        .map((key) => project[key])
+        // on garde que les strings non vides
+        .filter((img) => typeof img === "string" && img.trim())
+    );
   });
 
   // --- Configuration des dossiers ---

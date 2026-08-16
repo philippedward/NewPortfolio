@@ -22,6 +22,18 @@ section.project-page {
 
 .p-p-top {
   margin-bottom: $space-lg;
+
+  a {
+    text-align: center;
+    color: $color-white;
+  }
+
+  .hand-buttler {
+    position: absolute;
+    width: 5%;
+    top: 6%;
+    left: 48%;
+  }
 }
 
 .p-p-bottom {
@@ -59,14 +71,15 @@ section.project-page {
     object-fit: contain;
   }
 
-  &--large {
+  &-large {
     width: 882px;
     height: 750px;
   }
 
-  &--small {
+  &-small {
     width: 416px;
     height: 356px;
+    margin-bottom: 47px;
   }
 }
 

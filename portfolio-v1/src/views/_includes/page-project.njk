@@ -7,7 +7,25 @@
             <img src="/public/images/button-return.webp" alt="retour">
           </button>
         </div>
-        <div class="col-1 offset-2">
+
+        {% if project.link %}
+          <div class="col-1">
+            <a
+              href="{{ project.link }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p>{{ project["link-text"] }}</p>
+            </a>
+            <img
+              class="hand-buttler"
+              src="/public/images/hand-check.webp"
+              alt="buttler hand"
+            >
+          </div>
+        {% endif %}
+
+        <div class="col-1 {% if not project.link %}offset-2{% endif %}">
           <div class="p-p-title">
             <h3>{{ project.title }}</h3>
             <p>{{ project["short-text"] }}</p>
@@ -39,7 +57,7 @@
 
         {% if images.length == 3 %}
           <div class="col-2">
-            <div class="p-p-img-box p-p-img-box--large">
+            <div class="p-p-img-box p-p-img-box-large">
               <img src="{{ (images[0] if images[0] else '') | url }}">
             </div>
           </div>
@@ -48,32 +66,32 @@
             class="col-1 offset-3 p-p-images-stack"
             style="display: flex; flex-direction: column; gap: 44px;"
           >
-            <div class="p-p-img-box p-p-img-box--small">
+            <div class="p-p-img-box p-p-img-box-small">
               <img src="{{ (images[1] if images[1] else '') | url }}">
             </div>
-            <div class="p-p-img-box p-p-img-box--small">
+            <div class="p-p-img-box p-p-img-box-small">
               <img src="{{ (images[2] if images[2] else '') | url }}">
             </div>
           </div>
         {% elif images.length > 3 %}
           <div class="col-1">
-            <div class="p-p-img-box p-p-img-box--small">
+            <div class="p-p-img-box p-p-img-box-small">
               <img src="{{ (images[0] if images[0] else '') | url }}">
             </div>
           </div>
           <div class="col-1">
-            <div class="p-p-img-box p-p-img-box--small">
+            <div class="p-p-img-box p-p-img-box-small">
               <img src="{{ (images[1] if images[1] else '') | url }}">
             </div>
           </div>
           <div class="col-1">
-            <div class="p-p-img-box p-p-img-box--small">
+            <div class="p-p-img-box p-p-img-box-small">
               <img src="{{ (images[2] if images[2] else '') | url }}">
             </div>
           </div>
         {% elif images.length > 1 %}
           <div class="col-2">
-            <div class="p-p-img-box p-p-img-box--small">
+            <div class="p-p-img-box p-p-img-box-small">
               <img src="{{ (images[0] if images[0] else '') | url }}">
             </div>
           </div>
@@ -81,7 +99,7 @@
           <div class="col-1 offset-3 p-p-images-stack">
             {% for img in images %}
               {% if loop.index > 1 %}
-                <div class="p-p-img-box p-p-img-box--small">
+                <div class="p-p-img-box p-p-img-box-small">
                   <img src="{{ (img if img else '') | url }}">
                 </div>
               {% endif %}
@@ -98,12 +116,12 @@
     </div>
 
     {% if project.type == "image" and images.length > 3 %}
-      {% set extraImages = images | slice(3) %}
-      {% for group in extraImages | batch(4) %}
+      {% set galleryImages = images.slice(3) %}
+      {% for group in galleryImages | batch(3) %}
         <div class="row">
           {% for img in group %}
             <div class="col-1">
-              <div class="p-p-img-box p-p-img-box--small">
+              <div class="p-p-img-box p-p-img-box-small">
                 <img src="{{ (img if img else '') | url }}">
               </div>
             </div>

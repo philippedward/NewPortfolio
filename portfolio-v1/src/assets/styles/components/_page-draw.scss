@@ -2,6 +2,15 @@
 
 .p-d-title {
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.p-d-section-draw {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
 }
 
 section.draw-page {

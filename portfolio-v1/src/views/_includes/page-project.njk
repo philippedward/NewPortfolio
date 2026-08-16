@@ -124,9 +124,11 @@
 
         {% for section in sections %}
           <div class="col-1">
-            <div class="p-p-section-project{{ loop.index }}">
-              <h3>{{ section.title }}</h3>
-              <p>{{ section.text }}</p>
+            <div class="{{ loop.index }}">
+              <div class="p-p-section-project">
+                <h3>{{ section.title }}</h3>
+                <p>{{ section.text }}</p>
+              </div>
             </div>
           </div>
         {% endfor %}

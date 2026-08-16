@@ -2,197 +2,220 @@
   {
     "id": "motion-mario",
     "title": "Vidéo Mario",
-    "short-text": "Une courte vidéo sur mario.",
+    "short-text": "Une courte vidéo sur mario",
     "image": "/public/images/project-motion-mario.webp",
 
     "type": "video",
     "video": "/public/videos/project-mario.mp4",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Une courte vidéo dans le monde de mario.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Il fallait travailler sur After Effects en utilisant l’outil pinceau pour sélectionner une personne en mouvement. L’objectif était ensuite de l’intégrer dans un nouveau décor et d’ajouter des éléments sur différents plans afin de créer un effet de profondeur et de donner plus de dynamisme à la scène.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "Le mouvement du personnage me rappelait Mario, et j’ai trouvé cela drôle. J’ai donc choisi de partir dans cette direction pour rendre le projet plus amusant."
   },
   {
     "id": "frontend-sabre",
     "title": "Sabre",
-    "short-text": "Un site web basé sur un livre.",
+    "short-text": "Un site web basé sur un livre",
     "image": "/public/images/project-frontend-sabre.webp",
 
-    "type": "image",
-    "image-1": "/public/images/project-frontend-sabre.webp",
+    "type": "video",
+    "video": "/public/videos/project-video-sabre.mp4",
+    "link": "https://amelie-rakowiecki.alwaysdata.net/sabre/",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Un site web à défilement (scrolling) présentant une bande dessinée.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Réalisation d’un site web basé sur le scrolling avec GSAP pour mettre en valeur une bande dessinée choisie parmi cinq propositions. En binôme, nous avons également réalisé une courte vidéo servant de bande-annonce pour la BD. Le projet se terminait par une boutique intégrée à la fin du site web. Travail réalisé à deux.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "On a pris les parties les plus intéressantes de la BD et on n’a pas commencé directement comme dans l’histoire originale. On a mélangé différents passages pour créer quelque chose de cohérent. Le site commence par la galaxie, puis la naissance du personnage, son exploration et enfin son aventure. Et pour la bande-annonce, on a fait quelque chose de différent. On a montré d’abord la vie présente dans cet univers, puis la naissance du personnage et, ensuite, son aventure."
   },
   {
     "id": "video-vaya",
     "title": "Vaya",
-    "short-text": "Une vidéo de publicité.",
+    "short-text": "Une vidéo de publicité",
     "image": "/public/images/project-video-vaya.webp",
 
     "type": "video",
     "video": "/public/videos/project-vaya.mp4",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Une vidéo publicitaire pour les chips Vaya de Zweifel.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Réaliser une vidéo publicitaire en choisissant un objet parmi quatre propositions. Travail réalisé à deux.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "On a voulu créer quelque chose de familier et amusant, qui puisse plaire à des spectateurs de tous les âges."
   },
   {
     "id": "marketing-tea",
     "title": "Les thés de lucie",
-    "short-text": "Univer de marque de thé.",
+    "short-text": "Univer de marque de thé",
     "image": "/public/images/project-marketing-1.webp",
 
     "type": "image",
     "image-1": "/public/images/project-marketing-1.webp",
+    "image-2": "/public/images/project-marketing-5.webp",
+    "image-3": "/public/images/project-marketing-6.webp",
+    "image-4": "/public/images/project-marketing-7.webp",
+    "image-5": "/public/images/project-marketing-8.webp",
+    "image-6": "/public/images/project-marketing-9.webp",
+    "image-7": "/public/images/project-marketing-11.webp",
+    "image-8": "/public/images/project-marketing-13.webp",
+    "image-9": "/public/images/project-marketing-mokup-1.webp",
+    "image-10": "/public/images/project-marketing-mokup-2.webp",
+    "image-11": "/public/images/project-marketing-affiche-1.webp",
+    "image-12": "/public/images/project-marketing-affiche-2.webp",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Un univers de marque sur le thème du thé.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Créer tout un univers graphique autour d’une marque de thé. Il fallait réaliser une palette de couleurs, un logo, un pictogramme, un logo combiné, choisir des matières, deux typographies, ainsi que créer des mockups et des affiches.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "Pour les couleurs, je suis parti sur quelque chose de simple, avec une couleur sobre et des motifs inspirés des plantes utilisées pour le thé. Le design du logo est pour rappeler l’élégance du thé, ainsi qu’une boîte carrée qui permet de placer parfaitement les éléments dans les coins. J’ai également imaginé une ouverture adaptée au thé en vrac, afin de pouvoir l’attraper plus facilement."
   },
   {
     "id": "frontend-chocolat",
     "title": "Chocolat festival",
-    "short-text": "Site web refait.",
+    "short-text": "Site web refait",
     "image": "/public/images/project-graphic-chocolat-moodboard.webp",
 
     "type": "image",
     "image-1": "/public/images/project-graphic-chocolat-moodboard.webp",
+    "image-2": "/public/images/project-graphic-chocolat-logo.webp",
+    "image-3": "/public/images/project-graphic-chocolat-page.webp",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Une maquette pour un site de festival.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Refaire un site web déjà existant et l’améliorer à notre manière, en apportant nos propres idées et notre style avec le logo refait. Travail à deux.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "On a décidé de donner un style plus percutant et plus adapté aux personnes intéressées par les festivals de techno, en utilisant deux couleurs vives qui ressortent sur un fond blanc."
   },
   {
     "id": "graphic-festival",
     "title": "Les georges festival",
-    "short-text": "Une affiche dessinée.",
+    "short-text": "Une affiche dessinée",
     "image": "/public/images/project-graphic-george-poster.webp",
 
     "type": "image",
     "image-1": "/public/images/project-graphic-george-poster.webp",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Une affiche colorée avec un poisson dans un style étrange et décalé mais stylée.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Réaliser une affiche à partir de l’identité visuelle de Loupfock pour le Georges Festival.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "J’ai utilisé des couleurs très vives pour mettre l’affiche en valeur dans la rue, avec un poisson décalé pour correspondre à l’univers du festival Loupfouck des Georges Festival."
   },
   {
     "id": "UI-UX-situ",
     "title": "in situ",
-    "short-text": "Une maquette pour EPanel.",
+    "short-text": "Une maquette pour EPanel",
     "image": "/public/images/project-ui-situ-1.webp",
 
     "type": "image",
     "image-1": "/public/images/project-ui-situ-1.webp",
+    "image-2": "/public/images/project-graphic-situ-off-handicap-1.webp",
+    "image-3": "/public/images/project-graphic-situ-off-handicap-2.webp",
+    "image-4": "/public/images/project-graphic-situ-handicap-1.webp",
+    "image-5": "/public/images/project-graphic-situ-handicap-2.webp",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Une maquette pour in situ pour des Epanels interactive.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Créer une animation d’introduction, puis réaliser deux pages de maquette détaillées. Travail à trois.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "Créer une animation à partir des propositions présentes sur leur site, puis réaliser une page d’accueil et une page détaillée. Nous avons également ajouté un mode adapté aux personnes en situation de handicap qui ne peuvent pas rester debout."
   },
   {
     "id": "motion-augemend",
     "title": "Augemend",
-    "short-text": "Une vidéo du futur avec des écrans holographiques.",
+    "short-text": "Une vidéo du futur",
     "image": "/public/images/project-motion-augemend.webp",
 
     "type": "video",
     "video": "/public/videos/project-augemend.mp4",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Une vidéo à la troisième personne avec des écrans holographiques.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Faire une vidéo simple dans la rue, dans laquelle une personne interagit de manière fictive avec des écrans holographiques. Nous avons ensuite ajouté les écrans sur After Effects afin de rendre la vidéo plus réaliste. Il fallait également ajouter de nombreux détails, comme si, dans le futur, notre vie était remplie d’informations affichées devant nous, visibles uniquement par la personne grâce à ses yeux.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "Créer des écrans de téléphone remplis de messages, de contenu corrompu, de virus, de publicités, de musique, de glitches et de chemins dangereux que la personne ne peut plus voir à cause de la surcharge d’informations. Toutes ces informations apparaissent et se superposent, avec également des données sur les personnes que l’on croise."
   },
   {
     "id": "motion-glitch",
     "title": "Animation forme avec music",
-    "short-text": "Une vidéo avec des couleurs et formes hypnotiques.",
+    "short-text": "Une vidéo avec des couleurs et formes hypnotiques",
     "image": "/public/images/project-motion-glitch.webp",
 
     "type": "video",
     "video": "/public/videos/project-glitch.mp4",
+    "link": "https://open.spotify.com/intl-fr/track/7tl2viMuFLOxe55YqZWKNy?utm_source=chatgpt.com",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Une vidéo hypnotique avec des couleurs vives et plusieurs formes qui évoluent au rythme de la musique.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Il fallait d’abord créer plusieurs formes animées de cinq secondes sur Canva, puis choisir celles qui nous plaisaient le plus pour créer une composition où beaucoup de choses se passent à l’écran. Il fallait synchroniser les animations avec la musique afin d’éviter que la vidéo soit répétitive, avec un début et une fin bien définis. Nous avons également modifié les couleurs pour les rendre plus vives, ajouté différentes modifications et intégré des effets de glitch.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "En superposant aléatoirement les animations, puis en les plaçant comme je le souhaitais, j’ai pu créer une composition dynamique et visuellement captivante qui attire l’œil."
   },
   {
     "id": "design-banksy",
     "title": "Banksy",
-    "short-text": "Passer a une image a une creation",
+    "short-text": "Passer à une image à une création",
     "image": "/public/images/project-design-bansky.webp",
 
     "type": "image",
     "image-1": "/public/images/project-design-bansky.webp",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Quatre façades présentant les différentes étapes de l’évolution d’une image.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "À partir d’une image d’artiste reçue, il fallait créer une métamorphose de l’image. La première étape consistait à reproduire l’image de base en noir et blanc. Ensuite, au fil des étapes, l’image originale disparaissait progressivement tout en conservant ses éléments les plus importants. La dernière image devait s’éloigner de l’original tout en se rapprochant le plus possible du style artistique de l’artiste reçu.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "En faisant des recherches sur Banksy et en observant ses différentes créations, j’ai remarqué qu’il utilise principalement le noir et blanc et qu’il travaille beaucoup autour du graffiti. Le rat est également un symbole récurrent dans son œuvre, souvent utilisé pour représenter l’être humain et la société. J’ai choisi d’intégrer les trois singes de la sagesse : celui qui se couvre les yeux, celui qui se couvre les oreilles et celui qui se couvre la bouche. Mon idée finale était de représenter une personne qui tente de révéler l’identité de Banksy, mais découvre à la place un rat derrière le masque. Cette image symbolise la curiosité humaine et la manière dont certaines personnes sont prêtes à tout pour satisfaire leur besoin de savoir."
   },
   {
     "id": "frontend-Bilan",
     "title": "Bilan d'activité eikonlab",
-    "short-text": "Projet durant mon stage de 3 mois chez eikonlab.",
+    "short-text": "Projet durant mon stage de 3 mois chez eikonlab",
     "image": "/public/images/project-stage-frontend-bilan.webp",
 
     "type": "image",
+    "image-1": "/public/images/project-stage-frontend-bilan.webp",
+    "link": "https://eikonlab-bilan-activite.eikon.ch/2026/",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Un site web pour eikonlab",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Créer un site web mettant en valeur les activités, les projets et l’accompagnement proposés par eikonLab aux stagiaires.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "L’objectif était de créer quelque chose de pertinent, innovant et créatif afin de montrer ce qu’eikonLab est capable de réaliser. Le site intègre de nombreux effets interactifs ainsi que de petits détails cachés à découvrir, afin de rendre l’expérience plus immersive et engageante."
   },
   {
     "id": "frontend-surprise",
     "title": "Surprise",
-    "short-text": "Un site web en slider.",
+    "short-text": "Un site web en slider",
     "image": "/public/images/project-frontend-slider.webp",
 
     "type": "image",
+    "image-1": "/public/images/project-frontend-slider.webp",
+    "link": "https://amelie-rakowiecki.alwaysdata.net/slider/",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Un slider dessiné et intégré dans un site web.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Réaliser un slider « avant / après », puis l’intégrer dans un site web.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "J’ai voulu créer quelque chose que j’aime faire, en partant d’éléments que les gens apprécient. Puis, en découvrant la réalité derrière ces éléments, ils se retrouvent tous dégoûtés par ce qu’ils voient. Tout a été entièrement dessiné par moi, y compris le décor."
   },
   {
     "id": "photo-all",
     "title": "Photographie",
-    "short-text": "Une collection de photos.",
+    "short-text": "Une collection de photos",
     "image": "/public/images/project-photo-jeans.webp",
 
     "type": "image",
@@ -206,74 +229,132 @@
     "image-8": "/public/images/project-photo-power.webp",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Des photos en noir et blanc ou en couleurs.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Durant mon année préparatoire et mes trois années de stage en IMD, j’ai réalisé différentes séries de photos, chacune autour d’un thème different.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "Celles en noir et blanc consistaient à photographier ce que l’on pouvait observer pendant une balade, en cherchant des cadrages intéressants. Pour les photos floues ou avec des effets de double image, il fallait créer quelque chose de mystérieux en utilisant le flou et les superpositions. Pour la photo sur le canapé, j’ai voulu représenter une femme qui attend son mari, seule et ivre après le travail, avec une cigarette à la main et une expression de déception et de colère. Pour la photo avec le jean sur la tête, il fallait choisir un objet aléatoire chez soi et réaliser une photo créative avec celui-ci, en utilisant un éclairage coloré. Enfin, pour la série avec un style plus « rap », il fallait photographier une personne avec un flash puissant afin de créer un rendu plus marqué."
   },
   {
     "id": "s6-intruder",
     "title": "Jeu vidéo intruder",
-    "short-text": "Projet réalisé de ma fin d'année en 3ème année.",
+    "short-text": "Projet réalisé pour ma fin d'année en 3ème année",
     "image": "/public/images/project-s6-poster.webp",
 
     "type": "image",
     "image-1": "/public/images/project-s6-poster.webp",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Un projet réalisé de A à Z par moi-même, avec l’aide de mes professeurs, bien sûr. Ils étaient là pour répondre à nos questions et nous guider lorsque nous étions perdus, mais ils ne faisaient pas le travail à notre place.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Il fallait choisir entre trois domaines : graphisme, motion design/vidéo et frontend/UI-UX. J’ai choisi le frontend. J’ai créé un jeu vidéo interactif jouable uniquement avec des clics, directement sur un site web. J’ai également réalisé une affiche pour présenter et promouvoir mon jeu.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "J’ai créé un jeu vidéo basé sur l’observation et le clic. Le but est de trouver un monstre caché dans les différentes pièces d’une maison grâce aux caméras de surveillance. Les pièces ainsi que le monstre ont été entièrement créés sur Blender, puis retravaillés sur Photoshop pour réaliser les différentes superpositions."
   },
   {
     "id": "logo-manager",
     "title": "Logo Mod Manager",
-    "short-text": "Un logo pour un logiciel de gestion de mods.",
+    "short-text": "Un logo pour un logiciel de gestion de mods",
     "image": "/public/images/project-graphic-modManager-logo.webp",
 
     "type": "image",
     "image-1": "/public/images/project-graphic-modManager-logo.webp",
+    "image-2": "/public/images/project-graphic-modManager-game.webp",
+    "image-3": "/public/images/project-graphic-modManager.webp",
+    "link": "https://steamcommunity.com/sharedfiles/filedetails/?id=3539729649",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Un logo pour le Mods Manager du jeu Gates of Hell.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Créer un logo pour mon copain, qui a développé un nouveau gestionnaire de mods pour un jeu vidéo.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "J’ai repris certains éléments du logo du jeu afin de ne pas trop m’en éloigner et de permettre de reconnaître rapidement à quel jeu ce mod manager est associé."
   },
   {
     "id": "3D-robot",
     "title": "Robot",
-    "short-text": "Un robot travailler sur Blender.",
+    "short-text": "Un robot travailler sur Blender",
     "image": "/public/images/project-motion-robot-3D.webp",
 
     "type": "image",
     "image-1": "/public/images/project-motion-robot-3D.webp",
+    "image-2": "/public/images/project-motion-robot-3D-croquis-1.webp",
+    "image-3": "/public/images/project-motion-robot-3D-croquis-2.webp",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Un robot des années 1980.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "Réaliser un robot de A à Z sur Blender. Il fallait lui ajouter une image, un texte et une matière rouillée, tout en permettant au robot de bouger et de prendre différentes positions. Enfin, il fallait l’intégrer dans un décor.",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "J’ai créé un robot inspiré de plusieurs modèles de robots des années 1980. J’ai ensuite cherché une manière logique de créer les articulations, notamment avec des vis, afin de permettre au robot de bouger et de prendre différentes positions. L’idée de lui donner un style inspiré de Toy Story est ensuite venue naturellement."
   },
   {
     "id": "video-bordergame",
     "title": "Bordergame",
-    "short-text": "Un robot travailler sur Blender.",
+    "short-text": "Une vidéo volontairement étrange",
     "image": "/public/images/project-video-bordergame.webp",
 
     "type": "video",
     "video": "/public/videos/project-bordergame.mp4",
 
     "description-title": "Description du projet",
-    "description-text": "long text",
+    "description-text": "Une vidéo mettant en scène une fille qui va assister à un spectacle de danse, mais les choses ne se passent pas comme prévu.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "long text",
+    "purpose-text": "--------",
     "idea-title": "L’idée du projet",
-    "idea-text": "long text"
+    "idea-text": "Créer un spectacle de danse contemporaine qui commence de manière normale, puis devient progressivement étrange et inquiétant afin de mettre les spectateurs mal à l’aise."
+  },
+  {
+    "id": "video-desk",
+    "title": "Bureau",
+    "short-text": "Un GIF basé sur l’utilisation de couleurs complémentaires",
+    "image": "/public/images/project-workspace.webp",
+
+    "type": "video",
+    "video": "/public/videos/project-workspace.gif",
+
+    "description-title": "Description du projet",
+    "description-text": "Une bureau fait à base de forme et de deux couleurs.",
+    "purpose-title": "Le but du projet",
+    "purpose-text": "Réaliser un bureau de travail, puis l’animer sous forme de GIF en utilisant uniquement des couleurs complémentaires.",
+    "idea-title": "L’idée du projet",
+    "idea-text": "Je me suis inspiré d’un bureau trouvé sur Internet, puis j’ai créé plusieurs rectangles pour construire la composition. J’ai choisi le rouge et le vert comme couleurs complémentaires. J’ai ensuite ajouté l’animation du petit T-Rex de Google pour donner du mouvement au GIF."
+  },
+  {
+    "id": "photo-easteregg",
+    "title": "Silhouette illustrée",
+    "short-text": "Un clin d'oeil à la vie",
+    "image": "/public/images/photo-floor-cleaner.webp",
+
+    "type": "image",
+    "image-1": "/public/images/photo-spider-1.webp",
+    "image-2": "/public/images/photo-travaux.webp",
+    "image-3": "/public/images/photo-running.webp",
+    "image-4": "/public/images/photo-dog-1.webp",
+    "image-5": "/public/images/photo-dog-2.webp",
+    "image-6": "/public/images/photo-dog-3.webp",
+    "image-7": "/public/images/photo-velo.webp",
+    "image-8": "/public/images/photo-escaping.webp",
+    "image-9": "/public/images/photo-spider-2.webp",
+    "image-10": "/public/images/photo-window-cleaner-1.webp",
+    "image-11": "/public/images/photo-floor-cleaner.webp",
+    "image-12": "/public/images/photo-balet.webp",
+    "image-13": "/public/images/photo-bikinibottom.webp",
+    "image-14": "/public/images/photo-equilibre.webp",
+    "image-15": "/public/images/photo-spiral.webp",
+    "image-16": "/public/images/photo-number-minus-1.webp",
+    "image-17": "/public/images/photo-number-0.webp",
+    "image-18": "/public/images/photo-number-1.webp",
+    "image-19": "/public/images/photo-number-2.webp",
+    "image-20": "/public/images/photo-number-3.webp",
+    "image-21": "/public/images/photo-number-4.webp",
+    "image-22": "/public/images/photo-window-cleaner-2.webp",
+
+    "description-title": "Description du projet",
+    "description-text": "Chaque silhouette transforme un élément du bâtiment en une scène inspirée de la vie réelle.",
+    "purpose-title": "Le but du projet",
+    "purpose-text": "Des silhouettes placées dans les espaces du bâtiment afin de donner vie à son architecture à travers des situations du quotidien.",
+    "idea-title": "L’idée du projet",
+    "idea-text": "Rendre les murs moins vides, de créer une atmosphère plus chaleureuse et de faire sourire les personnes qui passent devant. Ce petit travail a été réalisé en collaboration avec Maëlle Ecoffey."
   }
 ]

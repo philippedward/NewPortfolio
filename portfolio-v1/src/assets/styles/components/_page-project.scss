@@ -9,6 +9,12 @@
   text-align: right;
 }
 
+.p-d-section-project {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
 section.project-page {
   margin-top: $space-lg;
   margin-bottom: $space-lg;

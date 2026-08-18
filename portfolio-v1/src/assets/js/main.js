@@ -315,37 +315,102 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ============================================================
    SECTION 3 : page-cv — hand zoom centré + reveal box
    ============================================================ */
+  const handWrapper = document.getElementById("handWrapper");
   const handImg = document.getElementById("handImg");
   const cvBox = document.getElementById("cvBox");
 
-  // easings réutilisables
-  const easeScale = gsap.parseEase("power1.inOut"); // zoom main : smooth, progressif
-  const easeBox = gsap.parseEase("power3.in"); // box : lente au début, accélère en douceur vers la fin
+  const cvFinal = document.getElementById("cvFinal");
+  const cvPaper2 = document.getElementById("cvPaper2");
+  const cvPaper3 = document.getElementById("cvPaper3");
+
+  const easeScale = gsap.parseEase("power1.inOut");
+  const easeBox = gsap.parseEase("power3.in");
+  const easeFade = gsap.parseEase("power1.inOut");
+
+  // PHASE1_END = jusqu'où va ta phase actuelle (zoom + box).
+  // PHASE1_END à 1 sur l'échelle du NOUVEAU pinDistance total.
+  const PHASE1_END = 0.4; // 40% du scroll total pour zoom+box, 60% pour la suite
 
   createStage({
     stageId: "cvStage",
-    pinDistance: 6000,
+    pinDistance: 15000, // total = ancien 6000 (phase1) + nouveau budget pour phase2
     fadeInEnd: 0,
     fadeOutStart: 1,
     onUpdate: (p) => {
-      // zoom centré de l'image hand, avec easing (plus smooth que linéaire)
-      const maxScale = 15;
-      const scaleProgress = easeScale(p);
-      const scale = 1 + (maxScale - 1) * scaleProgress;
-      gsap.set(handImg, { scale });
+      if (p <= PHASE1_END) {
+        // ===== PHASE 1 : EXACTEMENT TON CODE ACTUEL =====
+        // on remappe p (0 -> PHASE1_END) en pp (0 -> 1) pour garder le même timing qu'avant
+        const pp = p / PHASE1_END;
 
-      // box centrale : garde ta logique "reste petite longtemps"
-      // mais avec une courbe GSAP native, plus smooth qu'un pow(p, 6) brut
-      const boxProgress = easeBox(p);
+        const maxScale = 15;
+        const scaleProgress = easeScale(pp);
+        const scale = 1 + (maxScale - 1) * scaleProgress;
+        gsap.set(handImg, { scale });
+        gsap.set(handWrapper, { opacity: 1 }); // main bien visible pendant phase 1
 
-      const startSize = 60;
-      const maxWidth = window.innerWidth;
-      const maxHeight = window.innerHeight;
+        const boxProgress = easeBox(pp);
+        const startSize = 60;
+        const maxWidth = window.innerWidth;
+        const maxHeight = window.innerHeight;
 
-      const width = startSize + (maxWidth - startSize) * boxProgress;
-      const height = startSize + (maxHeight - startSize) * boxProgress;
+        const width = startSize + (maxWidth - startSize) * boxProgress;
+        const height = startSize + (maxHeight - startSize) * boxProgress;
+        gsap.set(cvBox, { width, height });
 
-      gsap.set(cvBox, { width, height });
+        // papiers pas encore touchés
+        gsap.set([cvFinal, cvPaper2, cvPaper3], { opacity: 1 });
+      } else {
+        // ===== PHASE 2 : main disparaît + cascade des papiers =====
+
+        gsap.set(handImg, { scale: 15 });
+
+        gsap.set(cvBox, {
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+
+        const p2 = (p - PHASE1_END) / (1 - PHASE1_END);
+
+        // MAIN : disparaît pendant le premier quart
+        const handFadeP = Math.min(p2 / 0.25, 1);
+
+        gsap.set(handWrapper, {
+          opacity: 1 - easeFade(handFadeP),
+        });
+
+        // PAPERS : commencent après la disparition de la main
+        const paperP = Math.min(Math.max((p2 - 0.25) / 0.75, 0), 1);
+
+        const step = 1 / 3;
+
+        let opacityFinal = 0;
+        let opacityPaper2 = 0;
+        let opacityPaper3 = 0;
+
+        if (paperP < step) {
+          // ÉTAPE 1 : cvFinal
+          opacityFinal = 1;
+        } else if (paperP < step * 2) {
+          // ÉTAPE 2 : cvPaper2
+          opacityPaper2 = 1;
+        } else {
+          // ÉTAPE 3 : cvPaper3
+          // reste visible jusqu'à la fin
+          opacityPaper3 = 1;
+        }
+
+        gsap.set(cvFinal, {
+          opacity: opacityFinal,
+        });
+
+        gsap.set(cvPaper2, {
+          opacity: opacityPaper2,
+        });
+
+        gsap.set(cvPaper3, {
+          opacity: opacityPaper3,
+        });
+      }
     },
   });
 });

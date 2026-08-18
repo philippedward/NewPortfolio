@@ -32,42 +32,6 @@ html {
   pointer-events: none;
 }
 
-footer {
-  .footer-img {
-    width: 1500px;
-    height: 900px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
-
-  .footer-a {
-    display: flex;
-    gap: $space-sm;
-
-    .footer-insta {
-      display: flex;
-    }
-
-    .footer-github {
-      display: flex;
-    }
-
-    svg {
-      display: inline-block;
-    }
-  }
-}
-
 .center-text {
   position: absolute;
   top: 50%;

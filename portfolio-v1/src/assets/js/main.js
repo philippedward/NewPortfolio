@@ -413,4 +413,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     },
   });
+  /* ============================================================
+     scroll arrows : fin du scrolling
+     ============================================================ */
+  const scrollHint = document.getElementById("scroll-hint");
+
+  window.addEventListener("scroll", () => {
+    const isBottom =
+      window.innerHeight + window.scrollY >= document.body.offsetHeight - 5;
+
+    scrollHint.textContent = isBottom ? "Scroll ↑" : "Scroll ↓";
+  });
 });

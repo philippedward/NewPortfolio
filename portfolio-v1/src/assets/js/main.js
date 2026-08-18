@@ -418,6 +418,10 @@ document.addEventListener("DOMContentLoaded", () => {
      ============================================================ */
   const scrollHint = document.getElementById("scroll-hint");
 
+  if (!scrollHint) {
+    return;
+  }
+
   window.addEventListener("scroll", () => {
     const isBottom =
       window.innerHeight + window.scrollY >= document.body.offsetHeight - 5;

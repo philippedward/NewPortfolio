@@ -7,17 +7,22 @@
       name="description"
       content="Mon portfolio avec mes projects, dessins et mon cv"
     />
-    <link rel="icon" href="/public/images/icon-star.webp" />
+    <link rel="icon" href="{{ '/public/images/icon-star.webp' | url }}" />
     <title>
       Portfolio
     </title>
     <link rel="stylesheet" href="{{ '/assets/styles/main.css' | url }}" />
   </head>
   <body>
+    <!-- // ============================================================
+// section main
+// ============================================================ -->
     <main>
       {{ content | safe }}
     </main>
-
+    <!-- // ============================================================
+// section footer
+// ============================================================ -->
     <footer>
       <div class="container">
         <div class="row"></div>

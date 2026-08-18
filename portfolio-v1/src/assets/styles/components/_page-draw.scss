@@ -28,6 +28,7 @@ section.draw-page {
 
 .p-d-bottom {
   margin-top: $space-lg;
+  margin-bottom: $space-xl;
 }
 
 .p-d-box {
@@ -62,7 +63,7 @@ section.draw-page {
   direction: rtl;
   width: 4px;
   height: 140px;
-  -webkit-appearance: slider-vertical;
+  -webkit-appearance: none;
   appearance: none;
   background: rgba(255, 255, 255, 0.4);
   border-radius: 2px;

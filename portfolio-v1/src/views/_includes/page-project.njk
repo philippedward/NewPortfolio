@@ -7,7 +7,9 @@
             <img src="/public/images/button-return.webp" alt="retour">
           </button>
         </div>
-
+        <!-- // ============================================================
+// section links et top text
+// ============================================================ -->
         {% if project.link %}
           <div class="col-1">
             <div class="p-p-top-a">
@@ -26,7 +28,9 @@
             >
           </div>
         {% endif %}
-
+        <!-- // ============================================================
+// section links if no links
+// ============================================================ -->
         <div class="col-1 {% if not project.link %}offset-2{% endif %}">
           <div class="p-p-title">
             <h3>{{ project.title }}</h3>
@@ -35,8 +39,10 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
+    <!-- // ============================================================
+// section video if video
+// ============================================================ -->
+    <div class="row p-p-gallery-row">
       {% if project.type == "video" %}
         <div class="col-3">
           <div class="p-p-box">
@@ -54,9 +60,14 @@
             </video>
           </div>
         </div>
+        <!-- // ============================================================
+// section image if no image
+// ============================================================ -->
       {% elif project.type == "image" %}
         {% set images = project | projectImages %}
-
+        <!-- // ============================================================
+// section special page s6-intruder
+// ============================================================ -->
         {% if project.id == "s6-intruder" %}
           <div class="col-2 s6-intruder-large">
             <div class="p-p-img-box p-p-img-box-xlarge">
@@ -73,6 +84,9 @@
               <img src="{{ (images[1] if images[1] else '') | url }}">
             </div>
           </div>
+          <!-- // ============================================================
+// section special page frontend-chocolat
+// ============================================================ -->
         {% elif project.id == "frontend-chocolat" %}
           <div class="col-2 frontend-chocolat-large">
             <div class="p-p-img-box p-p-img-box-xlarge">
@@ -89,13 +103,15 @@
               <img src="{{ (images[1] if images[1] else '') | url }}">
             </div>
           </div>
+          <!-- // ============================================================
+// section if 3 images
+// ============================================================ -->
         {% elif images.length == 3 %}
           <div class="col-2">
             <div class="p-p-img-box p-p-img-box-large">
               <img src="{{ (images[0] if images[0] else '') | url }}">
             </div>
           </div>
-
           <div
             class="col-1 offset-3 p-p-images-stack"
             style="display: flex; flex-direction: column; gap: 44px;"
@@ -107,6 +123,9 @@
               <img src="{{ (images[2] if images[2] else '') | url }}">
             </div>
           </div>
+          <!-- // ============================================================
+// section if more then 3 images
+// ============================================================ -->
         {% elif images.length > 3 %}
           <div class="col-1">
             <div class="p-p-img-box p-p-img-box-small">
@@ -129,7 +148,6 @@
               <img src="{{ (images[0] if images[0] else '') | url }}">
             </div>
           </div>
-
           <div class="col-1 offset-3 p-p-images-stack">
             {% for img in images %}
               {% if loop.index > 1 %}
@@ -148,11 +166,13 @@
         {% endif %}
       {% endif %}
     </div>
-
+    <!-- // ============================================================
+// section loop different
+// ============================================================ -->
     {% if project.type == "image" and images.length > 3 %}
       {% set galleryImages = images.slice(3) %}
       {% for group in galleryImages | batch(3) %}
-        <div class="row">
+        <div class="row p-p-gallery-row">
           {% for img in group %}
             <div class="col-1">
               <div class="p-p-img-box p-p-img-box-small">
@@ -163,7 +183,9 @@
         </div>
       {% endfor %}
     {% endif %}
-
+    <!-- // ============================================================
+// section bottom text
+// ============================================================ -->
     <div class="p-p-bottom">
       <div class="row">
         {%
@@ -173,7 +195,6 @@
             { title: project["idea-title"], text: project["idea-text"] }
           ]
         %}
-
         {% for section in sections %}
           <div class="col-1">
             <div class="{{ loop.index }}">

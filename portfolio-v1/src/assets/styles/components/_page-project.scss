@@ -5,6 +5,16 @@
   flex-direction: column;
 }
 
+.p-p-gallery-row {
+  justify-items: center;
+
+  .col-1,
+  .col-2,
+  .col-3 {
+    justify-self: center;
+  }
+}
+
 .p-p-title {
   text-align: right;
 }
@@ -50,6 +60,7 @@ section.project-page {
 
 .p-p-bottom {
   margin-top: $space-lg;
+  margin-bottom: $space-xl;
 }
 
 .p-p-box {

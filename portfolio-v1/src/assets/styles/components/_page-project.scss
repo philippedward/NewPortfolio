@@ -23,16 +23,28 @@ section.project-page {
 .p-p-top {
   margin-bottom: $space-lg;
 
-  a {
-    text-align: center;
-    color: $color-white;
-  }
-
   .hand-buttler {
     position: absolute;
-    width: 5%;
-    top: 6%;
+    width: 4%;
+    top: 7%;
     left: 48%;
+  }
+}
+
+.p-p-top-a {
+  display: flex;
+  justify-content: center;
+
+  a {
+    display: inline-block;
+    text-align: center;
+    color: $color-white;
+    text-decoration-line: none;
+    transition: 1s ease;
+  }
+
+  a:hover {
+    font-size: 1.1rem;
   }
 }
 
@@ -51,6 +63,7 @@ section.project-page {
     height: 100%;
     display: block;
     object-fit: contain;
+    object-position: center;
   }
 
   video {
@@ -63,12 +76,16 @@ section.project-page {
 
 .p-p-img-box {
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   img {
     width: 100%;
     height: 100%;
     display: block;
     object-fit: contain;
+    object-position: center;
   }
 
   &-large {
@@ -81,6 +98,16 @@ section.project-page {
     height: 356px;
     margin-bottom: 47px;
   }
+}
+
+[data-project-id=".s6-intruder-small"] .p-p-img-box-small {
+  width: 416px;
+  height: 712px;
+}
+
+[data-project-id=".frontend-chocolat-small"] .p-p-img-box-small {
+  width: 416px;
+  height: 712px;
 }
 
 .p-p-images-stack {

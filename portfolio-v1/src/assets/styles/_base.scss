@@ -11,11 +11,12 @@
 html {
   margin: 0;
   padding: 0;
-  background: #000;
+  background: #0a0a0a;
   color: #fff;
   font-family: $font;
   overflow-x: hidden;
   font-size: 16px;
+  cursor: default;
 }
 
 #scroll-hint {
@@ -29,6 +30,42 @@ html {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.4);
   pointer-events: none;
+}
+
+footer {
+  .footer-img {
+    width: 1500px;
+    height: 900px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  .footer-a {
+    display: flex;
+    gap: $space-sm;
+
+    .footer-insta {
+      display: flex;
+    }
+
+    .footer-github {
+      display: flex;
+    }
+
+    svg {
+      display: inline-block;
+    }
+  }
 }
 
 .center-text {

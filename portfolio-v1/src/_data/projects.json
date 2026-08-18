@@ -118,10 +118,10 @@
 
     "type": "image",
     "image-1": "/public/images/project-ui-situ-1.webp",
-    "image-2": "/public/images/project-graphic-situ-off-handicap-1.webp",
-    "image-3": "/public/images/project-graphic-situ-off-handicap-2.webp",
-    "image-4": "/public/images/project-graphic-situ-handicap-1.webp",
-    "image-5": "/public/images/project-graphic-situ-handicap-2.webp",
+    "image-2": "/public/images/project-graphic-situ-off-handicap-2.webp",
+    "image-3": "/public/images/project-graphic-situ-off-handicap-3.webp",
+    "image-4": "/public/images/project-graphic-situ-on-handicap-2.webp",
+    "image-5": "/public/images/project-graphic-situ-on-handicap-3.webp",
 
     "description-title": "Description du projet",
     "description-text": "Une maquette pour in situ pour des Epanels interactive.",
@@ -249,7 +249,6 @@
     "image-1": "/public/images/project-s6-livingRoom.webp",
     "image-2": "/public/images/project-s6-livingRoom-mesh.webp",
     "image-3": "/public/images/project-s6-poster.webp",
-    "image-4": "/public/images/project-s6-expostion.webp",
     "link": "https://intruder.amelie-rako.ch/",
     "link-text": "Jouer au jeu",
 

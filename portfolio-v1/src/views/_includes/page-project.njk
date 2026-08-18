@@ -10,13 +10,15 @@
 
         {% if project.link %}
           <div class="col-1">
-            <a
-              href="{{ project.link }}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <p>{{ project["link-text"] }}</p>
-            </a>
+            <div class="p-p-top-a">
+              <a
+                href="{{ project.link }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p>{{ project["link-text"] }}</p>
+              </a>
+            </div>
             <img
               class="hand-buttler"
               src="/public/images/hand-check.webp"
@@ -55,7 +57,39 @@
       {% elif project.type == "image" %}
         {% set images = project | projectImages %}
 
-        {% if images.length == 3 %}
+        {% if project.id == "s6-intruder" %}
+          <div class="col-2 s6-intruder-large">
+            <div class="p-p-img-box p-p-img-box-xlarge">
+              <img src="{{ (images[0] if images[0] else '') | url }}">
+            </div>
+          </div>
+          <div class="col-1 s6-intruder-small">
+            <div class="p-p-img-box p-p-img-box-small">
+              <img src="{{ (images[2] if images[2] else '') | url }}">
+            </div>
+          </div>
+          <div class="col-2 s6-intruder-large">
+            <div class="p-p-img-box p-p-img-box-xlarge">
+              <img src="{{ (images[1] if images[1] else '') | url }}">
+            </div>
+          </div>
+        {% elif project.id == "frontend-chocolat" %}
+          <div class="col-2 frontend-chocolat-large">
+            <div class="p-p-img-box p-p-img-box-xlarge">
+              <img src="{{ (images[0] if images[0] else '') | url }}">
+            </div>
+          </div>
+          <div class="col-1 frontend-chocolat-small">
+            <div class="p-p-img-box p-p-img-box-small">
+              <img src="{{ (images[2] if images[2] else '') | url }}">
+            </div>
+          </div>
+          <div class="col-2 frontend-chocolat-large">
+            <div class="p-p-img-box p-p-img-box-xlarge">
+              <img src="{{ (images[1] if images[1] else '') | url }}">
+            </div>
+          </div>
+        {% elif images.length == 3 %}
           <div class="col-2">
             <div class="p-p-img-box p-p-img-box-large">
               <img src="{{ (images[0] if images[0] else '') | url }}">

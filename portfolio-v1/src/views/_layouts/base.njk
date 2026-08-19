@@ -99,6 +99,20 @@
         </div>
       </div>
     </footer>
+    <!-- // ============================================================
+// section en veille screen
+// ============================================================ -->
+    <div id="screensaver-overlay">
+      <video
+        id="stars-screen"
+        src="{{ '/public/videos/stars.mp4' | url }}"
+        autoplay
+        loop
+        muted
+        playsinline
+      >
+      </video>
+    </div>
 
     <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
     {% block scripts %}{% endblock %}

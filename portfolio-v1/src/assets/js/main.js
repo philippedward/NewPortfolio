@@ -438,4 +438,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     scrollHint.textContent = isBottom ? "Scroll ↑" : "Scroll ↓";
   });
+  /* ============================================================
+     screen overlay
+     ============================================================ */
+  (function () {
+    const overlay = document.getElementById("screensaver-overlay");
+    const pasta = document.getElementById("stars-screen");
+
+    if (!overlay || !pasta) return;
+
+    const IDLE_TIME = 10 * 1000; // 10 secondes (mode test) — remettre 10 * 60 * 1000 en prod
+    let idleTimer = null;
+
+    function startScreensaver() {
+      overlay.classList.add("active");
+    }
+
+    function stopScreensaver() {
+      overlay.classList.remove("active");
+    }
+
+    function resetIdleTimer() {
+      stopScreensaver();
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(startScreensaver, IDLE_TIME);
+    }
+
+    ["mousemove", "mousedown", "keydown", "wheel", "touchstart"].forEach(
+      (evt) => {
+        window.addEventListener(evt, resetIdleTimer, { passive: true });
+      },
+    );
+
+    overlay.addEventListener("mousemove", resetIdleTimer);
+    overlay.addEventListener("click", resetIdleTimer);
+
+    resetIdleTimer();
+  })();
 });

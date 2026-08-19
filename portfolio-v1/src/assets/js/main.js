@@ -237,9 +237,11 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-zoom-box]").forEach((box) => {
     const img = box.querySelector("[data-zoom-img]");
     const range = box.querySelector("[data-zoom-range]");
+    const rotateBtn = box.querySelector("[data-rotate]");
     let scale = 1,
       x = 0,
       y = 0,
+      rotation = 0,
       dragging = false,
       startX,
       startY,
@@ -255,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const apply = () =>
-      (img.style.transform = `translate(${x}px, ${y}px) scale(${scale})`);
+      (img.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg) scale(${scale})`);
 
     function setScale(newScale, cx = 0, cy = 0) {
       newScale = Math.max(1, Math.min(3, newScale));
@@ -268,6 +270,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     range.addEventListener("input", () => setScale(parseFloat(range.value)));
+
+    // ===== nouveau : rotation via le bouton =====
+    if (rotateBtn) {
+      rotateBtn.addEventListener("click", () => {
+        rotation += 180;
+        apply();
+      });
+    }
 
     box.addEventListener(
       "wheel",

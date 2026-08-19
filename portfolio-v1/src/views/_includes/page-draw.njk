@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-1">
           <button data-return>
-            <img src="/public/images/button-return.webp" alt="retour">
+            <img src="/public/images/hand-return.webp" alt="retour">
           </button>
         </div>
         <div class="col-1">
@@ -41,6 +41,11 @@
               step="0.01"
               value="1"
             >
+            {% if draws.id == "draw-reverse" %}
+              <button class="hand-rotate-btn" data-rotate type="button">
+                <img src="/public/images/hand-rotate.webp" alt="rotation">
+              </button>
+            {% endif %}
           </div>
         </div>
       </div>

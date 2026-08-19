@@ -111,14 +111,20 @@ section.project-page {
   }
 }
 
-[data-project-id=".s6-intruder-small"] .p-p-img-box-small {
+.s6-intruder-small .p-p-img-box-small {
   width: 416px;
-  height: 712px;
+  height: 556px;
 }
 
-[data-project-id=".frontend-chocolat-small"] .p-p-img-box-small {
+.frontend-chocolat-group {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.frontend-chocolat-small .p-p-img-box-small {
   width: 416px;
-  height: 712px;
+  height: 1258px;
 }
 
 .p-p-images-stack {

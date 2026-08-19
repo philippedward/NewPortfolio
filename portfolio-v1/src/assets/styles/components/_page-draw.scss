@@ -39,16 +39,18 @@ section.draw-page {
   border: solid 1px rgb(73, 73, 73);
 }
 
-.draw-zoom img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: contain;
-  transform-origin: center center;
-  cursor: grab;
+.draw-zoom {
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    transform-origin: center center;
+    cursor: grab;
 
-  &:active {
-    cursor: grabbing;
+    &:active {
+      cursor: grabbing;
+    }
   }
 }
 
@@ -88,4 +90,30 @@ section.draw-page {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
+}
+
+.hand-rotate-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+
+  img {
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    display: block;
+    transition: 0.5s ease;
+  }
+}
+
+.hand-rotate-btn:hover img {
+  rotate: 180deg;
 }

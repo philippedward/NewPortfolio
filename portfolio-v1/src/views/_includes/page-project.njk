@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-1">
           <button data-return>
-            <img src="/public/images/button-return.webp" alt="retour">
+            <img src="/public/images/hand-return.webp" alt="retour">
           </button>
         </div>
         <!-- // ============================================================
@@ -88,19 +88,17 @@
 // section special page frontend-chocolat
 // ============================================================ -->
         {% elif project.id == "frontend-chocolat" %}
-          <div class="col-2 frontend-chocolat-large">
+          <div class="col-2 frontend-chocolat-group">
             <div class="p-p-img-box p-p-img-box-xlarge">
               <img src="{{ (images[0] if images[0] else '') | url }}">
+            </div>
+            <div class="p-p-img-box p-p-img-box-xlarge">
+              <img src="{{ (images[1] if images[1] else '') | url }}">
             </div>
           </div>
           <div class="col-1 frontend-chocolat-small">
             <div class="p-p-img-box p-p-img-box-small">
               <img src="{{ (images[2] if images[2] else '') | url }}">
-            </div>
-          </div>
-          <div class="col-2 frontend-chocolat-large">
-            <div class="p-p-img-box p-p-img-box-xlarge">
-              <img src="{{ (images[1] if images[1] else '') | url }}">
             </div>
           </div>
           <!-- // ============================================================

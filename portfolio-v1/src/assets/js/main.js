@@ -428,16 +428,15 @@ document.addEventListener("DOMContentLoaded", () => {
      ============================================================ */
   const scrollHint = document.getElementById("scroll-hint");
 
-  if (!scrollHint) {
-    return;
+  if (scrollHint) {
+    window.addEventListener("scroll", () => {
+      const isBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 5;
+
+      scrollHint.textContent = isBottom ? "Scroll ↑" : "Scroll ↓";
+    });
   }
 
-  window.addEventListener("scroll", () => {
-    const isBottom =
-      window.innerHeight + window.scrollY >= document.body.offsetHeight - 5;
-
-    scrollHint.textContent = isBottom ? "Scroll ↑" : "Scroll ↓";
-  });
   /* ============================================================
      screen overlay
      ============================================================ */

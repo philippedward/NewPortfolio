@@ -8,7 +8,15 @@ permalink: "/"
 <!-- // ============================================================
 // section titre
 // ============================================================ -->
-<h1>Portfolio</h1>
+<section>
+  <div class="center-text">
+    <h1 class="wave-title">
+      <span>P</span><span>o</span><span>r</span><span>t</span><span
+      >f</span><span>o</span><span>l</span><span>i</span><span>o</span>
+    </h1>
+    <p>Amélie Rakowiecki</p>
+  </div>
+</section>
 <!-- // ============================================================
 // section project
 // ============================================================ -->
@@ -17,7 +25,7 @@ permalink: "/"
     <div class="spiral">
       <div class="spiral-track" id="spiralTrack">
         <div class="center-text">
-          <h1>Projets</h1>
+          <h2>Projets</h2>
         </div>
         {% for project in projects %}
           {% include "card-project.njk" %}
@@ -35,7 +43,7 @@ permalink: "/"
     <div class="wheel" id="wheelRight"></div>
     <div class="gallery-track" id="galleryTrack">
       <div class="center-text">
-        <h1>Mes dessins</h1>
+        <h2>Mes dessins</h2>
       </div>
       {% for draw in draws %}
         {% include "card-draw.njk" %}

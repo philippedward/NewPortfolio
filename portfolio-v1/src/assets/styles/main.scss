@@ -1,11 +1,20 @@
 @use "variables" as *;
+
 @use "base";
 @use "layout";
 @use "fonts";
+
 @use "components/project";
 @use "components/draw";
+
 @use "components/card-draw";
 @use "components/card-project";
+
 @use "components/page-project";
 @use "components/page-draw";
+
 @use "components/cv";
+@use "components/screen-overlay";
+@use "components/footer";
+
+@use "components/title";

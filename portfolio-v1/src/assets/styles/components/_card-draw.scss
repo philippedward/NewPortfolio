@@ -4,21 +4,18 @@
   height: 220px;
   border-radius: 10px;
   overflow: visible;
-  background: #1a1a1a;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-  will-change: transform, opacity;
-  cursor: pointer;
   display: block;
+  cursor: pointer;
+
+  article {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .draw-card[data-id="draw-reverse"]:hover .draw-card-media img {
   transform: rotate(180deg);
-}
-
-.draw-card article {
-  position: relative;
-  width: 100%;
-  height: 100%;
 }
 
 .draw-card-media {
@@ -30,18 +27,18 @@
   z-index: 1;
 
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
 }
 
 .draw-card-media:hover {
   box-shadow: none;
-}
-
-.draw-card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
 }
 
 .draw-card-content {
@@ -74,27 +71,14 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-.draw-card-content h3 {
-  margin: 0 0 2px 0;
-  font-size: 1.3rem;
-  line-height: 1.5;
-  font-weight: 600;
-  color: #fff;
-}
-
-.draw-card-content p {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.3;
-  color: rgba(255, 255, 255, 0.75);
-}
-
 .draw-card:hover {
   z-index: 10;
 }
+
 .draw-card:hover .draw-card-media img {
   transform: scale(1.05);
 }
+
 .draw-card:hover .draw-card-content {
   opacity: 1;
   visibility: visible;

@@ -1,21 +1,19 @@
 // ============================================================
-// Box size project card
-// ============================================================
-$card-size-w: 11vmin;
-$card-size-h: 15vmin;
-
-// ============================================================
 // Colors
 // ============================================================
-$color-black: #000000;
+$color-black: #0a0a0a;
 $color-white: #ffffff;
-$color-interactive: #f200ff;
 
 // ============================================================
 // Fonts
 // ============================================================
-$font: "Amarante", sans-serif;
-$font-p: "Inter", sans-serif;
+$font-title: "Amarante", sans-serif;
+$font-text: "Inter", sans-serif;
+
+$font-title-letter-space: 0.2em;
+
+$font-title-line-height: 2;
+$font-text-line-height: 1.5;
 
 // ============================================================
 // Spacements

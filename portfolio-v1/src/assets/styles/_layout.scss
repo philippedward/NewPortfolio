@@ -13,14 +13,7 @@ article {
   gap: 47px;
 }
 
-// @media (min-width: 768px) {
-//   .row {
-//     grid-template-columns: repeat(8, minmax(0, 1fr));
-//   }
-// }
-
 section,
-// article:not(.biography-card),
 footer {
   max-width: 1500px;
   margin: auto;
@@ -29,9 +22,11 @@ footer {
 .col-1 {
   grid-column: span 1;
 }
+
 .col-2 {
   grid-column: span 2;
 }
+
 .col-3 {
   grid-column: span 3;
 }
@@ -39,6 +34,7 @@ footer {
 .offset-1 {
   grid-column-start: 2;
 }
+
 .offset-2 {
   grid-column-start: 3;
 }

@@ -1,34 +1,5 @@
 @use "../variables" as *;
 
-footer {
-  margin-bottom: $space-xl;
-
-  img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: contain;
-    object-position: center;
-  }
-}
-
-.footer-a {
-  display: flex;
-  gap: $space-sm;
-
-  .footer-insta {
-    display: flex;
-  }
-
-  .footer-github {
-    display: flex;
-  }
-
-  svg {
-    display: inline-block;
-  }
-}
-
 .page-cv {
   position: relative;
   z-index: 10;
@@ -42,7 +13,6 @@ footer {
     height: 100%;
     overflow: hidden;
     opacity: 1;
-    will-change: opacity;
 
     img {
       width: 100%;
@@ -50,7 +20,6 @@ footer {
       object-fit: cover;
       display: block;
       transform-origin: center center;
-      will-change: transform;
     }
   }
 
@@ -63,7 +32,6 @@ footer {
     height: 60px;
     overflow: hidden;
     z-index: 5;
-    will-change: width, height;
 
     &-img {
       position: absolute;
@@ -73,7 +41,6 @@ footer {
       object-fit: contain;
       display: block;
       opacity: 1;
-      will-change: opacity;
     }
 
     #cvFinal {

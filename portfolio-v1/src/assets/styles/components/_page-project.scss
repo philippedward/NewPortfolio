@@ -1,5 +1,11 @@
 @use "../variables" as *;
 
+.project-page video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
 .p-p-images-stack {
   display: flex;
   flex-direction: column;
@@ -107,7 +113,7 @@ section.project-page {
   &-small {
     width: 416px;
     height: 356px;
-    margin-bottom: 47px;
+    margin-bottom: $space-lg;
   }
 }
 
@@ -131,16 +137,4 @@ section.project-page {
   display: flex;
   flex-direction: column;
   gap: 44px;
-}
-
-.project-page {
-  h3 {
-    line-height: 2;
-  }
-
-  video {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-  }
 }

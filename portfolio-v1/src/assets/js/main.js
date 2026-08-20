@@ -236,8 +236,10 @@ document.addEventListener("DOMContentLoaded", () => {
      ============================================================ */
   document.querySelectorAll("[data-zoom-box]").forEach((box) => {
     const img = box.querySelector("[data-zoom-img]");
-    const range = box.querySelector("[data-zoom-range]");
+    const zoomInBtn = box.querySelector("[data-zoom-in]");
+    const zoomOutBtn = box.querySelector("[data-zoom-out]");
     const rotateBtn = box.querySelector("[data-rotate]");
+    const STEP = 0.2;
     let scale = 1,
       x = 0,
       y = 0,
@@ -266,12 +268,24 @@ document.addEventListener("DOMContentLoaded", () => {
       scale = newScale;
       clamp();
       apply();
-      range.value = scale;
+      updateButtonsState();
     }
 
-    range.addEventListener("input", () => setScale(parseFloat(range.value)));
+    function updateButtonsState() {
+      if (zoomInBtn) zoomInBtn.disabled = scale >= 3;
+      if (zoomOutBtn) zoomOutBtn.disabled = scale <= 1;
+    }
 
-    // ===== nouveau : rotation via le bouton =====
+    // ===== boutons zoom + / - =====
+    if (zoomInBtn) {
+      zoomInBtn.addEventListener("click", () => setScale(scale + STEP));
+    }
+    if (zoomOutBtn) {
+      zoomOutBtn.addEventListener("click", () => setScale(scale - STEP));
+    }
+    updateButtonsState();
+
+    // ===== rotation via le bouton =====
     if (rotateBtn) {
       rotateBtn.addEventListener("click", () => {
         rotation += 180;
@@ -310,7 +324,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     window.addEventListener("mouseup", () => (dragging = false));
   });
-
   /* ============================================================
      boutton return : project et draw
      ============================================================ */
@@ -446,7 +459,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!overlay || !pasta) return;
 
-    const IDLE_TIME = 10 * 1000; // 10 secondes (mode test) — remettre 10 * 60 * 1000 en prod
+    const IDLE_TIME = 12000;
     let idleTimer = null;
 
     function startScreensaver() {
@@ -474,4 +487,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resetIdleTimer();
   })();
+  /* ============================================================
+     screen overlay
+     ============================================================ */
+  const loader = document.querySelector(".loader");
+  const loaderVideo = document.getElementById("hair-cut");
+
+  const navEntry = performance.getEntriesByType("navigation")[0];
+  const isReload = navEntry && navEntry.type === "reload";
+
+  if (loader && loaderVideo && isReload) {
+    document.body.classList.add("loading");
+    loader.classList.add("active");
+    loaderVideo.currentTime = 0;
+
+    setTimeout(() => {
+      loader.classList.remove("active");
+      document.body.classList.remove("loading");
+    }, 4000);
+  }
 });

@@ -37,15 +37,18 @@
               data-zoom-img
               draggable="false"
             >
-            <input
-              type="range"
-              class="zoom-range"
-              data-zoom-range
-              min="1"
-              max="3"
-              step="0.01"
-              value="1"
-            >
+
+            <div class="zoom-controls">
+              <button type="button" data-zoom-in>
+                <img src="/public/images/hand-plus.webp" alt="zoom +">
+              </button>
+              <button type="button" data-zoom-out>
+                <img src="/public/images/hand-minus.webp" alt="zoom -">
+              </button>
+            </div>
+            <!-- // ============================================================
+// section button return for reverse
+// ============================================================ -->
             {% if draws.id == "draw-reverse" %}
               <button class="hand-rotate-btn" data-rotate type="button">
                 <img src="/public/images/hand-rotate.webp" alt="rotation">

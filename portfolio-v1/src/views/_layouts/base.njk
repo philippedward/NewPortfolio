@@ -100,7 +100,7 @@
       </div>
     </footer>
     <!-- // ============================================================
-// section en veille screen
+// section screen overlay
 // ============================================================ -->
     <div id="screensaver-overlay">
       <video
@@ -110,6 +110,21 @@
         loop
         muted
         playsinline
+      >
+      </video>
+    </div>
+    <!-- // ============================================================
+// section loading screen
+// ============================================================ -->
+    <div class="loader">
+      <video
+        autoplay
+        muted
+        playsinline
+        preload="auto"
+        id="hair-cut"
+        src="{{ '/public/videos/loading-screen.mp4' | url }}"
+        type="video/mp4"
       >
       </video>
     </div>

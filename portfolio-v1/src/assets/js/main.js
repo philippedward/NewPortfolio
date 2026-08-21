@@ -497,11 +497,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const isReload = navEntry && navEntry.type === "reload";
 
   if (loader && loaderVideo && isReload) {
+    const preventScroll = (event) => {
+      if (event.type === "keydown") {
+        const keys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Space"];
+        if (keys.includes(event.key)) {
+          event.preventDefault();
+        }
+        return;
+      }
+
+      event.preventDefault();
+    };
+
+    ["wheel", "touchmove", "keydown"].forEach((eventName) => {
+      window.addEventListener(eventName, preventScroll, { passive: false });
+    });
+
     document.body.classList.add("loading");
     loader.classList.add("active");
     loaderVideo.currentTime = 0;
 
     setTimeout(() => {
+      ["wheel", "touchmove", "keydown"].forEach((eventName) => {
+        window.removeEventListener(eventName, preventScroll, {
+          passive: false,
+        });
+      });
+
       loader.classList.remove("active");
       document.body.classList.remove("loading");
     }, 4000);

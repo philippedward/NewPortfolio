@@ -198,7 +198,7 @@
             <div class="{{ loop.index }}">
               <div class="p-p-section-project">
                 <h3>{{ section.title }}</h3>
-                <p>{{ section.text }}</p>
+                <p>{{ section.text | safe }}</p>
               </div>
             </div>
           </div>

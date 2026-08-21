@@ -26,5 +26,20 @@ footer {
 
   svg {
     display: inline-block;
+    transition: 0.5s ease;
+    animation: spin 8s linear infinite;
+  }
+
+  svg:hover {
+    scale: 1.2;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 }

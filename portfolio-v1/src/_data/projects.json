@@ -275,7 +275,7 @@
     "description-title": "Description du projet",
     "description-text": "Un logo pour le Mods Manager du jeu Gates of Hell.",
     "purpose-title": "Le but du projet",
-    "purpose-text": "Créer un logo pour mon copain, qui a développé un nouveau gestionnaire de mods pour un jeu vidéo.",
+    "purpose-text": "Créer un logo pour mon copain <a href=\"https://alexbdka.page/\" target=\"_blank\" rel=\"noopener noreferrer\">*Alexis Alatchev*</a>, qui a développé un nouveau gestionnaire de mods pour un jeu vidéo.",
     "idea-title": "L’idée du projet",
     "idea-text": "J’ai repris certains éléments du logo du jeu afin de ne pas trop m’en éloigner et de permettre de reconnaître rapidement à quel jeu ce mod manager est associé."
   },
@@ -363,6 +363,6 @@
     "purpose-title": "Le but du projet",
     "purpose-text": "Des silhouettes placées dans les espaces du bâtiment afin de donner vie à son architecture à travers des situations du quotidien.",
     "idea-title": "L’idée du projet",
-    "idea-text": "Rendre les murs moins vides, de créer une atmosphère plus chaleureuse et de faire sourire les personnes qui passent devant. Ce petit travail a été réalisé en collaboration avec Maëlle Ecoffey."
+    "idea-text": "Rendre les murs moins vides, de créer une atmosphère plus chaleureuse et de faire sourire les personnes qui passent devant. Ce petit travail a été réalisé en collaboration avec <a href=\"https://maelle-ecoffey.at-eikon.ch/portfolio/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #fff; text-decoration: none;\">*Maëlle Ecoffey*</a>."
   }
 ]

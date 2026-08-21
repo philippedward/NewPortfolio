@@ -17,6 +17,16 @@
   gap: $space-xs;
 }
 
+.p-p-section-project a {
+  color: $color-white;
+  text-decoration: none;
+}
+
+.p-p-section-project a:hover {
+  font-size: 1.1rem;
+  transition: 0.5s ease;
+}
+
 section.draw-page {
   margin-top: $space-lg;
   margin-bottom: $space-lg;

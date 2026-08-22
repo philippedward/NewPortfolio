@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 document.addEventListener("DOMContentLoaded", () => {
   /* ============================================================
      HELPER GÉNÉRIQUE : une "scène" pinnée avec fade in/out
-     Réutilisable pour chaque section (projet, galerie, 3e...)
+     Réutilisable pour chaque section (projet, galerie, cv...)
      ============================================================ */
   function createStage({
     stageId,
@@ -33,6 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
       onUpdate: (self) => {
         const p = self.progress;
 
+        // Calcul du fondu : montée linéaire jusqu'à fadeInEnd,
+        // plein pendant le milieu, descente linéaire après fadeOutStart
         let opacity = 1;
         if (p < fadeInEnd) opacity = p / fadeInEnd;
         else if (p > fadeOutStart)
@@ -48,7 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ============================================================
-     SECTION 1 : SPIRALE DES PROJETS
+     SECTION 1 — SPIRALE DES PROJETS
+     Chaque carte part du fond (petite, loin, floue en z) et vient
+     se placer sur un cercle (spirale) au fur et à mesure du scroll.
      ============================================================ */
   const spiralTrack =
     document.getElementById("spiralTrack") || document.getElementById("spiral");
@@ -62,11 +66,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const projectStageEl = document.getElementById("projectStage");
 
     // Calcule le rayon max en fonction de la largeur RÉELLE de la scène
-    // (qui est déjà cappée par le max-width: 1500px du parent "section")
+    // (déjà cappée par le max-width: 1500px du parent "section")
+    // → on garde une marge (45% de la largeur dispo) pour que les cartes
+    //   ne touchent jamais les bords, même à leur scale max
     function computeRadiusMax() {
       const stageWidth = projectStageEl.clientWidth;
-      // On garde une marge (ex: 45% de la largeur dispo) pour que les cartes
-      // ne touchent jamais les bords, même à leur scale max
       return Math.min(560, stageWidth * 0.45);
     }
 
@@ -86,6 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
       fadeInEnd: 0.15,
     };
 
+    // "stagger" = décalage de départ entre chaque carte, pour qu'elles
+    // n'arrivent pas toutes en même temps (effet de cascade)
     const stagger = N > 1 ? (1 - CONFIG.entryDuration) / (N - 1) : 0;
 
     const projectCards = projectCardEls.map((el, i) => ({
@@ -99,11 +105,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return 1;
     }
 
-    // Le "progress" vient maintenant directement du pin, plus besoin
-    // de timeline factice ni de globalFadeOut séparé : createStage()
-    // gère déjà le fade global de la scène entière.
+    // Le "progress" vient directement du pin (createStage gère déjà
+    // le fade global de la scène entière, donc ici on ne s'occupe que
+    // du positionnement 3D de chaque carte)
     function renderSpiral(progress) {
       projectCards.forEach((c) => {
+        // t = progression individuelle de CETTE carte (0 → 1), décalée
+        // par son propre startAt pour créer l'effet de cascade
         let t = (progress - c.startAt) / CONFIG.entryDuration;
         t = Math.max(0, Math.min(1, t));
 
@@ -112,13 +120,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const z = CONFIG.zFar + (CONFIG.zNear - CONFIG.zFar) * t;
         const scale = CONFIG.scaleMin + (CONFIG.scaleMax - CONFIG.scaleMin) * t;
 
+        // Angle final + rotation résiduelle qui se "dénoue" pendant l'entrée
+        // + rotation globale continue liée au scroll (extraSpinTurns)
         const angle =
           c.finalAngle +
           (1 - t) * CONFIG.spiralTurns * Math.PI * 2 +
           progress * CONFIG.extraSpinTurns * Math.PI * 2;
 
         const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius * 0.62;
+        const y = Math.sin(angle) * radius * 0.62; // *0.62 = aplatit le cercle en ellipse
 
         c.el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, ${z.toFixed(1)}px) scale(${scale.toFixed(2)})`;
         c.el.style.opacity = opacityForT(t);
@@ -136,14 +146,14 @@ document.addEventListener("DOMContentLoaded", () => {
       fadeOutStart: 0.97,
       onUpdate: (p) => renderSpiral(p),
     });
-
-    // Recalcule au resize pour rester cohérent si la fenêtre change de taille
-    window.addEventListener("resize", () => {
-      ScrollTrigger.refresh();
-    });
   }
+
   /* ============================================================
-     SECTION 2 : GALERIE DES DESSINS
+     SECTION 2 — GALERIE DES DESSINS
+     Deux "roues" (gauche/droite) de cartes disposées en cercle,
+     qui tournent en sens opposé pendant le scroll. Chaque carte
+     tourne aussi sur elle-même en sens inverse de la roue pour
+     rester lisible (pas de rotation visible sur l'image elle-même).
      ============================================================ */
   const track = document.getElementById("galleryTrack");
 
@@ -151,6 +161,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const cards = Array.from(track.querySelectorAll("[data-draw-card]"));
 
     if (cards.length) {
+      // Rayon du cercle, calculé une seule fois au chargement selon
+      // la largeur d'écran (mobile vs desktop). Ne se recalcule pas
+      // si l'utilisateur redimensionne la fenêtre après coup.
       const RADIUS = window.innerWidth < 700 ? 220 : 340;
 
       const wheelLeft = document.createElement("div");
@@ -208,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Droite : une carte face au centre (angle π) → offset π
       place(wheelRight, right, Math.PI);
 
-      // Cache une seule fois, avant onUpdate
+      // Cache une seule fois, avant onUpdate (évite un querySelectorAll à chaque frame)
       const leftCards = wheelLeft.querySelectorAll("[data-draw-card]");
       const rightCards = wheelRight.querySelectorAll("[data-draw-card]");
 
@@ -217,6 +230,9 @@ document.addEventListener("DOMContentLoaded", () => {
         pinDistance: 12000,
         fadeInEnd: 0.1,
         fadeOutStart: 0.9,
+        // Note : "overlap" n'est pas un paramètre géré par createStage()
+        // (il est ignoré actuellement, aucun effet). Je le laisse au cas
+        // où tu comptais l'utiliser plus tard, mais sache qu'il ne fait rien pour l'instant.
         overlap: 400,
         onUpdate: (p) => {
           const angle = p * 360;
@@ -224,6 +240,8 @@ document.addEventListener("DOMContentLoaded", () => {
           gsap.set(wheelLeft, { rotation: angle });
           gsap.set(wheelRight, { rotation: -angle });
 
+          // Contre-rotation des cartes pour qu'elles restent "droites"
+          // visuellement pendant que la roue tourne
           leftCards.forEach((card) => gsap.set(card, { rotation: -angle }));
           rightCards.forEach((card) => gsap.set(card, { rotation: angle }));
         },
@@ -232,7 +250,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ============================================================
-     draw zoom : box zoom dezoom
+     SECTION 3 — ZOOM DES DESSINS (boîte zoom/dézoom + pan + rotation)
+     Zoom molette ou boutons, centré sur le curseur ; pan à la souris
+     quand zoomé ; bouton rotation 180°.
      ============================================================ */
   document.querySelectorAll("[data-zoom-box]").forEach((box) => {
     const img = box.querySelector("[data-zoom-img]");
@@ -250,6 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
       startPanX,
       startPanY;
 
+    // Empêche l'image de sortir de sa boîte quand elle est zoomée
     const clamp = () => {
       const r = box.getBoundingClientRect();
       const maxX = ((scale - 1) * r.width) / 2;
@@ -261,6 +282,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const apply = () =>
       (img.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg) scale(${scale})`);
 
+    // Zoom "vers le point du curseur" : on recalcule x/y pour que le point
+    // (cx, cy) sous le curseur reste au même endroit visuellement après le zoom
     function setScale(newScale, cx = 0, cy = 0) {
       newScale = Math.max(1, Math.min(3, newScale));
       x = cx - (newScale / scale) * (cx - x);
@@ -324,8 +347,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     window.addEventListener("mouseup", () => (dragging = false));
   });
+
   /* ============================================================
-     boutton return : project et draw
+     SECTION 4 — BOUTON RETOUR (pages projet / dessin)
      ============================================================ */
   const returnBtn = document.querySelector("[data-return]");
 
@@ -336,8 +360,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ============================================================
-   SECTION 3 : page-cv — hand zoom centré + reveal box
-   ============================================================ */
+     SECTION 5 — PAGE CV : zoom main centré + reveal en cascade
+     Deux phases sur une seule scène pinnée :
+       Phase 1 (0 → PHASE1_END) : la main zoome, la "boîte" cvBox grandit
+         jusqu'à couvrir tout l'écran.
+       Phase 2 (PHASE1_END → 1) : la main disparaît, puis les feuilles
+         du CV apparaissent l'une après l'autre (cvFinal → cvPaper2 → cvPaper3).
+     ============================================================ */
   const handWrapper = document.getElementById("handWrapper");
   const handImg = document.getElementById("handImg");
   const cvBox = document.getElementById("cvBox");
@@ -350,19 +379,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const easeBox = gsap.parseEase("power3.in");
   const easeFade = gsap.parseEase("power1.inOut");
 
-  // PHASE1_END = jusqu'où va ta phase actuelle (zoom + box).
-  // PHASE1_END à 1 sur l'échelle du NOUVEAU pinDistance total.
-  const PHASE1_END = 0.4; // 40% du scroll total pour zoom+box, 60% pour la suite
+  // PHASE1_END = jusqu'où va la phase 1 (zoom + box) sur l'échelle
+  // du pinDistance total (0.4 = 40% du scroll pour zoom+box, 60% pour la suite)
+  const PHASE1_END = 0.4;
 
   createStage({
     stageId: "cvStage",
-    pinDistance: 15000, // total = ancien 6000 (phase1) + nouveau budget pour phase2
+    pinDistance: 15000,
     fadeInEnd: 0,
     fadeOutStart: 1,
     onUpdate: (p) => {
       if (p <= PHASE1_END) {
-        // ===== PHASE 1 : EXACTEMENT TON CODE ACTUEL =====
-        // on remappe p (0 -> PHASE1_END) en pp (0 -> 1) pour garder le même timing qu'avant
+        // ===== PHASE 1 : zoom de la main + agrandissement de la boîte =====
+        // on remappe p (0 → PHASE1_END) en pp (0 → 1) pour garder le
+        // même timing que si la phase 1 était seule sur toute la scène
         const pp = p / PHASE1_END;
 
         const maxScale = 15;
@@ -392,16 +422,17 @@ document.addEventListener("DOMContentLoaded", () => {
           height: window.innerHeight,
         });
 
+        // p2 = progression remappée (0 → 1) sur toute la phase 2
         const p2 = (p - PHASE1_END) / (1 - PHASE1_END);
 
-        // MAIN : disparaît pendant le premier quart
+        // MAIN : disparaît pendant le premier quart de la phase 2
         const handFadeP = Math.min(p2 / 0.25, 1);
 
         gsap.set(handWrapper, {
           opacity: 1 - easeFade(handFadeP),
         });
 
-        // PAPERS : commencent après la disparition de la main
+        // PAPIERS : ne commencent qu'après la disparition complète de la main
         const paperP = Math.min(Math.max((p2 - 0.25) / 0.75, 0), 1);
 
         const step = 1 / 3;
@@ -417,27 +448,31 @@ document.addEventListener("DOMContentLoaded", () => {
           // ÉTAPE 2 : cvPaper2
           opacityPaper2 = 1;
         } else {
-          // ÉTAPE 3 : cvPaper3
-          // reste visible jusqu'à la fin
+          // ÉTAPE 3 : cvPaper3 (reste visible jusqu'à la fin)
           opacityPaper3 = 1;
         }
 
-        gsap.set(cvFinal, {
-          opacity: opacityFinal,
-        });
-
-        gsap.set(cvPaper2, {
-          opacity: opacityPaper2,
-        });
-
-        gsap.set(cvPaper3, {
-          opacity: opacityPaper3,
-        });
+        gsap.set(cvFinal, { opacity: opacityFinal });
+        gsap.set(cvPaper2, { opacity: opacityPaper2 });
+        gsap.set(cvPaper3, { opacity: opacityPaper3 });
       }
     },
   });
+
   /* ============================================================
-     scroll arrows : fin du scrolling
+     FIX : recalcul ScrollTrigger au resize (toutes sections)
+     Avant, ce recalcul n'était fait QUE si la spirale de projets
+     existait sur la page — du coup les autres sections pinnées
+     (galerie, cv) ne se remettaient jamais à jour après un resize.
+     Je l'ai sorti du bloc "if (spiralTrack)" pour que ça marche
+     partout, peu importe la page.
+     ============================================================ */
+  window.addEventListener("resize", () => {
+    ScrollTrigger.refresh();
+  });
+
+  /* ============================================================
+     SECTION 6 — INDICATEUR DE SCROLL (flèche haut/bas)
      ============================================================ */
   const scrollHint = document.getElementById("scroll-hint");
 
@@ -451,13 +486,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ============================================================
-     screen overlay
+     SECTION 7 — ÉCRAN DE VEILLE (screensaver) après inactivité
+     Se déclenche après IDLE_TIME ms sans interaction ; se coupe
+     dès qu'il y a un mouvement/clic/touche/scroll.
      ============================================================ */
   (function () {
     const overlay = document.getElementById("screensaver-overlay");
-    const pasta = document.getElementById("stars-screen");
+    const starsScreen = document.getElementById("stars-screen"); // (anciennement nommé "pasta")
 
-    if (!overlay || !pasta) return;
+    if (!overlay || !starsScreen) return;
 
     const IDLE_TIME = 12000;
     let idleTimer = null;
@@ -487,8 +524,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resetIdleTimer();
   })();
+
   /* ============================================================
-     screen overlay
+     SECTION 8 — LOADER AU RECHARGEMENT DE PAGE
+     Ne se déclenche QUE si la navigation est un vrai "reload"
+     (F5 / Ctrl+R), pas au premier chargement normal. Bloque le
+     scroll pendant 4s le temps que la vidéo du loader se joue.
      ============================================================ */
   const loader = document.querySelector(".loader");
   const loaderVideo = document.getElementById("hair-cut");

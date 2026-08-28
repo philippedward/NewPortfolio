@@ -57,16 +57,21 @@ section.project-page {
     color: $color-white;
     text-decoration-line: none;
     transition: 1s ease;
+    font-weight: 600;
   }
 
   a:hover {
-    font-size: 1.1rem;
+    text-decoration-line: underline;
   }
 }
 
 .p-p-bottom {
   margin-top: $space-lg;
   margin-bottom: $space-xl;
+
+  a {
+    font-weight: 600;
+  }
 }
 
 .p-p-box {

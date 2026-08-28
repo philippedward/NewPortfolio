@@ -13,6 +13,14 @@ article {
   gap: 47px;
 }
 
+// @media (min-width: 768px) {
+//   .row {
+//     display: grid;
+//     grid-template-columns: repeat(4, minmax(0, 1fr));
+//     gap: 47px;
+//   }
+// }
+
 section,
 footer {
   max-width: 1500px;

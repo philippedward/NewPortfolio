@@ -531,6 +531,7 @@ document.addEventListener("DOMContentLoaded", () => {
      (F5 / Ctrl+R), pas au premier chargement normal. Bloque le
      scroll pendant 4s le temps que la vidéo du loader se joue.
      ============================================================ */
+
   const loader = document.querySelector(".loader");
   const loaderVideo = document.getElementById("hair-cut");
 
@@ -569,4 +570,26 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.remove("loading");
     }, 4000);
   }
+  /* ============================================================
+     SECTION 9 — langue
+     ============================================================ */
+  var langBtn = document.getElementById("js-lang-btn");
+
+  langBtn.addEventListener("click", function () {
+    // On bascule visuellement le bouton (le flip haut/bas)
+    langBtn.classList.toggle("flipped");
+
+    // Le span "btn-fr" devient visible quand .flipped est actif,
+    // sinon c'est le span "btn-en" qui est visible.
+    var estFlippe = langBtn.classList.contains("flipped");
+    var spanVisible = estFlippe
+      ? langBtn.querySelector(".btn-fr")
+      : langBtn.querySelector(".btn-en");
+
+    // On récupère la langue à afficher désormais (contenu maintenant "au front")
+    var nouvelleLangue = spanVisible.dataset.lang;
+
+    langueActuelle = nouvelleLangue;
+    rendre();
+  });
 });

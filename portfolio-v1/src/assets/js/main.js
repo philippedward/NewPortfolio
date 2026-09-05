@@ -496,7 +496,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!overlay || !starsScreen) return;
 
-    const IDLE_TIME = 12000;
+    const IDLE_TIME = 30000;
     let idleTimer = null;
 
     function startScreensaver() {
@@ -573,23 +573,27 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ============================================================
      SECTION 9 — langue
      ============================================================ */
-  var langBtn = document.getElementById("js-lang-btn");
+  const langBtn = document.getElementById("js-lang-btn");
+  if (!langBtn) return;
 
-  langBtn.addEventListener("click", function () {
-    // On bascule visuellement le bouton (le flip haut/bas)
-    langBtn.classList.toggle("flipped");
+  const translatedEls = Array.from(
+    document.querySelectorAll("[data-lang]"),
+  ).filter((element) => !element.closest("#js-lang-btn"));
+  let currentLanguage = "fr";
 
-    // Le span "btn-fr" devient visible quand .flipped est actif,
-    // sinon c'est le span "btn-en" qui est visible.
-    var estFlippe = langBtn.classList.contains("flipped");
-    var spanVisible = estFlippe
-      ? langBtn.querySelector(".btn-fr")
-      : langBtn.querySelector(".btn-en");
+  function renderLanguage() {
+    translatedEls.forEach((element) => {
+      const isCurrentLang = element.dataset.lang === currentLanguage;
+      element.style.display = isCurrentLang ? "" : "none";
+    });
 
-    // On récupère la langue à afficher désormais (contenu maintenant "au front")
-    var nouvelleLangue = spanVisible.dataset.lang;
+    langBtn.classList.toggle("flipped", currentLanguage === "en");
+  }
 
-    langueActuelle = nouvelleLangue;
-    rendre();
+  renderLanguage();
+
+  langBtn.addEventListener("click", () => {
+    currentLanguage = currentLanguage === "fr" ? "en" : "fr";
+    renderLanguage();
   });
 });

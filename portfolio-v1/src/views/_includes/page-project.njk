@@ -34,7 +34,7 @@
         <div class="col-1 {% if not project.link %}offset-2{% endif %}">
           <div class="p-p-title">
             <h3>{{ project.title }}</h3>
-            <p>{{ project["short-text"] }}</p>
+            <p>{{ project["type-project"] }}</p>
           </div>
         </div>
       </div>
@@ -187,18 +187,34 @@
     <div class="p-p-bottom">
       <div class="row">
         {%
-          set sections = [
-            { title: project["description-title"], text: project["description-text"] },
-            { title: project["purpose-title"], text: project["purpose-text"] },
-            { title: project["idea-title"], text: project["idea-text"] }
+          set sectionsFr = [
+            { title: project.fr["description-title"], text: project.fr["description-text"] },
+            { title: project.fr["purpose-title"], text: project.fr["purpose-text"] },
+            { title: project.fr["idea-title"], text: project.fr["idea-text"] }
           ]
         %}
-        {% for section in sections %}
+
+        {%
+          set sectionsEn = [
+            { title: project.en["description-title"], text: project.en["description-text"] },
+            { title: project.en["purpose-title"], text: project.en["purpose-text"] },
+            { title: project.en["idea-title"], text: project.en["idea-text"] }
+          ]
+        %}
+
+        {% for section in sectionsFr %}
           <div class="col-1">
             <div class="{{ loop.index }}">
               <div class="p-p-section-project">
-                <h3>{{ section.title }}</h3>
-                <p>{{ section.text | safe }}</p>
+                <div data-lang="fr">
+                  <h3>{{ section.title }}</h3>
+                  <p>{{ section.text | safe }}</p>
+                </div>
+
+                <div data-lang="en">
+                  <h3>{{ sectionsEn[loop.index0].title }}</h3>
+                  <p>{{ sectionsEn[loop.index0].text | safe }}</p>
+                </div>
               </div>
             </div>
           </div>

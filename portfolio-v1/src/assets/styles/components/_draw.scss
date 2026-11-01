@@ -1,9 +1,9 @@
 @use "../variables" as *;
 
-/* ===== Structure de scroll ===== */
+/* ===== Structure de scroll (inchangé) ===== */
 #galleryStage {
   position: relative;
-  height: 300vh; /* longueur du scroll : augmente pour ralentir l'effet */
+  height: 400vh; /* longueur du scroll : augmente pour ralentir l'effet */
 }
 
 .scene {
@@ -11,52 +11,79 @@
   top: 0;
   height: 100vh;
   overflow: hidden;
+
+  /* NOUVEAU : la perspective du tunnel + taille d'une carte (mise à jour par le JS) */
+  perspective: 2200px;
+  --size: 300px;
 }
 
+/* Le titre (.center-text) : toujours visible, au centre, au-dessus des cartes */
 .gallery-track {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-/* ===== Les deux roues invisibles ===== */
-.gallery-wheel {
   position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== NOUVEAU : les deux murs du tunnel (remplacent .gallery-wheel) ===== */
+.wheel {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  pointer-events: none; /* les murs ne bloquent pas la souris : seules les cartes la reçoivent (hover) */
+}
+
+/* ===== NOUVEAU : un slot = l'emplacement 3D d'une carte (créé par le JS) ===== */
+.draw-slot {
+  position: absolute;
+  left: 50%;
   top: 50%;
-  width: 0;
-  height: 0;
-  z-index: 11;
+  width: var(--size);
+  height: var(--size);
+  margin: calc(
+    var(--size) / -2
+  ); /* centre exact, quelle que soit la taille de la carte */
+  will-change: transform, opacity;
+
+  /* La carte remplit le slot ; ses autres styles (hover, etc.) ne changent pas */
+  > [data-draw-card] {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
 }
 
-.gallery-wheel--left {
-  left: -80px;
-}
-
-.gallery-wheel--right {
-  right: -80px;
-}
-
-/* ===== Description à droite si roue gauche, à gauche si roue droite ===== */
-.gallery-wheel--left .draw-card-content {
-  top: 50%;
+/* ===== Description à droite si mur gauche, à gauche si mur droit (inchangé, nouveaux sélecteurs) ===== */
+#wheelLeft .draw-card-content {
+  top: 10%;
   bottom: auto;
-  left: calc(100% + 12px);
   right: auto;
   transform: translateY(-50%) translateX(8px);
 }
 
-.gallery-wheel--left .draw-card:hover .draw-card-content {
+#wheelLeft .draw-card:hover .draw-card-content {
   transform: translateY(-50%) translateX(0);
 }
 
-.gallery-wheel--right .draw-card-content {
-  top: 50%;
+#wheelRight .draw-card-content {
+  top: 100%;
   bottom: auto;
   left: auto;
-  right: calc(100% + 12px);
   transform: translateY(-50%) translateX(-8px);
 }
 
-.gallery-wheel--right .draw-card:hover .draw-card-content {
+#wheelRight .draw-card:hover .draw-card-content {
   transform: translateY(-50%) translateX(0);
 }

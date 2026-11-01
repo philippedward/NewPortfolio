@@ -158,93 +158,72 @@ document.addEventListener("DOMContentLoaded", () => {
   const track = document.getElementById("galleryTrack");
 
   if (track) {
+    const wheelLeft = document.getElementById("wheelLeft");
+    const wheelRight = document.getElementById("wheelRight");
+    const scene = track.closest(".scene");
     const cards = Array.from(track.querySelectorAll("[data-draw-card]"));
 
     if (cards.length) {
-      // Rayon du cercle, calculé une seule fois au chargement selon
-      // la largeur d'écran (mobile vs desktop). Ne se recalcule pas
-      // si l'utilisateur redimensionne la fenêtre après coup.
-      const RADIUS = window.innerWidth < 700 ? 220 : 340;
+      // ---- Réglages ----
+      const SIZE = 460; // taille max d'une carte en px : plus grand = cartes plus grandes
+      const GAP = 1.9; // espace entre les cartes
+      const TILT = 55; // angle des cartes (90 = de profil, 0 = de face)
+      const CENTER = 0.02; // écart au centre (plus petit = plus serré)
+      const SPREAD = 1300; // ouverture vers les bords pour les cartes proches
+      const START = -2600; // position de la 1re carte au départ (loin = elle sort du centre)
+      const END_Z = -3300; // position de la dernière carte à la fin (on en voit 3 par côté)
 
-      const wheelLeft = document.createElement("div");
-      wheelLeft.className = "gallery-wheel gallery-wheel--left";
-
-      const wheelRight = document.createElement("div");
-      wheelRight.className = "gallery-wheel gallery-wheel--right";
-
-      track.appendChild(wheelLeft);
-      track.appendChild(wheelRight);
-
-      const left = [];
-      const right = [];
-
-      cards.forEach((card, i) => {
-        (i % 2 === 0 ? left : right).push(card);
+      // ---- Mise en place : pair = gauche, impair = droite ----
+      // Chaque carte est posée dans un "slot" : c'est le slot qu'on déplace en 3D,
+      // la carte elle-même n'est pas touchée (son hover et ses styles restent intacts).
+      const items = cards.map((card, i) => {
+        const slot = document.createElement("div");
+        slot.className = "draw-slot";
+        slot.appendChild(card);
+        (i % 2 === 0 ? wheelLeft : wheelRight).appendChild(slot);
+        return { slot, pair: i >> 1, side: i % 2 === 0 ? -1 : 1 };
       });
+      const pairs = Math.ceil(cards.length / 2);
 
-      // Sécurité : force un nombre PAIR de cartes sur chaque roue
-      // (condition nécessaire pour que gauche et droite se centrent en même temps)
-      function padToEven(list, wheelClass) {
-        if (list.length % 2 !== 0) {
-          const placeholder = document.createElement("div");
-          placeholder.className = `draw-card draw-card--empty ${wheelClass}`;
-          placeholder.setAttribute("data-draw-card", "");
-          placeholder.style.visibility = "hidden"; // occupe l'angle, invisible à l'oeil
-          list.push(placeholder);
+      let spacing, end;
+      function layout() {
+        const size = Math.min(SIZE, innerWidth * 0.36);
+        scene.style.setProperty("--size", size + "px");
+        spacing = size * GAP;
+        end = (pairs - 1) * spacing - START + END_Z; // distance totale à parcourir
+      }
+      layout();
+      addEventListener("resize", layout);
+
+      // ---- Animation : p va de 0 à 1 pendant le scroll ----
+      function render(p) {
+        const current = p * end;
+
+        for (const { slot, pair, side } of items) {
+          const z = START - pair * spacing + current;
+          const x =
+            side *
+            (innerWidth * CENTER + (Math.max(0, z + 5300) / 5300) * SPREAD);
+
+          // apparaît en fondu au loin, disparaît avant de passer la caméra
+          const opacity = Math.max(
+            0,
+            Math.min(1, (3800 + z) / 800, (1500 - z) / 400),
+          );
+
+          slot.style.opacity = opacity;
+          slot.style.pointerEvents = opacity > 0.5 ? "auto" : "none";
+          slot.style.transform = `translate3d(${x}px, 0, ${z}px) rotateY(${-side * TILT}deg)`;
         }
       }
-
-      padToEven(left, "draw-card--placeholder-left");
-      padToEven(right, "draw-card--placeholder-right");
-
-      function place(wheelEl, list, angleOffset = 0) {
-        list.forEach((card, i) => {
-          const angle = (i / list.length) * Math.PI * 2 + angleOffset;
-          const x = Math.cos(angle) * RADIUS;
-          const y = Math.sin(angle) * RADIUS;
-
-          const pos = document.createElement("div");
-          pos.style.position = "absolute";
-          pos.style.left = `${x}px`;
-          pos.style.top = `${y}px`;
-          pos.style.transform = "translate(-50%, -50%)";
-
-          card.parentNode?.removeChild(card);
-          pos.appendChild(card);
-          wheelEl.appendChild(pos);
-        });
-      }
-
-      // Gauche : une carte face au centre (angle 0) → offset 0
-      place(wheelLeft, left, 0);
-
-      // Droite : une carte face au centre (angle π) → offset π
-      place(wheelRight, right, Math.PI);
-
-      // Cache une seule fois, avant onUpdate (évite un querySelectorAll à chaque frame)
-      const leftCards = wheelLeft.querySelectorAll("[data-draw-card]");
-      const rightCards = wheelRight.querySelectorAll("[data-draw-card]");
+      render(0);
 
       createStage({
         stageId: "galleryStage",
-        pinDistance: 12000,
+        pinDistance: pairs * 600, // durée du scroll : plus grand = plus lent
         fadeInEnd: 0.1,
         fadeOutStart: 0.9,
-        // Note : "overlap" n'est pas un paramètre géré par createStage()
-        // (il est ignoré actuellement, aucun effet). Je le laisse au cas
-        // où tu comptais l'utiliser plus tard, mais sache qu'il ne fait rien pour l'instant.
-        overlap: 400,
-        onUpdate: (p) => {
-          const angle = p * 360;
-
-          gsap.set(wheelLeft, { rotation: angle });
-          gsap.set(wheelRight, { rotation: -angle });
-
-          // Contre-rotation des cartes pour qu'elles restent "droites"
-          // visuellement pendant que la roue tourne
-          leftCards.forEach((card) => gsap.set(card, { rotation: -angle }));
-          rightCards.forEach((card) => gsap.set(card, { rotation: angle }));
-        },
+        onUpdate: render,
       });
     }
   }
@@ -490,40 +469,40 @@ document.addEventListener("DOMContentLoaded", () => {
      Se déclenche après IDLE_TIME ms sans interaction ; se coupe
      dès qu'il y a un mouvement/clic/touche/scroll.
      ============================================================ */
-  (function () {
-    const overlay = document.getElementById("screensaver-overlay");
-    const starsScreen = document.getElementById("stars-screen"); // (anciennement nommé "pasta")
+  // (function () {
+  //   const overlay = document.getElementById("screensaver-overlay");
+  //   const starsScreen = document.getElementById("stars-screen"); // (anciennement nommé "pasta")
 
-    if (!overlay || !starsScreen) return;
+  //   if (!overlay || !starsScreen) return;
 
-    const IDLE_TIME = 30000;
-    let idleTimer = null;
+  //   const IDLE_TIME = 30000;
+  //   let idleTimer = null;
 
-    function startScreensaver() {
-      overlay.classList.add("active");
-    }
+  //   function startScreensaver() {
+  //     overlay.classList.add("active");
+  //   }
 
-    function stopScreensaver() {
-      overlay.classList.remove("active");
-    }
+  //   function stopScreensaver() {
+  //     overlay.classList.remove("active");
+  //   }
 
-    function resetIdleTimer() {
-      stopScreensaver();
-      clearTimeout(idleTimer);
-      idleTimer = setTimeout(startScreensaver, IDLE_TIME);
-    }
+  //   function resetIdleTimer() {
+  //     stopScreensaver();
+  //     clearTimeout(idleTimer);
+  //     idleTimer = setTimeout(startScreensaver, IDLE_TIME);
+  //   }
 
-    ["mousemove", "mousedown", "keydown", "wheel", "touchstart"].forEach(
-      (evt) => {
-        window.addEventListener(evt, resetIdleTimer, { passive: true });
-      },
-    );
+  //   ["mousemove", "mousedown", "keydown", "wheel", "touchstart"].forEach(
+  //     (evt) => {
+  //       window.addEventListener(evt, resetIdleTimer, { passive: true });
+  //     },
+  //   );
 
-    overlay.addEventListener("mousemove", resetIdleTimer);
-    overlay.addEventListener("click", resetIdleTimer);
+  //   overlay.addEventListener("mousemove", resetIdleTimer);
+  //   overlay.addEventListener("click", resetIdleTimer);
 
-    resetIdleTimer();
-  })();
+  //   resetIdleTimer();
+  // })();
 
   /* ============================================================
      SECTION 8 — LOADER AU RECHARGEMENT DE PAGE
@@ -532,44 +511,44 @@ document.addEventListener("DOMContentLoaded", () => {
      scroll pendant 4s le temps que la vidéo du loader se joue.
      ============================================================ */
 
-  const loader = document.querySelector(".loader");
-  const loaderVideo = document.getElementById("hair-cut");
+  // const loader = document.querySelector(".loader");
+  // const loaderVideo = document.getElementById("hair-cut");
 
-  const navEntry = performance.getEntriesByType("navigation")[0];
-  const isReload = navEntry && navEntry.type === "reload";
+  // const navEntry = performance.getEntriesByType("navigation")[0];
+  // const isReload = navEntry && navEntry.type === "reload";
 
-  if (loader && loaderVideo && isReload) {
-    const preventScroll = (event) => {
-      if (event.type === "keydown") {
-        const keys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Space"];
-        if (keys.includes(event.key)) {
-          event.preventDefault();
-        }
-        return;
-      }
+  // if (loader && loaderVideo && isReload) {
+  //   const preventScroll = (event) => {
+  //     if (event.type === "keydown") {
+  //       const keys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Space"];
+  //       if (keys.includes(event.key)) {
+  //         event.preventDefault();
+  //       }
+  //       return;
+  //     }
 
-      event.preventDefault();
-    };
+  //     event.preventDefault();
+  //   };
 
-    ["wheel", "touchmove", "keydown"].forEach((eventName) => {
-      window.addEventListener(eventName, preventScroll, { passive: false });
-    });
+  //   ["wheel", "touchmove", "keydown"].forEach((eventName) => {
+  //     window.addEventListener(eventName, preventScroll, { passive: false });
+  //   });
 
-    document.body.classList.add("loading");
-    loader.classList.add("active");
-    loaderVideo.currentTime = 0;
+  //   document.body.classList.add("loading");
+  //   loader.classList.add("active");
+  //   loaderVideo.currentTime = 0;
 
-    setTimeout(() => {
-      ["wheel", "touchmove", "keydown"].forEach((eventName) => {
-        window.removeEventListener(eventName, preventScroll, {
-          passive: false,
-        });
-      });
+  //   setTimeout(() => {
+  //     ["wheel", "touchmove", "keydown"].forEach((eventName) => {
+  //       window.removeEventListener(eventName, preventScroll, {
+  //         passive: false,
+  //       });
+  //     });
 
-      loader.classList.remove("active");
-      document.body.classList.remove("loading");
-    }, 4000);
-  }
+  //     loader.classList.remove("active");
+  //     document.body.classList.remove("loading");
+  //   }, 4000);
+  // }
   /* ============================================================
      SECTION 9 — langue
      ============================================================ */
@@ -595,5 +574,23 @@ document.addEventListener("DOMContentLoaded", () => {
   langBtn.addEventListener("click", () => {
     currentLanguage = currentLanguage === "fr" ? "en" : "fr";
     renderLanguage();
+  });
+});
+/* ============================================================
+       SECTION 10 — header navigateur
+       ============================================================ */
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", function () {
+    navLinks.forEach((el) => el.classList.remove("active"));
+    this.classList.add("active");
+
+    const href = this.querySelector("a").getAttribute("href");
+    const target = document.querySelector(href);
+
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   });
 });

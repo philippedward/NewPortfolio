@@ -11,11 +11,11 @@
     "purpose-title": "Le but du dessin",
     "purpose-text": "C'était un projet de première année. Chaque année, à l'occasion de la Saint-Nicolas, les élèves de première année réalisent un dessin sur ce thème. Le dessin est ensuite imprimé sur les biscuits distribués à tous les élèves de l'école. La consigne était d'utiliser une palette limitée à quatre couleurs.",
     "idea-title": "L’idée du dessin",
-    "idea-text": "Je me suis inspiré de la posture du diable pour créer mon personnage. Pour son visage, j’ai combiné certains traits du diable avec ceux du méchant des Super Nanas. J’ai également ajouté des pics pour lui donner un aspect plus original et le distinguer de la représentation traditionnelle."
+    "idea-text": "Je me suis inspirée de la posture du diable pour créer mon personnage. Pour son visage, j’ai combiné certains traits du diable avec ceux du méchant des Super Nanas. J’ai également ajouté des pics pour lui donner un aspect plus original et le distinguer de la représentation traditionnelle."
   },
   {
     "id": "draw-centaur",
-    "title": "Centaur",
+    "title": "Centaure",
     "short-text": "L'expérience a échoué",
     "image": "/public/images/draw-centaur.webp",
     "type": "Illustration",
@@ -49,7 +49,7 @@
     "type": "Illustration",
 
     "description-title": "Description du dessin",
-    "description-text": "Une créature mi-homme, mi-animal, composée d’un mélange de zèbre, de singe, d’ours et de dauphin, avec un visage et entouré de flamants roses",
+    "description-text": "Une créature mi-homme, mi-animal, composée d’un mélange de zèbre, de singe, d’ours et de dauphin, avec un visage et entouré de flamants roses.",
     "purpose-title": "Le but du dessin",
     "purpose-text": "C’était un projet durant mon année préparatoire où il fallait dessiner une créature mi-animale et mi-humaine, accompagnée d’un arrière-plan qui crée une ambiance en lien avec la chose.",
     "idea-title": "L’idée du dessin",
@@ -147,11 +147,11 @@
     "type": "Illustration",
 
     "description-title": "Description du dessin",
-    "description-text": "Me represent avec mon style de dessin.",
+    "description-text": "Me représenter avec mon style de dessin.",
     "purpose-title": "Le but du dessin",
     "purpose-text": "C'était pour mon cv de mon ancien portfolio.",
     "idea-title": "L’idée du dessin",
-    "idea-text": "Je me suis simplement dessiné dans mon propre style, en créant ma propre version de moi-même."
+    "idea-text": "Je me suis simplement dessinée dans mon propre style, en créant ma propre version de moi-même."
   },
   {
     "id": "draw-freaks",

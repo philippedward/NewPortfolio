@@ -1,39 +1,54 @@
 header {
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 8%;
   z-index: 9999;
-  padding: 40px;
-
-  img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: contain;
-    object-position: center;
-  }
+  padding: 0px 40px;
 }
 
-.header-a {
+.nav-link {
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
 
-  .header-insta {
-    display: flex;
-  }
-
-  .header-github {
-    display: flex;
-  }
+.header-svg {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
 
   svg {
+    scale: 1.2;
     display: inline-block;
     transition: 0.5s ease;
     animation: spin 8s linear infinite;
   }
 
   svg:hover {
+    scale: 1.5;
+  }
+}
+
+// ============================================================
+// section media top
+// ============================================================
+.media-a {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+
+  svg {
     scale: 1.2;
+    display: inline-block;
+    transition: 0.5s ease;
+    animation: spin 8s linear infinite;
+  }
+
+  svg:hover {
+    scale: 1.5;
   }
 
   @keyframes spin {
@@ -45,22 +60,26 @@ header {
     }
   }
 
-  .header-phone-svg {
+  .media-phone-svg {
     cursor: pointer;
   }
 }
 
-.header-phone-wrapper {
+.media-phone-wrapper,
+.stage-hover-wrapper {
   position: relative;
   display: inline-block;
 }
 
-.header-phone-svg-text {
+.media-phone-svg-text,
+.stage-hover-text {
   display: none;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  width: 140px;
+  width: 170px;
   height: 50px;
-  top: 100%;
+  top: 120%;
   left: 50%;
   margin-top: 10px;
   transform: translateX(-50%);
@@ -74,6 +93,15 @@ header {
   z-index: 10;
 }
 
-.header-phone-wrapper:hover .header-phone-svg-text {
+.stage-hover-text {
+  width: 90px;
+  height: 50px;
+}
+
+.media-phone-wrapper:hover .media-phone-svg-text {
+  display: flex;
+}
+
+.stage-hover-wrapper:hover .stage-hover-text {
   display: flex;
 }

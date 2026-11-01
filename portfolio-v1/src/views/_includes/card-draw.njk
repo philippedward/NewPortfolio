@@ -9,11 +9,21 @@
       <img src="{{ draw.image | url }}" alt="{{ draw.titre }}">
     </div>
     <div class="draw-card-content">
-      {% if draw.title %}
-        <h3>{{ draw.title }}</h3>
+      {% if draw.fr or draw.title %}
+        <h3 data-lang="fr">
+          {{ draw.fr.title if draw.fr else draw.title }}
+        </h3>
       {% endif %}
-      {% if draw["short-text"] %}
-        <p>{{ draw["short-text"] }}</p>
+      {% if draw.en %}
+        <h3 data-lang="en">{{ draw.en.title }}</h3>
+      {% endif %}
+      {% if draw.fr["material-text"] or draw["material-text"] %}
+        <p data-lang="fr">
+          {{ draw.fr["material-text"] if draw.fr else draw["material-text"] }}
+        </p>
+      {% endif %}
+      {% if draw.en %}
+        <p data-lang="en">{{ draw.en["material-text"] }}</p>
       {% endif %}
     </div>
   </article>

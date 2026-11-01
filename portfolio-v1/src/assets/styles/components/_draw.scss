@@ -3,7 +3,7 @@
 /* ===== Structure de scroll (inchangé) ===== */
 #galleryStage {
   position: relative;
-  height: 400vh; /* longueur du scroll : augmente pour ralentir l'effet */
+  height: 200vh; /* longueur du scroll : augmente pour ralentir l'effet */
 }
 
 .scene {
@@ -65,25 +65,29 @@
   }
 }
 
-/* ===== Description à droite si mur gauche, à gauche si mur droit (inchangé, nouveaux sélecteurs) ===== */
+/* Description affichée au-dessus de la carte, quel que soit le côté du tunnel */
 #wheelLeft .draw-card-content {
-  top: 10%;
+  top: auto;
   bottom: auto;
+  bottom: calc(100% + 20px);
+  left: 50%;
   right: auto;
-  transform: translateY(-50%) translateX(8px);
+  transform: translateX(-50%) translateY(8px);
 }
 
 #wheelLeft .draw-card:hover .draw-card-content {
-  transform: translateY(-50%) translateX(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 #wheelRight .draw-card-content {
-  top: 100%;
+  top: auto;
   bottom: auto;
-  left: auto;
-  transform: translateY(-50%) translateX(-8px);
+  bottom: calc(100% + 20px);
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%) translateY(8px);
 }
 
 #wheelRight .draw-card:hover .draw-card-content {
-  transform: translateY(-50%) translateX(0);
+  transform: translateX(-50%) translateY(0);
 }

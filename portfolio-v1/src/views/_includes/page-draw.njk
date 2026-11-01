@@ -11,15 +11,28 @@
 // section links and top text
 // ============================================================ -->
         <div class="col-1">
-          <p class="p-d-scroll">
+          <p class="p-d-scroll" data-lang="fr">
             Scroller sur les côtés pour progresser dans le défilement de la
             page.
+          </p>
+          <p class="p-d-scroll" data-lang="en">
+            Scroll sideways to move through the page.
           </p>
         </div>
         <div class="col-1">
           <div class="p-d-title">
-            <h3>{{ draws.title }}</h3>
-            <p>{{ draws["short-text"] }}</p>
+            <div data-lang="fr">
+              <h3>{{ draws.fr.title }}</h3>
+              <p>{{ draws.fr["short-text"] }}</p>
+              <p>{{ draws.fr["material-text"] }}</p>
+            </div>
+            <div data-lang="en">
+              <h3>{{ draws.en.title or draws.fr.title }}</h3>
+              <p>{{ draws.en["short-text"] or draws.fr["short-text"] }}</p>
+              <p>
+                {{ draws.en["material-text"] or draws.fr["material-text"] }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -33,7 +46,7 @@
           <div class="p-d-box" data-zoom-box>
             <img
               src="{{ draws.image | url }}"
-              alt="{{ draws.title }}"
+              alt="{{ draws.fr.title }}"
               data-zoom-img
               draggable="false"
             >
@@ -64,19 +77,32 @@
     <div class="p-d-bottom">
       <div class="row">
         {%
-          set sections = [
-            { title: draws["description-title"], text: draws["description-text"] },
-            { title: draws["purpose-title"], text: draws["purpose-text"] },
-            { title: draws["idea-title"], text: draws["idea-text"] }
+          set sectionsFr = [
+            { title: draws.fr["description-title"], text: draws.fr["description-text"] },
+            { title: draws.fr["purpose-title"], text: draws.fr["purpose-text"] },
+            { title: draws.fr["idea-title"], text: draws.fr["idea-text"] }
+          ]
+        %}
+        {%
+          set sectionsEn = [
+            { title: draws.en["description-title"], text: draws.en["description-text"] },
+            { title: draws.en["purpose-title"], text: draws.en["purpose-text"] },
+            { title: draws.en["idea-title"], text: draws.en["idea-text"] }
           ]
         %}
 
-        {% for section in sections %}
+        {% for section in sectionsFr %}
           <div class="col-1">
             <div class="{{ loop.index }}">
               <div class="p-d-section-draw">
-                <h3>{{ section.title }}</h3>
-                <p>{{ section.text }}</p>
+                <div data-lang="fr">
+                  <h3>{{ section.title }}</h3>
+                  <p>{{ section.text }}</p>
+                </div>
+                <div data-lang="en">
+                  <h3>{{ sectionsEn[loop.index0].title or section.title }}</h3>
+                  <p>{{ sectionsEn[loop.index0].text or section.text }}</p>
+                </div>
               </div>
             </div>
           </div>

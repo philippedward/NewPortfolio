@@ -13,6 +13,11 @@
         {% if project.link %}
           <div class="col-1">
             <div class="p-p-top-a">
+              <img
+                class="hand-buttler-bottom"
+                src="/public/images/hand-check-bottom-left.webp"
+                alt="buttler hand"
+              >
               <a
                 href="{{ project.link }}"
                 target="_blank"
@@ -21,9 +26,10 @@
                 <p>{{ project["link-text"] }}</p>
               </a>
             </div>
+
             <img
-              class="hand-buttler"
-              src="/public/images/hand-check.webp"
+              class="hand-buttler-top"
+              src="/public/images/hand-check-top-right.webp"
               alt="buttler hand"
             >
           </div>
@@ -33,8 +39,22 @@
 // ============================================================ -->
         <div class="col-1 {% if not project.link %}offset-2{% endif %}">
           <div class="p-p-title">
-            <h3>{{ project.title }}</h3>
-            <p>{{ project["type-project"] }}</p>
+            <div data-lang="fr">
+              <h3>{{ project.fr.title if project.fr else project.title }}</h3>
+              <p>
+                {{
+                  project.fr["type-project"] if project.fr else project["type-project"]
+                }}
+              </p>
+            </div>
+            <div data-lang="en">
+              <h3>{{ project.en.title if project.en else project.title }}</h3>
+              <p>
+                {{
+                  project.en["type-project"] if project.en else project["type-project"]
+                }}
+              </p>
+            </div>
           </div>
         </div>
       </div>

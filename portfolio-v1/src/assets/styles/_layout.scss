@@ -31,6 +31,14 @@ footer {
   grid-column: span 1;
 }
 
+.col-footer {
+  grid-column: span 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .col-2 {
   grid-column: span 2;
 }

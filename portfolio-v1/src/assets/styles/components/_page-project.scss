@@ -39,11 +39,18 @@ section.project-page {
 .p-p-top {
   margin-bottom: $space-lg;
 
-  .hand-buttler {
+  .hand-buttler-top {
     position: absolute;
-    width: 4%;
-    top: 7%;
-    left: 48%;
+    width: 5%;
+    top: 0%;
+    right: 43%;
+  }
+
+  .hand-buttler-bottom {
+    position: absolute;
+    width: 5%;
+    top: 4%;
+    left: 43%;
   }
 }
 

@@ -1,14 +1,29 @@
 <a class="project-card" data-project-card href="/projets/{{ project.id }}/">
   <article>
     <div class="project-card-media">
-      <img src="{{ project.image | url }}" alt="{{ project.title }}">
+      <img
+        src="{{ project.image | url }}"
+        alt="{{ project.fr.title if project.fr else project.title }}"
+      >
     </div>
     <div class="project-card-content">
-      {% if project.title %}
-        <h3>{{ project.title }}</h3>
+      {% if project.fr or project.title %}
+        <h3 data-lang="fr">
+          {{ project.fr.title if project.fr else project.title }}
+        </h3>
       {% endif %}
-      {% if project["type-project"] %}
-        <p>{{ project["type-project"] }}</p>
+      {% if project.en %}
+        <h3 data-lang="en">{{ project.en.title }}</h3>
+      {% endif %}
+      {% if project.fr["type-project"] or project["type-project"] %}
+        <p data-lang="fr">
+          {{
+            project.fr["type-project"] if project.fr else project["type-project"]
+          }}
+        </p>
+      {% endif %}
+      {% if project.en %}
+        <p data-lang="en">{{ project.en["type-project"] }}</p>
       {% endif %}
     </div>
   </article>

@@ -3,7 +3,7 @@
 footer {
   margin-bottom: $space-xl;
 
-  img {
+  video {
     width: 100%;
     height: 100%;
     display: block;
@@ -12,26 +12,23 @@ footer {
   }
 }
 
+.title-img-box-me {
+  width: 93%;
+}
+
 .footer-a {
   display: flex;
-  gap: $space-sm;
-
-  .footer-insta {
-    display: flex;
-  }
-
-  .footer-github {
-    display: flex;
-  }
+  gap: 48px;
 
   svg {
+    scale: 1.2;
     display: inline-block;
     transition: 0.5s ease;
     animation: spin 8s linear infinite;
   }
 
   svg:hover {
-    scale: 1.2;
+    scale: 1.5;
   }
 
   @keyframes spin {

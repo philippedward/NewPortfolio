@@ -171,7 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const CENTER = 0.02; // écart au centre (plus petit = plus serré)
       const SPREAD = 1300; // ouverture vers les bords pour les cartes proches
       const START = -2600; // position de la 1re carte au départ (loin = elle sort du centre)
-      const END_Z = -3300; // position de la dernière carte à la fin (on en voit 3 par côté)
+      const END_Z = -2300; // position de la dernière carte à la fin (on en voit 3 par côté)
+      const HOLD = 0.75;
 
       // ---- Mise en place : pair = gauche, impair = droite ----
       // Chaque carte est posée dans un "slot" : c'est le slot qu'on déplace en 3D,
@@ -197,8 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // ---- Animation : p va de 0 à 1 pendant le scroll ----
       function render(p) {
-        const current = p * end;
-
+        const current = Math.min(p / HOLD, 1) * end;
         for (const { slot, pair, side } of items) {
           const z = START - pair * spacing + current;
           const x =

@@ -615,7 +615,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ============================================================
      SECTION 7 — ÉCRAN DE VEILLE (screensaver) après inactivité
-     Se déclenche après IDLE_TIME ms sans interaction ; se coupe
+     Se déclenche après IDLE_TIME ms sans interaction se coupe
      dès qu'il y a un mouvement/clic/touche/scroll.
      ============================================================ */
   (function () {
@@ -624,7 +624,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!overlay || !starsScreen) return;
 
-    const IDLE_TIME = 30000;
+    const IDLE_TIME = 80000;
     let idleTimer = null;
 
     function startScreensaver() {
@@ -695,7 +695,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       loader.classList.remove("active");
       document.body.classList.remove("loading");
-    }, 4000);
+    }, 2500);
   }
   /* ============================================================
      SECTION 9 — langue

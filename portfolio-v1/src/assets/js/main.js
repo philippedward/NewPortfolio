@@ -582,15 +582,36 @@ document.addEventListener("DOMContentLoaded", () => {
 const navLinks = document.querySelectorAll(".nav-link");
 
 navLinks.forEach((link) => {
-  link.addEventListener("click", function () {
+  link.addEventListener("click", (event) => {
+    const href = link.getAttribute("href");
+    const target = href?.startsWith("#")
+      ? document.getElementById(href.slice(1))
+      : null;
+
+    if (!target) return;
+
+    event.preventDefault();
     navLinks.forEach((el) => el.classList.remove("active"));
-    this.classList.add("active");
+    link.classList.add("active");
 
-    const href = this.querySelector("a").getAttribute("href");
-    const target = document.querySelector(href);
+    const stageTrigger = ScrollTrigger.getAll().find(
+      (trigger) => trigger.trigger === target,
+    );
+    let targetTop = stageTrigger
+      ? stageTrigger.start
+      : target.getBoundingClientRect().top + window.scrollY;
 
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (target.id === "homeStage") {
+      targetTop = 0;
+    } else if (target.id === "projectStage" && stageTrigger) {
+      targetTop += (stageTrigger.end - stageTrigger.start) * 0.08;
+    } else if (target.id === "galleryStage" && stageTrigger) {
+      targetTop += (stageTrigger.end - stageTrigger.start) * 0.12;
+    } else if (target.id === "cvStage" && stageTrigger) {
+      targetTop += (stageTrigger.end - stageTrigger.start) * 0.6;
     }
+
+    history.replaceState(null, "", href);
+    window.scrollTo({ top: targetTop, behavior: "smooth" });
   });
 });

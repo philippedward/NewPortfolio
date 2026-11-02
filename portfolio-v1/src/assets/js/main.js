@@ -7,6 +7,155 @@ gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
   /* ============================================================
+     SECTION TITRE — particules interactives
+     ============================================================ */
+  const particleCanvas = document.querySelector("[data-title-particle-canvas]");
+
+  if (particleCanvas) {
+    const particleArea = particleCanvas.parentElement;
+    const ctx = particleCanvas.getContext("2d");
+    const pointer = { x: -999, y: -999, lastMove: -Infinity };
+    const ripples = [];
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+    let gridSize = 12;
+    let dots = [];
+
+    function buildParticleField() {
+      const bounds = particleCanvas.getBoundingClientRect();
+      width = bounds.width;
+      height = bounds.height;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      particleCanvas.width = Math.round(width * dpr);
+      particleCanvas.height = Math.round(height * dpr);
+      gridSize = Math.max(12, Math.round(Math.min(width, height) / 38));
+
+      const columns = Math.ceil(width / gridSize);
+      const rows = Math.ceil(height / gridSize);
+      const mask = document.createElement("canvas");
+      mask.width = columns;
+      mask.height = rows;
+      const maskContext = mask.getContext("2d");
+      maskContext.scale(1 / gridSize, 1 / gridSize);
+      maskContext.fillStyle = "#fff";
+      maskContext.fillRect(0, 0, width, height);
+      maskContext.globalCompositeOperation = "destination-out";
+      maskContext.beginPath();
+      maskContext.ellipse(
+        width / 2,
+        height / 2,
+        width * 0.4,
+        Math.min(height * 0.28, width * 0.4 * 0.46),
+        0,
+        0,
+        Math.PI * 2,
+      );
+      maskContext.fill();
+
+      const pixels = maskContext.getImageData(0, 0, columns, rows).data;
+      dots = [];
+
+      for (let row = 0; row < rows; row++) {
+        for (let column = 0; column < columns; column++) {
+          const coverage = pixels[(row * columns + column) * 4 + 3] / 255;
+          if (coverage > 0.1) {
+            dots.push({
+              x: (column + 0.5) * gridSize,
+              y: (row + 0.5) * gridSize,
+              radius: gridSize * (0.06 + 0.09 * coverage),
+              scale: 0,
+            });
+          }
+        }
+      }
+    }
+
+    function updatePointer(event) {
+      const bounds = particleCanvas.getBoundingClientRect();
+      pointer.x = event.clientX - bounds.left;
+      pointer.y = event.clientY - bounds.top;
+      pointer.lastMove = performance.now();
+    }
+
+    particleArea.addEventListener("pointermove", updatePointer);
+    particleArea.addEventListener("pointerdown", (event) => {
+      updatePointer(event);
+      const bounds = particleCanvas.getBoundingClientRect();
+      ripples.push({
+        x: event.clientX - bounds.left,
+        y: event.clientY - bounds.top,
+        radius: 0,
+      });
+      if (ripples.length > 8) ripples.shift();
+    });
+    particleArea.addEventListener("pointerleave", () => {
+      pointer.x = -999;
+      pointer.y = -999;
+    });
+    window.addEventListener("resize", buildParticleField);
+
+    function drawParticles(time) {
+      let pointerX = pointer.x;
+      let pointerY = pointer.y;
+
+      if (time - pointer.lastMove > 2500) {
+        pointerX = width / 2 + Math.sin(time / 1700) * width * 0.38;
+        pointerY = height / 2 + Math.sin(time / 1100 + 1) * height * 0.33;
+      }
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.globalCompositeOperation = "source-over";
+      ctx.fillStyle = "#000";
+      ctx.fillRect(0, 0, width, height);
+      ctx.globalCompositeOperation = "difference";
+      ctx.fillStyle = "#fff";
+
+      const influenceRadius = Math.min(width, height) * 0.2;
+      const rippleBand = gridSize * 3;
+
+      for (let index = ripples.length - 1; index >= 0; index--) {
+        ripples[index].radius += 11;
+        if (ripples[index].radius > Math.max(width, height)) {
+          ripples.splice(index, 1);
+        }
+      }
+
+      for (const dot of dots) {
+        const distance = Math.hypot(dot.x - pointerX, dot.y - pointerY);
+        let intensity = Math.max(0, 1 - distance / influenceRadius);
+        intensity = intensity * intensity * (3 - 2 * intensity);
+
+        for (const ripple of ripples) {
+          const rippleDistance = Math.abs(
+            Math.hypot(dot.x - ripple.x, dot.y - ripple.y) - ripple.radius,
+          );
+          if (rippleDistance < rippleBand) {
+            intensity = Math.max(intensity, 1 - rippleDistance / rippleBand);
+          }
+        }
+
+        dot.scale +=
+          (intensity - dot.scale) * (intensity > dot.scale ? 0.35 : 0.045);
+        ctx.beginPath();
+        ctx.arc(
+          dot.x,
+          dot.y,
+          dot.radius + (gridSize * 0.74 - dot.radius) * dot.scale,
+          0,
+          Math.PI * 2,
+        );
+        ctx.fill();
+      }
+
+      requestAnimationFrame(drawParticles);
+    }
+
+    buildParticleField();
+    requestAnimationFrame(drawParticles);
+  }
+
+  /* ============================================================
      HELPER GÉNÉRIQUE : une "scène" pinnée avec fade in/out
      Réutilisable pour chaque section (projet, galerie, cv...)
      ============================================================ */
@@ -469,40 +618,40 @@ document.addEventListener("DOMContentLoaded", () => {
      Se déclenche après IDLE_TIME ms sans interaction ; se coupe
      dès qu'il y a un mouvement/clic/touche/scroll.
      ============================================================ */
-  // (function () {
-  //   const overlay = document.getElementById("screensaver-overlay");
-  //   const starsScreen = document.getElementById("stars-screen"); // (anciennement nommé "pasta")
+  (function () {
+    const overlay = document.getElementById("screensaver-overlay");
+    const starsScreen = document.getElementById("stars-screen"); // (anciennement nommé "pasta")
 
-  //   if (!overlay || !starsScreen) return;
+    if (!overlay || !starsScreen) return;
 
-  //   const IDLE_TIME = 30000;
-  //   let idleTimer = null;
+    const IDLE_TIME = 30000;
+    let idleTimer = null;
 
-  //   function startScreensaver() {
-  //     overlay.classList.add("active");
-  //   }
+    function startScreensaver() {
+      overlay.classList.add("active");
+    }
 
-  //   function stopScreensaver() {
-  //     overlay.classList.remove("active");
-  //   }
+    function stopScreensaver() {
+      overlay.classList.remove("active");
+    }
 
-  //   function resetIdleTimer() {
-  //     stopScreensaver();
-  //     clearTimeout(idleTimer);
-  //     idleTimer = setTimeout(startScreensaver, IDLE_TIME);
-  //   }
+    function resetIdleTimer() {
+      stopScreensaver();
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(startScreensaver, IDLE_TIME);
+    }
 
-  //   ["mousemove", "mousedown", "keydown", "wheel", "touchstart"].forEach(
-  //     (evt) => {
-  //       window.addEventListener(evt, resetIdleTimer, { passive: true });
-  //     },
-  //   );
+    ["mousemove", "mousedown", "keydown", "wheel", "touchstart"].forEach(
+      (evt) => {
+        window.addEventListener(evt, resetIdleTimer, { passive: true });
+      },
+    );
 
-  //   overlay.addEventListener("mousemove", resetIdleTimer);
-  //   overlay.addEventListener("click", resetIdleTimer);
+    overlay.addEventListener("mousemove", resetIdleTimer);
+    overlay.addEventListener("click", resetIdleTimer);
 
-  //   resetIdleTimer();
-  // })();
+    resetIdleTimer();
+  })();
 
   /* ============================================================
      SECTION 8 — LOADER AU RECHARGEMENT DE PAGE
@@ -510,45 +659,44 @@ document.addEventListener("DOMContentLoaded", () => {
      (F5 / Ctrl+R), pas au premier chargement normal. Bloque le
      scroll pendant 4s le temps que la vidéo du loader se joue.
      ============================================================ */
+  const loader = document.querySelector(".loader");
+  const loaderVideo = document.getElementById("hair-cut");
 
-  // const loader = document.querySelector(".loader");
-  // const loaderVideo = document.getElementById("hair-cut");
+  const navEntry = performance.getEntriesByType("navigation")[0];
+  const isReload = navEntry && navEntry.type === "reload";
 
-  // const navEntry = performance.getEntriesByType("navigation")[0];
-  // const isReload = navEntry && navEntry.type === "reload";
+  if (loader && loaderVideo && isReload) {
+    const preventScroll = (event) => {
+      if (event.type === "keydown") {
+        const keys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Space"];
+        if (keys.includes(event.key)) {
+          event.preventDefault();
+        }
+        return;
+      }
 
-  // if (loader && loaderVideo && isReload) {
-  //   const preventScroll = (event) => {
-  //     if (event.type === "keydown") {
-  //       const keys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Space"];
-  //       if (keys.includes(event.key)) {
-  //         event.preventDefault();
-  //       }
-  //       return;
-  //     }
+      event.preventDefault();
+    };
 
-  //     event.preventDefault();
-  //   };
+    ["wheel", "touchmove", "keydown"].forEach((eventName) => {
+      window.addEventListener(eventName, preventScroll, { passive: false });
+    });
 
-  //   ["wheel", "touchmove", "keydown"].forEach((eventName) => {
-  //     window.addEventListener(eventName, preventScroll, { passive: false });
-  //   });
+    document.body.classList.add("loading");
+    loader.classList.add("active");
+    loaderVideo.currentTime = 0;
 
-  //   document.body.classList.add("loading");
-  //   loader.classList.add("active");
-  //   loaderVideo.currentTime = 0;
+    setTimeout(() => {
+      ["wheel", "touchmove", "keydown"].forEach((eventName) => {
+        window.removeEventListener(eventName, preventScroll, {
+          passive: false,
+        });
+      });
 
-  //   setTimeout(() => {
-  //     ["wheel", "touchmove", "keydown"].forEach((eventName) => {
-  //       window.removeEventListener(eventName, preventScroll, {
-  //         passive: false,
-  //       });
-  //     });
-
-  //     loader.classList.remove("active");
-  //     document.body.classList.remove("loading");
-  //   }, 4000);
-  // }
+      loader.classList.remove("active");
+      document.body.classList.remove("loading");
+    }, 4000);
+  }
   /* ============================================================
      SECTION 9 — langue
      ============================================================ */

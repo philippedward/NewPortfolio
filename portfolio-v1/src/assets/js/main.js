@@ -664,7 +664,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!overlay || !starsScreen) return;
 
-    const IDLE_TIME = 80000;
+    const IDLE_TIME = 100000;
     let idleTimer = null;
 
     function startScreensaver() {
@@ -699,44 +699,44 @@ document.addEventListener("DOMContentLoaded", () => {
      (F5 / Ctrl+R), pas au premier chargement normal. Bloque le
      scroll pendant 4s le temps que la vidéo du loader se joue.
      ============================================================ */
-  // const loader = document.querySelector(".loader");
-  // const loaderVideo = document.getElementById("hair-cut");
+  const loader = document.querySelector(".loader");
+  const loaderVideo = document.getElementById("hair-cut");
 
-  // const navEntry = performance.getEntriesByType("navigation")[0];
-  // const isReload = navEntry && navEntry.type === "reload";
+  const navEntry = performance.getEntriesByType("navigation")[0];
+  const isReload = navEntry && navEntry.type === "reload";
 
-  // if (loader && loaderVideo && isReload) {
-  //   const preventScroll = (event) => {
-  //     if (event.type === "keydown") {
-  //       const keys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Space"];
-  //       if (keys.includes(event.key)) {
-  //         event.preventDefault();
-  //       }
-  //       return;
-  //     }
+  if (loader && loaderVideo && isReload) {
+    const preventScroll = (event) => {
+      if (event.type === "keydown") {
+        const keys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Space"];
+        if (keys.includes(event.key)) {
+          event.preventDefault();
+        }
+        return;
+      }
 
-  //     event.preventDefault();
-  //   };
+      event.preventDefault();
+    };
 
-  //   ["wheel", "touchmove", "keydown"].forEach((eventName) => {
-  //     window.addEventListener(eventName, preventScroll, { passive: false });
-  //   });
+    ["wheel", "touchmove", "keydown"].forEach((eventName) => {
+      window.addEventListener(eventName, preventScroll, { passive: false });
+    });
 
-  //   document.body.classList.add("loading");
-  //   loader.classList.add("active");
-  //   loaderVideo.currentTime = 0;
+    document.body.classList.add("loading");
+    loader.classList.add("active");
+    loaderVideo.currentTime = 0;
 
-  //   setTimeout(() => {
-  //     ["wheel", "touchmove", "keydown"].forEach((eventName) => {
-  //       window.removeEventListener(eventName, preventScroll, {
-  //         passive: false,
-  //       });
-  //     });
+    setTimeout(() => {
+      ["wheel", "touchmove", "keydown"].forEach((eventName) => {
+        window.removeEventListener(eventName, preventScroll, {
+          passive: false,
+        });
+      });
 
-  //     loader.classList.remove("active");
-  //     document.body.classList.remove("loading");
-  //   }, 2500);
-  // }
+      loader.classList.remove("active");
+      document.body.classList.remove("loading");
+    }, 2500);
+  }
   /* ============================================================
      SECTION 9 — langue
      ============================================================ */

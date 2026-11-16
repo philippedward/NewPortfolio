@@ -4,22 +4,14 @@
       <div class="row">
         <div class="col-1">
           <button data-return>
-            <img src="/public/images/hand-return.webp" alt="retour">
+            <img
+              class="btn-return"
+              src="/public/images/hand-return.webp"
+              alt="retour"
+            >
           </button>
         </div>
-        <!-- // ============================================================
-// section links and top text
-// ============================================================ -->
-        <div class="col-1">
-          <p class="p-d-scroll" data-lang="fr">
-            Scroller sur les côtés pour progresser dans le défilement de la
-            page.
-          </p>
-          <p class="p-d-scroll" data-lang="en">
-            Scroll sideways to move through the page.
-          </p>
-        </div>
-        <div class="col-1">
+        <div class="col-1 draw-title-column">
           <div class="p-d-title">
             <div data-lang="fr">
               <h3>{{ draws.fr.title }}</h3>
@@ -92,7 +84,7 @@
         %}
 
         {% for section in sectionsFr %}
-          <div class="col-1">
+          <div class="col-1 sm-col-3">
             <div class="{{ loop.index }}">
               <div class="p-d-section-draw">
                 <div data-lang="fr">

@@ -6,6 +6,38 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
+  const mobileHeaderToggles = document.querySelectorAll("[data-mobile-toggle]");
+
+  mobileHeaderToggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const group = toggle.closest(
+        toggle.dataset.mobileToggle === "navigation"
+          ? ".header-stage"
+          : ".header-medias",
+      );
+      const isOpen = group.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Fermer le menu"
+          : toggle.dataset.mobileToggle === "navigation"
+            ? "open-menu-nav"
+            : "Ouvrir les liens de contact et réseaux sociaux",
+      );
+    });
+  });
+
+  document.querySelectorAll(".header-stage .nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      const group = link.closest(".header-stage");
+      const toggle = group?.querySelector('[data-mobile-toggle="navigation"]');
+      group?.classList.remove("is-open");
+      toggle?.setAttribute("aria-expanded", "false");
+      toggle?.setAttribute("aria-label", "open-menu-nav");
+    });
+  });
+
   /* ============================================================
      SECTION TITRE — particules interactives
      ============================================================ */
@@ -220,7 +252,10 @@ document.addEventListener("DOMContentLoaded", () => {
     //   ne touchent jamais les bords, même à leur scale max
     function computeRadiusMax() {
       const stageWidth = projectStageEl.clientWidth;
-      return Math.min(560, stageWidth * 0.45);
+      const radiusFactor = window.matchMedia("(max-width: 480px)").matches
+        ? 10
+        : 0.45;
+      return Math.min(560, stageWidth * radiusFactor);
     }
 
     const CONFIG = {
@@ -322,6 +357,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const START = -2600; // position de la 1re carte au départ (loin = elle sort du centre)
       const END_Z = -2300; // position de la dernière carte à la fin (on en voit 3 par côté)
       const HOLD = 0.75;
+      const isPhoneLayout = () =>
+        window.matchMedia("(max-width: 480px)").matches;
 
       // ---- Mise en place : pair = gauche, impair = droite ----
       // Chaque carte est posée dans un "slot" : c'est le slot qu'on déplace en 3D,
@@ -337,9 +374,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let spacing, end;
       function layout() {
-        const size = Math.min(SIZE, innerWidth * 0.36);
+        const mobile = isPhoneLayout();
+        const size = Math.min(SIZE, innerWidth * (mobile ? 0.6 : 0.36));
         scene.style.setProperty("--size", size + "px");
-        spacing = size * GAP;
+        spacing = size * (mobile ? 4.5 : GAP);
         end = (pairs - 1) * spacing - START + END_Z; // distance totale à parcourir
       }
       layout();
@@ -352,7 +390,9 @@ document.addEventListener("DOMContentLoaded", () => {
           const z = START - pair * spacing + current;
           const x =
             side *
-            (innerWidth * CENTER + (Math.max(0, z + 5300) / 5300) * SPREAD);
+            (innerWidth * CENTER +
+              (Math.max(0, z + 5300) / 5300) *
+                (isPhoneLayout() ? 450 : SPREAD));
 
           // apparaît en fondu au loin, disparaît avant de passer la caméra
           const opacity = Math.max(
@@ -659,44 +699,44 @@ document.addEventListener("DOMContentLoaded", () => {
      (F5 / Ctrl+R), pas au premier chargement normal. Bloque le
      scroll pendant 4s le temps que la vidéo du loader se joue.
      ============================================================ */
-  const loader = document.querySelector(".loader");
-  const loaderVideo = document.getElementById("hair-cut");
+  // const loader = document.querySelector(".loader");
+  // const loaderVideo = document.getElementById("hair-cut");
 
-  const navEntry = performance.getEntriesByType("navigation")[0];
-  const isReload = navEntry && navEntry.type === "reload";
+  // const navEntry = performance.getEntriesByType("navigation")[0];
+  // const isReload = navEntry && navEntry.type === "reload";
 
-  if (loader && loaderVideo && isReload) {
-    const preventScroll = (event) => {
-      if (event.type === "keydown") {
-        const keys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Space"];
-        if (keys.includes(event.key)) {
-          event.preventDefault();
-        }
-        return;
-      }
+  // if (loader && loaderVideo && isReload) {
+  //   const preventScroll = (event) => {
+  //     if (event.type === "keydown") {
+  //       const keys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Space"];
+  //       if (keys.includes(event.key)) {
+  //         event.preventDefault();
+  //       }
+  //       return;
+  //     }
 
-      event.preventDefault();
-    };
+  //     event.preventDefault();
+  //   };
 
-    ["wheel", "touchmove", "keydown"].forEach((eventName) => {
-      window.addEventListener(eventName, preventScroll, { passive: false });
-    });
+  //   ["wheel", "touchmove", "keydown"].forEach((eventName) => {
+  //     window.addEventListener(eventName, preventScroll, { passive: false });
+  //   });
 
-    document.body.classList.add("loading");
-    loader.classList.add("active");
-    loaderVideo.currentTime = 0;
+  //   document.body.classList.add("loading");
+  //   loader.classList.add("active");
+  //   loaderVideo.currentTime = 0;
 
-    setTimeout(() => {
-      ["wheel", "touchmove", "keydown"].forEach((eventName) => {
-        window.removeEventListener(eventName, preventScroll, {
-          passive: false,
-        });
-      });
+  //   setTimeout(() => {
+  //     ["wheel", "touchmove", "keydown"].forEach((eventName) => {
+  //       window.removeEventListener(eventName, preventScroll, {
+  //         passive: false,
+  //       });
+  //     });
 
-      loader.classList.remove("active");
-      document.body.classList.remove("loading");
-    }, 2500);
-  }
+  //     loader.classList.remove("active");
+  //     document.body.classList.remove("loading");
+  //   }, 2500);
+  // }
   /* ============================================================
      SECTION 9 — langue
      ============================================================ */

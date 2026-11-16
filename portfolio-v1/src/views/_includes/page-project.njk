@@ -4,14 +4,18 @@
       <div class="row">
         <div class="col-1">
           <button data-return>
-            <img src="/public/images/hand-return.webp" alt="retour">
+            <img
+              class="btn-return"
+              src="/public/images/hand-return.webp"
+              alt="retour"
+            >
           </button>
         </div>
         <!-- // ============================================================
 // section links and top text
 // ============================================================ -->
         {% if project.link %}
-          <div class="col-1">
+          <div class="col-1 project-link-desktop">
             <div class="p-p-top-a">
               <img
                 class="hand-buttler-bottom"
@@ -37,7 +41,7 @@
         <!-- // ============================================================
 // section links if no links
 // ============================================================ -->
-        <div class="col-1 {% if not project.link %}offset-2{% endif %}">
+        <div class="col-1 project-title-column {% if not project.link %}offset-2{% endif %}">
           <div class="p-p-title">
             <div data-lang="fr">
               <h3>{{ project.fr.title if project.fr else project.title }}</h3>
@@ -201,6 +205,13 @@
         </div>
       {% endfor %}
     {% endif %}
+    {% if project.link %}
+      <div class="project-link-mobile">
+        <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer">
+          <p>{{ project["link-text"] }}</p>
+        </a>
+      </div>
+    {% endif %}
     <!-- // ============================================================
 // section bottom text
 // ============================================================ -->
@@ -223,7 +234,7 @@
         %}
 
         {% for section in sectionsFr %}
-          <div class="col-1">
+          <div class="col-1 sm-col-3">
             <div class="{{ loop.index }}">
               <div class="p-p-section-project">
                 <div data-lang="fr">

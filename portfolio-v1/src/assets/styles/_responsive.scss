@@ -188,6 +188,10 @@
 }
 
 @media (max-width: 480px) {
+  .p-d-scroll-column {
+    display: none;
+  }
+
   .project-card-content,
   .draw-card-content {
     display: none;
